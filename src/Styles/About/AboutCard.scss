@@ -1,0 +1,74 @@
+
+.AboutCard_container{
+    display: flex; flex-direction: column;
+    margin-inline: 20px ;
+    .AboutCard{
+    display: flex;
+    height: 250px;
+    width: 100%;
+    background: var(--primary);
+    padding: 13px;
+    border-radius: 10px;
+    border: 1px solid var(--white);
+    .AboutCard_image{
+        width: 98%;
+        border-radius: 10px;
+        margin-inline: auto;
+    }
+}
+
+.AboutCard_name , .AboutCard_position{
+    color: var(--black);
+    font-weight: 600;
+    width: 100%;
+    padding-left: 5px;
+    text-transform: capitalize;
+}
+.AboutCard_name{
+    font-size: 20px;
+}
+.AboutCard_position{
+    // margin-top: 0 !important;
+    line-height: .5vw;
+    font-size: 14px !important;
+    font-weight: normal !important;
+}
+}
+
+
+//res
+
+// @include devices (mobile){
+//     .ServiceCard{
+//         height: 140px !important;
+//     }
+//     .ServiceCard_icon{
+//         height: 40px !important;
+//         font-size: 20px !important;
+//     }
+
+//     .ServiceCard_text{
+//         font-size: 9px !important;
+//     }
+
+//     .ServiceCard_title{
+//         font-size: 9px !important;
+//     }
+// }
+
+// @include devices (XS_mobile){
+//     .ServiceCard{
+//         height: 160px !important;
+//     }
+//     .ServiceCard_icon{
+//         font-size: 16px !important;
+//     }
+
+//     .ServiceCard_text{
+//         font-size: 7.5px !important;
+//     }
+
+//     .ServiceCard_title{
+//         font-size: 7.5px !important;
+//     }
+// }

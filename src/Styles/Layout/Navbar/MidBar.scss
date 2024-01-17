@@ -1,0 +1,73 @@
+.MidBar{
+    padding-block: 15px;
+    display: flex; justify-content: space-between; align-items: center;
+
+}
+.MidBar_Left{
+ 
+        .logo_contianer{
+            width:25%;
+            background: var(--primary);
+            height: 5vw;
+            border-radius: 50%;
+            display: flex;align-items: center;justify-content: center;
+            .logo{
+                width: 80%;
+            }
+        }
+        .cls-2{
+           
+            fill: var(--primary) !important;
+        
+    }
+   
+}
+.MidBar_Left{
+    flex: 15%;
+    @include Flex;
+}
+.MidBar_Mid{
+    flex: 50%;
+    @include Flex;
+    input{
+        width: 100%;
+    }
+}
+.MidBar_Right{
+    flex: 15%;
+    @include Flex;
+}
+
+.InputAutoComplete{
+    width: 100%;
+    height: 50px;
+    .ant-input-wrapper .ant-input-group-addon .ant-input-search-button{
+        background-color:var(--primary);
+       }
+       
+       /* Ant icon */
+       .ant-input-group-addon .ant-input-search-button .ant-btn-icon{
+        color:var(--bg);
+       }
+}
+.Cart_Icon{
+    width: 50px;
+    height: 50px;
+    background: var(--bg2);
+    border-radius: 50%;
+    @include Flex;
+    svg{
+        width: 30px;
+        height: 25px;
+    }
+}
+.Badge_Button{
+    margin-inline: 10px;
+}
+
+.Drawer_Body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}

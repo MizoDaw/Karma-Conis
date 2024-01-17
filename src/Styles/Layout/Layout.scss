@@ -1,0 +1,47 @@
+.Footer{
+    width: 100%;
+    margin-top: 30px;
+    .Footer_Header{
+        background-color: var(--secondary);
+        color: var(--bg);
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+        font-size: 22px;
+    }
+    .Footer_Bg{
+        background-color: var(--primary);
+        color: var(--bg);
+        font-size: 16px;
+
+
+    }
+}
+.Layout_Body{
+    background: var(--bg2);
+
+}
+.ant-steps-label-horizontal .ant-steps-item .ant-steps-item-icon{
+    background-color:var(--secondary);
+    border-color:var(--secondary);
+   }
+   
+   /* Ant steps icon */
+   .ant-steps-label-horizontal .ant-steps-item .ant-steps-icon{
+    color:var(--bg) !important;
+   }
+
+  
+   .ant-radio-inner{
+    background: var(--secondary) !important;
+    border-color:  var(--secondary) !important;
+   }
+   .Buttons_Tr{
+    display: flex;
+    gap: 30px;
+   }
+   .primary{
+       margin-top: 5px;
+    background: var(--secondary);
+    color: var(--bg);
+   }

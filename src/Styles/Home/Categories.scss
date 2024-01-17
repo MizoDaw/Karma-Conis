@@ -1,0 +1,81 @@
+.Categories{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 2vw;
+    gap: 10px;
+
+    .Categories_Item{
+        @include Flex;
+        flex-direction: column;
+        position: relative;
+        background: var(--bg);
+        @include Shadow;
+        padding: 5px 10px;
+        min-height: 13vw;
+
+        img{
+            display: flex;align-items: start;justify-content: start;
+            width: 100%;
+            height: 10vw;
+            mix-blend-mode: multiply;
+        }
+       
+            button, .price{
+                color: var(--text);
+                all: unset;
+                width: 100%;
+                z-index: 999;
+                text-align: center;
+                font-weight: bold;
+                &:hover{
+                    cursor: pointer;
+                    background: var(--secondary);
+                    color: var(--bg);
+                    opacity: 1;
+                    .info{
+                    }
+            }
+            
+    }
+        }
+    }
+
+
+
+@media screen and (max-width: 800px) {
+
+
+    .Categories{
+     .Categories_Item {
+       margin-inline: auto;
+       .info{
+            button, .price{
+                font-size: 10px !important ;
+            }
+       }
+       }  
+    }  
+}
+@media screen and (max-width: 600px) {
+    .Categories{
+     .Categories_Item {
+       .info{
+            button, .price{
+                font-size: 5px !important ;
+            }
+       }
+       }  
+    }  
+}
+@media screen and (max-width: 400px) {
+    .Categories{
+     .Categories_Item {
+       .info{
+            button, .price{
+                font-size: 4px !important ;
+            }
+       }
+       }  
+    }  
+}

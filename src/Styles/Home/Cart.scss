@@ -1,0 +1,293 @@
+.CartPage{
+    min-height: 500px;
+    .StepsUi{
+        padding: 20px 5vw 0px 5vw;
+       }
+  
+}
+
+
+.CartBody{
+   display: flex;
+    padding: 0px 5vw;
+    gap: 2vw; 
+    .CartBody_Left{
+        flex: 60%;
+        display: flex; 
+        flex-direction: column;
+        gap: 50px;
+        height: 500px;
+        max-height: 150vh;
+        overflow-y: auto;
+        margin-bottom: 30px;
+        
+    }
+    .CartBody_Right{
+        flex: 40%;
+    height: 480px;
+    background-color:var(--bg);
+    color:var(--text);
+    position: relative;
+    border-radius: 8px;
+    @include Shadow;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   padding: 20px;
+   gap: 5px;
+   button{
+    margin-top: 20px;
+    background: var(--secondary);
+    color: var(--bg);
+}
+   .Divider{
+    margin-bottom: 5px;
+    max-height: 5px;
+   }
+   >div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5%;
+
+   }
+
+    }
+}
+
+.CartItem{
+    width: 100%;
+    height: 100px;
+    strong{
+        color: var(--secondary);
+    }
+    .ant-card-body{display: flex;  width: 100%; padding-inline: 10px; }
+    .Cart_Img{
+                 img{
+                    width: 150px;
+                    height: 80px;
+                    object-fit: cover;
+                       mix-blend-mode: multiply;
+                       &:hover{
+                          scale: 1.2;
+                          cursor: pointer;
+                       }
+                  }
+  
+      } 
+      .Cart_Counter{
+        // margin-inline: 10%;
+        display: flex;align-items: flex-end; justify-content: center; gap: 1px;
+        transform: translateX(-150%);
+        svg{
+            color: var(--secondary);
+        }
+        .Counter{
+            width: 20px;
+
+        }
+        button{
+            width: 10px;
+        }
+      }
+    .Cart_Delete{
+        position: absolute;
+        right: 0;
+        top: 10px;
+    }
+  
+}
+
+
+.DetailsBody{
+    display: flex;
+    padding: 0px 5vw;
+    gap: 2vw;
+    .DetailsBody_Left{
+        flex: 60%;
+        display: flex; 
+        flex-direction: column;
+        gap: 50px;
+        max-height: 150vh;
+        overflow-y: auto;
+        @include Shadow;
+        height: fit-content;
+
+        
+        .primary{
+            background: var(--secondary);
+            color: var(--bg);
+        }
+        
+      .Address{
+        padding: 40px;
+        width: 100%;
+        @include Shadow;
+        background-color:var(--bg);
+        color:var(--text);
+        display: flex; flex-direction: column;
+        gap: 30px;
+        border-radius: 8px;
+ 
+
+        >div{
+            width: 100%;
+            gap: 4%;
+            display: flex;  
+         
+        }
+
+      }
+    }
+    .DetailsBody_Right{
+        flex: 40%;
+    height: 480px;
+    background-color:var(--bg);
+    color:var(--text);
+    position: relative;
+    border-radius: 8px;
+    @include Shadow;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   padding: 20px;
+   gap: 5px;
+   button{
+    margin-top: 20px;
+    background: var(--secondary);
+    color: var(--bg);
+}
+   .Divider{
+    margin-bottom: 5px;
+    max-height: 5px;
+   }
+   >div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5%;
+
+   }
+    }
+}
+.PaymentBody{
+    display: flex;
+    padding: 0px 5vw;
+    gap: 2vw;
+    .PaymentBody_Left{
+        flex: 60%;
+        display: flex; 
+        flex-direction: column;
+        gap: 5px;
+        max-height: 150vh;
+        overflow-y: auto;
+        @include Shadow;
+        height: fit-content;
+        padding: 20px;
+        color: var(--text);
+
+    
+    }
+    .PaymentBody_Right{
+        flex: 40%;
+    height: 480px;
+    background-color:var(--bg);
+    color:var(--text);
+    position: relative;
+    border-radius: 8px;
+    @include Shadow;
+   display: flex;
+   flex-direction: column;
+   width: 100%;
+   padding: 20px;
+   gap: 5px;
+   button{
+    margin-top: 20px;
+    background: var(--secondary);
+    color: var(--bg);
+}
+   .Divider{
+    margin-bottom: 5px;
+    max-height: 5px;
+   }
+   >div{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0px 5%;
+
+   }
+    }
+     .credit_card{
+    padding-inline: 20px;
+    >div{
+        display: flex;
+        gap: 20px;
+        margin-block: 15px;
+        //   transition: height 0.3s ease-in-out; 
+
+    }
+     button{
+    margin-top: 5px;
+    background: var(--secondary);
+    color: var(--bg);
+}
+   }
+   .with_Paypal{
+       padding-inline: 20px;
+    >div{
+        display: flex;
+        gap: 20px;
+        margin-block: 15px;
+
+    }
+     button{
+    margin-top: 5px;
+    background: var(--secondary);
+    color: var(--bg);
+}
+   }
+}
+.Rate{
+    display: block;
+    margin-block: 20px;
+}
+/* Ant steps item icon */
+
+.ReviewBody{
+    display: flex;
+    justify-content: center;
+    padding: 0px 5vw;
+    gap: 2vw;
+  .ant-btn-primary {
+    background: var(--secondary) !important;
+}
+
+}
+
+/* Ant result title */
+.ReviewBody .ant-result-success .ant-result-title{
+ color: var(--text);
+}
+
+/* Ant result subtitle */
+.ReviewBody .ant-result-success .ant-result-subtitle{
+ color: var(--text);
+
+}
+
+/* Ant steps item title */
+.ant-steps-label-horizontal .ant-steps-item .ant-steps-item-title{
+ color:var(--text) !important;
+}
+
+/* Ant steps item description */
+.ant-steps-label-horizontal .ant-steps-item .ant-steps-item-description{
+ color:var(--text) !important;
+}
+
+
+.PaymentBody_Left span span{
+  color:var(--text) !important;
+
+}

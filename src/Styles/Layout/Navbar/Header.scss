@@ -1,0 +1,155 @@
+.HeaderContainer{
+    display: flex;
+    flex-direction: column;
+    height: 80px;
+    background: var(--primary );
+
+    .links{
+        display: flex;
+        width: 100%;
+       .mid_links{
+            width: 90%;
+            margin: auto;
+            display: flex;
+            justify-content: center;
+            align-items: end;
+            .Link{
+                border-right: 2px solid var(--secondary);
+                padding-inline: 30px;
+                :hover{
+                    color: var(--white);
+                }
+                h1{
+                    font-size: 22px;
+                    color: var(--secondary);
+                    
+                }
+            }
+       }
+    }
+}
+
+
+.Header{
+    border-top: 1px solid var(--secondary);
+    display: flex; justify-content: space-between; align-items: start;
+    padding-top: 15px;
+    color: var(--bg);
+    padding-inline: 5vw;
+    margin-bottom: 10px;
+
+    h1{
+        font-size: 19px;
+        margin-bottom: 0;
+        cursor: pointer;
+        @include Hover_outline_characters;
+
+    }
+    nav{
+        @include Flex;
+        gap: 20px;
+        .Media_Icon{
+           margin-bottom: 0 ;
+            @include Flex;            
+            gap: 20px;
+            svg{
+                // height: 45px;
+                cursor: pointer;
+                
+            }
+            li{
+                all: unset;
+            }
+        }
+    }
+
+}
+.Translate,.Theme{
+  li{
+    list-style: none;
+    margin: 0 !important;
+    padding: 0 !important;
+  }
+    div{
+        display: flex; align-items: center; justify-content: center; gap: 5px;
+    }
+    img{
+        margin-inline: 6px;
+        display: inline !important;
+    }
+}
+.ant-btn-default{
+   all: unset;
+}
+
+.ant-space-gap-col-small .ant-space-item .ant-dropdown-open{
+    background-color:var(--primary);
+    color: var(--vg);
+    border-width:0px; 
+    
+    @include Hover;
+    
+
+   }
+   
+   /* List */
+   .ant-dropdown-placement-bottom ul{
+    background-color:var(--bg) !important;
+    color: var(--primary);
+    
+    svg{
+        margin-inline: 5px;
+    }
+   }
+   
+   /* List Item */
+   .ant-dropdown-menu li{
+    color:var(--primary) !important;
+   }
+   :where(.css-dev-only-do-not-override-1adbn6x).ant-btn-default:not(:disabled):not(.ant-btn-disabled):hover{
+    color: var(--secondary);
+    border-color: var(--secondary);
+   }
+   .MenuChange{
+   svg,img{
+    margin-inline: 5px;
+   }
+   }
+   .Menu_Group{
+    @include Flex;
+    .MenuChange{
+        padding-inline: 20px;
+    }
+    .Link  {
+        color: var(--white);
+        padding-inline: 15px;
+        :hover{
+            color: var(--secondary);
+        }
+    }
+   }
+ .MenuNav{
+    display: none;
+ }
+
+ .NavMenus .ant-space-item span{
+ color:var(--text);
+}
+
+/* Svg */
+.MidBar_Right a svg{
+ color:var(--text);
+}
+
+/* Svg */
+.MidBar_Right .ViewCart svg{
+ color:var(--text);
+}
+
+/* Special property */
+.special_properties .Towspecial_property .special_property{
+ color:var(--text);
+}
+.MediaMenu{
+    display: none;
+}

@@ -1,0 +1,85 @@
+.Product_Info{
+    width: 100%;
+    padding: 2vw 0vw;
+    display: flex;
+    justify-content: center;
+    min-height: 350px;
+        h6,h3{
+            text-wrap: nowrap;
+
+        }
+    .Product_Left{
+            img{
+                width: 30vw;
+                height: 300px;
+                mix-blend-mode: multiply;
+                object-fit: cover;
+                margin-right: 2vw;
+            }
+    }
+    .Product_Right{
+        display: flex; flex-direction: column; gap: 5px;
+        width: 40vw;
+        >div{
+            display: flex; gap: 10px; align-items: center;
+        }
+            .Product_Description{
+                display: flex; align-items: self-start;
+                p{
+                    max-width: 50%;
+                  
+                }
+                .ant-collapse-header{
+                    padding: 0 !important;
+                }
+                .ant-collapse-content-box{
+                    transform: translate(10px ,-12px);
+                }
+            }
+            .Price{
+                color: var(--secondary);
+            }
+    }
+    button{
+        background: var(--secondary);
+        font-weight: bold;
+        max-width: 50%;
+    }
+    
+}
+
+
+@media screen and (max-width: 600px) {
+.Product_Info{
+    padding: 10vw 0vw 20vw 0vw ;
+    align-items: center;
+    flex-direction: column !important;
+    min-height: 700px;
+
+    .Product_Left{
+            img{
+                width: 60vw !important;
+                // height: 200px;
+                mix-blend-mode: multiply;
+                object-fit: cover;
+                margin-right: 0 !important;
+                margin-bottom: 2vw;
+            }
+    }
+    .Product_Right{
+        display: flex; flex-direction: column; gap: 5px;
+        justify-content: center;
+        width: 64% !important;
+        .Product_Description{
+            p{
+                min-width: 100% !important;
+              
+            }
+    }
+    button{
+        max-width: 70%;
+    }
+    
+}
+}
+}

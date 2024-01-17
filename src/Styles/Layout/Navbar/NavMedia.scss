@@ -1,0 +1,66 @@
+
+
+   @media screen and (max-width: 600px) {
+                    .Menu_Group,.MidBar_Left,.MidBar_Right,.NavMenus,.BottomBar{
+                        display: none;
+                    }
+                    
+      .Menu_anv{
+         width: 100%;
+         padding-bottom: 20px;
+      }
+      .menu_nav_icon{
+         margin-top: 20px;
+      }
+      .ViewCart{
+         margin-top: 10px;
+         margin-left: -10px;
+         .Badge_Button{
+            top: 10% !important;
+         }
+      }
+                 .MediaMenu{
+                    display: block;
+                 }
+                    .FnBar{
+                        display: flex;
+                        flex-direction: row-reverse;
+                        align-items: center;
+                        justify-content: center;
+.MidBar{
+    min-width: 100%;
+    gap: 10%;
+    padding-inline: 6%;
+    align-items: flex-start;
+    .MenuButton{
+        background: var(--primary);
+    }
+
+    
+                    }
+                    }
+                    
+   }
+      @media screen and (max-width: 400px) {
+               
+                 
+                    
+                    .FnBar{
+                        display: flex;
+                        flex-direction: column;
+.BottomBar{
+
+
+                    }
+                    }
+                 .ViewCartViewCart{
+                    display: inline !important;
+                 
+                 }
+                 .DropdownMenu{
+                    
+                 }
+
+               
+                    
+   }
