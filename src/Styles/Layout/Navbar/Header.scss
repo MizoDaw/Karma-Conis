@@ -34,7 +34,7 @@
     border-top: 1px solid var(--secondary);
     display: flex; justify-content: space-between; align-items: start;
     padding-top: 15px;
-    color: var(--bg);
+    color: var(--white);
     padding-inline: 5vw;
     margin-bottom: 10px;
 
@@ -84,7 +84,7 @@
 
 .ant-space-gap-col-small .ant-space-item .ant-dropdown-open{
     background-color:var(--primary);
-    color: var(--vg);
+    color: var(--bg);
     border-width:0px; 
     
     @include Hover;
@@ -111,11 +111,13 @@
     border-color: var(--secondary);
    }
    .MenuChange{
+    // color: var(--text);
    svg,img{
     margin-inline: 5px;
    }
    }
    .Menu_Group{
+    // color: var(--text);
     @include Flex;
     .MenuChange{
         padding-inline: 20px;
@@ -152,4 +154,11 @@
 }
 .MediaMenu{
     display: none;
+}
+
+
+.dark{
+    .MenuChange{
+        color: var(--white);
+    }
 }

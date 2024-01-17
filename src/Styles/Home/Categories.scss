@@ -9,7 +9,7 @@
         @include Flex;
         flex-direction: column;
         position: relative;
-        background: var(--bg);
+        background: var(--whiteGray);
         @include Shadow;
         padding: 5px 10px;
         min-height: 13vw;

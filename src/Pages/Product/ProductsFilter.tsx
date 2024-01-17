@@ -42,7 +42,8 @@ const handleChange = (value: string) => {
       <Space direction='vertical' >
       <Radio checked className='ProductsFilter_options'>All</Radio>   
         <Radio className='ProductsFilter_options'>Highlight</Radio>
-        <Radio className='ProductsFilter_options'>Most Purchased</Radio>   
+        <Radio className='ProductsFilter_options'>Most Purchased</Radio> 
+        <Radio className='ProductsFilter_options'>Favourite</Radio>   
 
         </Space>        
                
