@@ -66,7 +66,7 @@ const LoginForm = () => {
           <button type='submit' className='btn btn-primary btn-lg btn-block w-100'>
             {t("Sign in")}
           </button>
-          <p className='Reserved'>{t("Karim aldeen © 2022 | All Rights Reserved")}</p>
+          {/* <p className='Reserved'>{t("Karim aldeen © 2022 | All Rights Reserved")}</p> */}
         </Form>
 
       </Formik>

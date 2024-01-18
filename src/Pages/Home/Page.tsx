@@ -8,23 +8,27 @@ import { BigAdsData, CategoriesData, MovesAdsData, Product2, ProductSectionData2
 import CategoriesSwiper from '../../Components/Home/CategoriesSwiper'
 import {useHeroSectionData, useProductData} from '../../Redux/DispatchData'
 import { useGetAllHome } from '../../api/Home'
+import Highlight from '../../Components/Home/Sections/Highlight'
+import Purchase from '../../Components/Home/Sections/Purchase'
 
 const Page = () => {
     const { Product } = useProductData()
     const { DataHeroSection } = useHeroSectionData();
     
     const {data} = useGetAllHome();
-  console.log(data,"Page");
+    console.log(data);
     
+
   return (
     <Layout data={data} className='HomePage'>
-      {/* <HeroSection data={data?.data?.slider} /> */}
+      <HeroSection data={data?.data?.slider} />
       <CategoriesSwiper data={data} />
-      <MovesAds {...MovesAdsData} />
-      <ProductSection data={Product}/>
-      <BigAds data={BigAdsData} />
-      <ProductSection data={ProductSectionData2}/>
-    </Layout>
+      {/* <MovesAds {...MovesAdsData} /> */}
+      <Highlight data={data?.data?.product_highlight}  />
+      {/* <BigAds data={BigAdsData} /> */}
+      <Purchase data={data?.data?.product_most_purchase}  />
+
+    </Layout> 
   )
 }
 

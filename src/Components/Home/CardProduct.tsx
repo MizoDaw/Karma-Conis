@@ -2,19 +2,16 @@ import React, { useState } from 'react';
 import {  Rate, Skeleton, Tooltip } from 'antd';
 import { EyeFilled, HeartFilled, PlusOutlined } from '@ant-design/icons';
 import { TProduct } from '../../Layout/app/Types';
-import { Currency } from '../../Layout/app/Const';
+import { Currency, UserImageURL } from '../../Layout/app/Const';
 import useLoadingState from '../../Hooks/useLoadingState';
 import { Link } from 'react-router-dom';
+import { BaseURL } from '../../api/config';
+import useImageError from '../../Hooks/useImageError';
 
 
-interface CardProductProps {
-  item: TProduct;
-}
 
-const CardProduct: React.FC<CardProductProps> = ({ item }) => {
+const CardProduct= ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
-
-
 
   return (
           <Skeleton className='unset' loading={loading} active >
@@ -29,14 +26,14 @@ const CardProduct: React.FC<CardProductProps> = ({ item }) => {
                 </span>
               </div>
               <div className='Card_Product_Mid'>
-                <img src={item?.img} alt={item?.name} width="100%" height="60%" />
+                <img src={BaseURL+item?.product_main_image|| UserImageURL} onError={useImageError} alt={item?.name} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
                 <div>{item?.name}</div>
                 <span>
                   <div>
                     <strong>
-                      {item?.price} {Currency}
+                      {item?.product_price} {Currency}
                     </strong>
                     {/* <small>
                       {item?.old_price}
