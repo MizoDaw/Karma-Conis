@@ -18,7 +18,6 @@
       margin-bottom: 0 !important;    
       font-size: 2vw;
       }
-      
   }
   .Products_Header_Right{
           @include Flex; gap: 1.6vw;
@@ -401,11 +400,8 @@ justify-content: center;
              &:hover{
                 opacity: 1;
              }
- 
- 
           }
         }
- 
      }
      .Card_Product_Mid{
        overflow: hidden;
@@ -420,7 +416,6 @@ justify-content: center;
                          cursor: pointer;
                       }
                  }
- 
      } 
      .Card_Product_Bottom{
        padding-inline: 5px;
@@ -428,10 +423,9 @@ justify-content: center;
        font-size: 1.7vw;
        .ant-rate {
           font-size: 1.7vw !important;
-       }
+         }
              strong{
                 color: var(--secondary);
- 
              }
              small{
                 text-decoration: line-through;
@@ -445,11 +439,9 @@ justify-content: center;
                          height: 20px; width: 20px; @include Flex;
                          svg{
                             color: var(--secondary);
- 
                          }
                       }
              }
- 
      }
           &:hover{
           .Right{
@@ -472,7 +464,7 @@ justify-content: center;
          @media screen and (max-width: 750px)  {
                          
   .ProductsFilter{
-   display: none !important;
+   // display: none !important;
    }
            .ProductsCards2{
              flex: 100%;
@@ -566,7 +558,7 @@ justify-content: center;
      }
 
       .Right{
-        display: none !important; 
+      //   display: none !important; 
         }
          .AddProduct{
           position: absolute;
@@ -587,3 +579,10 @@ justify-content: center;
     
          
 
+
+@media screen and (max-width: 500px)  {
+.secondary{
+   display: none;
+}
+
+}

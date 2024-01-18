@@ -5,11 +5,15 @@ import { TProduct } from '../../Layout/app/Types';
 import { Currency } from '../../Layout/app/Const';
 import useLoadingState from '../../Hooks/useLoadingState';
 import { Link } from 'react-router-dom';
+import { BaseURL } from '../../api/config';
+import { TranslateObject } from '../Utils/TranlateRes';
+import { useTranslation } from 'react-i18next';
 
 
 
 const CardProduct= ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
+  const {i18n} = useTranslation()
 
 
 
@@ -26,10 +30,10 @@ const CardProduct= ({ item }:any) => {
                 </span>
               </div>
               <div className='Card_Product_Mid'>
-                <img src={item?.product_main_image} alt={"product image"} width="100%" height="60%" />
+                <img src={BaseURL + item?.product_main_image } alt={"product image"} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
-                <div>{item?.name}</div>
+                {/* <div>{TranslateObject(item?.at(0)?.translations, i18n.language ,'name')}</div> */}
                 <span>
                   <div>
                     <strong>
