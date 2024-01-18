@@ -5,9 +5,7 @@ import useLangCode from '../../Hooks/useLangCode'
 import { useTranslation } from 'react-i18next'
 function useAxios() {
   const code  = useLangCode()
-  console.log(code);
   const {i18n} = useTranslation()
-  console.log(i18n.language);
 
   
   return (
