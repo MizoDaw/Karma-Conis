@@ -1,6 +1,7 @@
 import React from 'react'
 import { TBigAdsData } from '../../Layout/app/Types'
 import { Currency } from '../../Layout/app/Const'
+import { BaseURL } from '../../api/config'
 
 type TBigAds = {
     data : TBigAdsData[]
@@ -8,13 +9,17 @@ type TBigAds = {
 const BigAds:React.FC<TBigAds> = ({data}) => {
  
   
+    console.log(data , "IBRAHIMMMMMMMMMMMMMMMmmmm");
+    
   return (
     <div className='BigAds'>
-        {data?.map((item:TBigAdsData,index:number)=>{
+        
+        {data?.map((item:any,index:number)=>{
+            console.log(item?.translations.at(0));
             
             return(
-                <div key={index} className={`BigAds_Item ${item?.color}`}  >
-                    <img src={item?.img} alt={item?.header} />
+                <div key={index} className={`BigAds_Item black`}  >
+                    <img src={BaseURL+ item?.translations.at(0).image} alt={item?.header} />
                     {/* <div className='BigAds_Info'>
                         <h6> {item?.header} </h6>
                         <h3> {item?.mainText} </h3>

@@ -5,10 +5,10 @@ import useSearchResults from '../../Hooks/useSearchResults'; // Assuming you pla
 import { useNavigate } from "react-router-dom";
 
 const App: React.FC = () => {
-  const { data } = useGetDynamic("users");
+  // const { data } = useGetDynamic("users");
     const navigate = useNavigate();
-  const names = data?.map((item: any) => item?.name);
-
+  // const names = data?.map((item: any) => item?.name);
+const names  = ["ibrahim"]
   const [query, setQuery] = useState<string | null>(null);
   const results = useSearchResults(names, query);
   const handleSearch = (value: string) => {
