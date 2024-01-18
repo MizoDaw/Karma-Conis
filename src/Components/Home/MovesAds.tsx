@@ -13,7 +13,7 @@ const MovesAds:React.FC<TMovesAds> = ({LeftText,RightText,Link}) => {
     </div>
     <div className='Moves_Ads_Right'>
       <span className="Moves_Ads_Right_Text" data-text={RightText} >
-      Shop Now
+      Calendar Now
       </span>
     </div>
 

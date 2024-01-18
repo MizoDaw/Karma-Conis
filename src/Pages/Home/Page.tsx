@@ -13,7 +13,6 @@ import Purchase from '../../Components/Home/Sections/Purchase'
 
 const Page = () => {
     const { Product } = useProductData()
-    const { DataHeroSection } = useHeroSectionData();
     
     const {data} = useGetAllHome();
     console.log(data);
@@ -23,7 +22,7 @@ const Page = () => {
     <Layout data={data} className='HomePage'>
       <HeroSection data={data?.data?.slider} />
       <CategoriesSwiper data={data} />
-      {/* <MovesAds {...MovesAdsData} /> */}
+      <MovesAds {...MovesAdsData} />
       <Highlight data={data?.data?.product_highlight}  />
       {/* <BigAds data={BigAdsData} /> */}
       <Purchase data={data?.data?.product_most_purchase}  />
