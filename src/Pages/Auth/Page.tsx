@@ -1,26 +1,88 @@
-import React from 'react'
-import LoginForm from './LoginForm';
-import { LoginBg } from '../../Layout/app/Const';
+import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next';
+import {  useNavigate } from 'react-router-dom';
+import { TOKEN_KEY } from '../../config/AppKey';
+import { Formik, Form, Field } from 'formik';
 const Auth = () => {
+  const [isActive, setIsActive] = useState(false);
+
+  const handleRegisterClick = () => {
+    setIsActive(true);
+  };
+
+  const handleLoginClick = () => {
+    setIsActive(false);
+  };  
+  const [t] = useTranslation();
+
+  const navigate = useNavigate()
 
   
+  const handelSubmit = (values:any)=>{
+
+    localStorage.setItem(TOKEN_KEY, "fake")
+    navigate('/', { replace: true })
+  }
   return (
-    <div className='Auth' style={{ background: `url(${LoginBg})` }}>
-            <div className='In_Auth'>
-          <div className="Left_Col">
-            <img
-              src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.svg"
-              className="img-fluid"
-              alt="Phone"
-             
-            />
-          </div>
-          <div className=" Right_Col ">
-           
-         <LoginForm/>
-         
-          </div>
-        </div>
+    <div className='Auth'>
+<div  id="container" className={isActive ? 'container active' : 'container'}>
+  <div className="form-container sign-up">
+  <Formik
+        initialValues={{ name: '',email:"", password: '' }}
+        onSubmit={handelSubmit}
+      >
+        <Form>
+    {/* <form> */}
+      <h1>Create Account</h1>
+      <span>or use your email for registeration</span>
+      <Field name="name" type="text" placeholder="Name" />
+      <Field name="email" type="email" placeholder="Email" />
+      <Field name="password" type="password" placeholder="Password" />
+      <button>Sign Up</button>
+    {/* </form> */}
+    </Form>
+    </Formik>
+
+  </div>
+
+  <div className="form-container sign-in">
+  <Formik
+        initialValues={{ username: '', password: '' }}
+        onSubmit={handelSubmit}
+      >
+        <Form>
+      <h1>Sign In</h1>
+     
+      <span>or use your email password</span>
+      <Field name="email" type="email" placeholder="Email" />
+      <Field name="password" type="password" placeholder="Password" />
+      <a href="#">Forget Your Password?</a>
+      <button>Sign In</button>
+      </Form>
+    </Formik>
+  </div>
+  <div className="toggle-container">
+    <div className="toggle">
+      <div className="toggle-panel toggle-left">
+        <h1>Welcome Back!</h1>
+        <p>Enter your personal details to use all of site features</p>
+        <button className="hidden" id="login" onClick={handleLoginClick}>
+          Sign In
+        </button>
+      </div>
+      <div className="toggle-panel toggle-right">
+        <h1>Hello, Friend!</h1>
+        <p>Register with your personal details to use all of site features</p>
+        <button className="hidden" id="register" onClick={handleRegisterClick}>
+          Sign Up
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
 
     </div>
   )
