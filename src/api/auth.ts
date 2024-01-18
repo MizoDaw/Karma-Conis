@@ -11,3 +11,4 @@ const API = {
 
 
 export const useLogin = ()=>useAddMutation("AUTH" , API.login)
+export const useRegister= ()=>useAddMutation("AUTH" , API.register)

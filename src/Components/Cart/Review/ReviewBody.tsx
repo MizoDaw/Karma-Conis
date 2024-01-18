@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { Button, Rate, Result,Space } from 'antd';
+import { Link } from 'react-router-dom';
 
 const ReviewBody = ({ setViewPage }: any) => {
 
@@ -15,9 +16,11 @@ const desc = ['ولا حمار زبط', 'bad', 'normal', 'good', 'عراسي'];
     extra={[
       <Rate tooltips={desc}  className='Rate' onChange={setValue} value={value} />
       ,
-      <Button type="primary" key="console">
-Buy Again    
-  </Button>,
+      <Link to="/">
+        <Button type="primary" key="console">
+          Buy Again   
+        </Button>
+      </Link>
     ]}
   />
      

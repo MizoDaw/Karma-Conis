@@ -39,6 +39,9 @@
    .Buttons_Tr{
     display: flex;
     gap: 30px;
+    .ant-btn {
+        margin-top:1px !important;
+    }
    }
    .primary{
        margin-top: 5px;

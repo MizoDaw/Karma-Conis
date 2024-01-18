@@ -7,16 +7,16 @@ type TProductSection = {
   data: TCardProduct 
 }
 
-const ProductSection= ({ data  } :any) => {
-  const { title, href, count, icon } = data
-  const TitleProps = { title, href, count, icon }
-  if (data?.data?.length > 0) {
+const ProductSection= ({ data  , props_product  } :any) => {
+  console.log(data);
+  
+  if (data?.length > 0) {
     return (
 
       <div className='ProductSection'>
-        <SubTitle  {...TitleProps} />
+        <SubTitle  {...props_product}    />
         <div className='Cards'>
-          <CardSwiper data={data?.data} />
+          <CardSwiper data={data} />
         </div>
       </div>
     )

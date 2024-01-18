@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 import {  useNavigate } from 'react-router-dom';
 import { TOKEN_KEY } from '../../config/AppKey';
 import { Formik, Form, Field } from 'formik';
-import { useLogin } from '../../api/auth';
+import { useLogin, useRegister } from '../../api/auth';
 const Auth = () => {
   const [isActive, setIsActive] = useState(false);
 
   const {mutate , isSuccess , data} = useLogin()
-  
+  const {mutate:mutate2 , isSuccess:Success , data:data2} = useRegister()
+
   const handleRegisterClick = () => {
     setIsActive(true);
   };
@@ -25,10 +26,21 @@ const Auth = () => {
 
       console.log(values);
       
-    mutate({
-      email:values['email'],
-      password:values['password']
-    })
+      if(isActive){
+          mutate2(
+            {
+              name:values['name'],
+              email:values['email'],
+              password:values['password']
+            }
+          )
+      }else{
+
+        mutate({
+          email:values['email'],
+          password:values['password']
+        })
+      } 
     
   }
 
@@ -40,6 +52,14 @@ const Auth = () => {
       
     }
   },[isSuccess])
+  useEffect(()=>{
+    if(Success){
+      console.log(data2);
+      localStorage.setItem(TOKEN_KEY, (data2 as any )?.data?.token)
+    navigate('/', { replace: true })
+      
+    }
+  },[Success])
   return (
     <div className='Auth'>
 <div  id="container" className={isActive ? 'container active' : 'container'}>

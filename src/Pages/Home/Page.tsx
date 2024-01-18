@@ -15,7 +15,6 @@ const Page = () => {
     const { Product } = useProductData()
     
     const {data} = useGetAllHome();
-    console.log(data);
     
 
   return (

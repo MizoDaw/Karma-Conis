@@ -14,7 +14,6 @@ const ProductsCards = ({ style, setstyle,data }: any) => {
         data?.data?.map((item: any, index: any) => {
           return (
             <div className={style ? "normalCard" : "FullCard"} key={index}><CardProduct item={item} /></div>
-
           )
         })
       }

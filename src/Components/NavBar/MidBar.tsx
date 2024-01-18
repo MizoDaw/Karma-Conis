@@ -14,20 +14,22 @@ const MidBar = () => {
     <div className="MidBar">
         <div className='MidBar_Left'>  
           <div className='logo_contianer'>
-            <img src='../logo-without-text.png' alt='logo' className='logo'/>
+            <Link className='logo' to="/">
+              <img src='../logo-without-text.png' alt='logo' className='logo'/>
+            </Link>
           </div>
         </div>
         <div className='MidBar_Mid'>
             <InputAutoComplete/>
         </div>
         <div className='MidBar_Right'>
-        <div className="Cart_Icon">
+        {/* <div className="Cart_Icon"> */}
         {/* <span style={{display:"flex" , flexDirection:"column",  alignItems:"center", marginTop:"20px"}}>
           <UserOutlined  />
           <p style={{}}>ibrahim</p>
         </span> */}
 
-          </div>
+          {/* </div> */}
    <ViewCart/>
     
 
@@ -39,9 +41,14 @@ const MidBar = () => {
               button={<Button icon={<MenuOutlined />} className='MenuButton' type='primary' />}
             >
               <div className="Menu_anv">
-                <Translate/>
+                {/* <Translate/> */}
+
+                <Link className='Link' to={'/'} >  <h1>Home</h1> </Link>
+                <Link className='Link' to={'/about'} >  <h1>About</h1> </Link>
+                <Link className='Link' to={'/contact'} >  <h1>Contact</h1> </Link>
+                <Link className='Link' to={'/products'} >  <h1>Products</h1> </Link>
               </div>
-              <Theme/>
+              {/* <Theme/> */}
 
               <div className="Cart_Icon menu_nav_icon">
                 <Link to="/auth">
