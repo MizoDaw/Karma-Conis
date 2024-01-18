@@ -4,7 +4,7 @@ import CardSwiper from '../CardSwiper'
 
 const Highlight= (data:any,) => {
   // const {  href, count, icon } = data
-  const TitleProps = { title:"Highlight", href:"", count:"", icon:"" }
+  const TitleProps = { title:"Highlight", href:"/products?is_highlight=true", count:"", icon:"" }
     
   if (data?.data?.length > 0) {
     return (

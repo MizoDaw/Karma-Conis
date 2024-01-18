@@ -96,7 +96,7 @@ const Auth = () => {
       <Field name="password" type="password" placeholder="Password" />
       <a href="#">Forget Your Password?</a>
       <button>Sign In</button>
-      <p className='navigateto' onClick={handleRegisterClick} >or login</p>
+      <p className='navigateto' onClick={handleRegisterClick} >or Register</p>
 
 
       </Form>

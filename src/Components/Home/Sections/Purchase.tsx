@@ -4,7 +4,7 @@ import CardSwiper from '../CardSwiper'
 
 const Purchase= (data:any) => {
   const {  href, count, icon } = data
-  const TitleProps = { title:"Purchase", href:"", count:"", icon:"" }
+  const TitleProps = { title:"Purchase", href:"/products?is_most_purchased=true", count:"", icon:"" }
     
   if (data?.data?.length > 0) {
     return (
