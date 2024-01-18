@@ -36,7 +36,7 @@ const Contact: React.FC = () => {
   useEffect(()=>{
 
     if(isSuccess){
-      toast.success(t('message_send_successfully'))
+      // toast.success(t('message_send_successfully'))
       setMessage('')
       setName('')
       setEmail('')
