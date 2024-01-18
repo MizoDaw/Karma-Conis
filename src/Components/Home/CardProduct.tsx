@@ -7,11 +7,8 @@ import useLoadingState from '../../Hooks/useLoadingState';
 import { Link } from 'react-router-dom';
 
 
-interface CardProductProps {
-  item: TProduct;
-}
 
-const CardProduct: React.FC<CardProductProps> = ({ item }) => {
+const CardProduct= ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
 
 
@@ -29,14 +26,14 @@ const CardProduct: React.FC<CardProductProps> = ({ item }) => {
                 </span>
               </div>
               <div className='Card_Product_Mid'>
-                <img src={item?.img} alt={item?.name} width="100%" height="60%" />
+                <img src={item?.product_main_image} alt={"product image"} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
                 <div>{item?.name}</div>
                 <span>
                   <div>
                     <strong>
-                      {item?.price} {Currency}
+                      {item?.product_price} {Currency}
                     </strong>
                     {/* <small>
                       {item?.old_price}

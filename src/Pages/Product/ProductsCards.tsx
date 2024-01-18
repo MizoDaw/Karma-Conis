@@ -2,14 +2,17 @@ import React from 'react'
 import CardProduct from '../../Components/Home/CardProduct'
 import { useAllProductsData } from '../../Redux/DispatchData'
 import ProductPagination from './ProductPagination'
+import { useGetAllProduct } from '../../api/Product'
 
 const ProductsCards = ({ style, setstyle }: any) => {
 
-  const { AllProduct } = useAllProductsData()
+  const { data } = useGetAllProduct();
+  console.log(data?.data?.data);
+  
   return (
     <div className={style ? "ProductsCards" : "ProductsCards2"} >
       {
-        AllProduct?.map((item: any, index: any) => {
+        data?.data?.data.map((item: any, index: any) => {
           return (
             <div className={style ? "normalCard" : "FullCard"} key={index}><CardProduct item={item} /></div>
 
