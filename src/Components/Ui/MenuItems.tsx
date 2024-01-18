@@ -31,6 +31,7 @@ const MenuItems: React.FC<{ items: MenuItem[] }> = ({ items }) => {
 
 
 const App = () => {
+
   return <MenuItems items={menuData} />;
 };
 

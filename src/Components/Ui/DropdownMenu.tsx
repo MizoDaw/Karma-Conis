@@ -1,16 +1,48 @@
 import React from 'react';
-import {Dropdown, Button } from 'antd';
-import { AppstoreOutlined, DownOutlined } from '@ant-design/icons';
-import MenuItems from './MenuItems';
+import { Dropdown, Button, Menu } from 'antd';
+import { AppstoreOutlined, DownOutlined, MailOutlined } from '@ant-design/icons';
+import { useGetAllCategories } from '../../api/categories';
+import { useNavigate } from 'react-router-dom';
 
 const DropdownMenu = () => {
+  const { data, isError, isLoading } = useGetAllCategories();
+  const navigate = useNavigate()
+
+  if (isLoading) {
+    return <div>Loading...</div>;
+  }
+
+  if (isError || !data?.data?.data) {
+    return <div>Error loading categories</div>;
+  }
+
+  const CategoriesArry = data.data.data.map((item: any) => ({
+    value: item?.category_translations[0]?.name,
+    label: item?.category_translations[0]?.id,
+  }));
+
+  const NewmenuData = CategoriesArry.map((category: any) => ({
+    key: category.label,
+    label: category.value,
+    icon: <MailOutlined />,
+  }));
+
+  const menu = (
+    <Menu>
+      {NewmenuData?.map((item:any) => (
+        <Menu.Item key={item.key}>
+          <div onClick={()=> navigate(`/products?categories_id=${item?.key}`)}>{item.label}</div>
+        </Menu.Item>
+      ))}
+    </Menu>
+  );
 
   return (
-    <Dropdown overlay={MenuItems} placement="bottomLeft" className='DropdownMenu'trigger={['click']} >
+    <Dropdown overlay={menu} placement="bottomLeft" className="DropdownMenu" trigger={['click']}>
       <Button>
-      <AppstoreOutlined />
-        categories
-         <DownOutlined />
+        <AppstoreOutlined />
+        Categories
+        <DownOutlined />
       </Button>
     </Dropdown>
   );
