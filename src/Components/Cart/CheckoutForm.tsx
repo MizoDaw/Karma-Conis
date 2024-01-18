@@ -3,7 +3,7 @@ import { Currency } from '../../Layout/app/Const';
 import { Button, Divider, Flex, Input } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
 
-const CheckoutForm = () => {
+const CheckoutForm = ({delivery_fees , sub_total ,setViewPage}:any) => {
     const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         console.log('Change:', e.target.value);
       };
@@ -13,25 +13,17 @@ const CheckoutForm = () => {
       };
   return (
     <>
-         <div>
-                <p>Total : </p> <h6>61000 {Currency}</h6>
-              </div>
-              <div className='Divider'>  <Divider /></div>
-              <div>Additional Comments</div>
-              <Flex vertical gap={32}>
-    <Input showCount maxLength={20} onChange={onChange} />
-    <TextArea showCount maxLength={100} onChange={onChange} placeholder="can resize" />
-    <TextArea
-      showCount
-      maxLength={100}
-      onChange={onChange}
-      placeholder="disable resize"
-      style={{ height: 120, resize: 'none' }}
-    />
- 
-    </Flex>
+         <div style={{display:"flex" , flexDirection:"column" , alignItems:"flex-start"}}>
+              <div style={{display:"flex" , alignItems:"center"}}><p>Sub Total : </p> <p>{sub_total} {Currency}</p></div>
+              <div style={{display:"flex" , alignItems:"center"}}><p>Delivery Fees : </p> <p>{delivery_fees} {Currency}</p></div>
 
-              <div> <Button block type='primary' >Checkout</Button> </div>
+              </div>
+
+              <div className='Divider'>  <Divider /></div>
+              <div>Total : {sub_total}{Currency}</div>
+        
+
+              <div> <Button block type='primary' onClick={()=>setViewPage(1)} >Checkout</Button> </div>
     </>
   )
 }
