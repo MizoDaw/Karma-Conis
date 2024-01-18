@@ -7,11 +7,9 @@ import { FreeMode, Pagination } from 'swiper/modules';
 import Categories from './Categories';
 
 
-interface CategoriesSwiperProps {
-  data: string[];
-}
-
-const CategoriesSwiper: React.FC<CategoriesSwiperProps> = ({ data }) => {
+const CategoriesSwiper = (data:any) => {
+  console.log(data?.data?.data?.category,'CategoriesSwiper');
+  
   return (
     <div className='CategoriesSwiper'>
       <Swiper
@@ -46,7 +44,7 @@ const CategoriesSwiper: React.FC<CategoriesSwiperProps> = ({ data }) => {
         className="mySwiper"
       >
         {
-          data?.map((item,index)=>{
+          data?.data?.data?.category?.map((item:any,index:any)=>{
             return(
               <SwiperSlide key={index}><Categories item={item} index={index} /></SwiperSlide>
 

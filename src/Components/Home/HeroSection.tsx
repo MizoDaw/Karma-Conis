@@ -2,14 +2,14 @@ import React from 'react'
 import CarouselApp from '../Ui/Carousel'
 import { THeroAd,TbannerData } from '../../Layout/app/Types';
 
-type THeroSection={
-  data :{ bannerData: TbannerData[]; adData: THeroAd[]}
-}
-const HeroSection:React.FC<THeroSection> = ({data}) => {
+
+const HeroSection = (data:any) => {
+  console.log(data?.data,"HeroSection");
+  
   return (
 <div className='HeroSection'>
       <div className='HeroSection_Carousel'>
-      <CarouselApp data={data?.bannerData} />
+      <CarouselApp data={data?.data} />
       </div>
      </div>
     )

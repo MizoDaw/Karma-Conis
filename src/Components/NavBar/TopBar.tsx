@@ -7,8 +7,10 @@ import { MenuFoldOutlined } from '@ant-design/icons'
 import { DATASOCIALMEDIA } from '../../config/SOCIALMEDIA'
 
 const TopBar = (data:any) => {
-  console.log(data);
-  const {Social} = data;
+  const SosialMediaData =data?.data?.data?.socialmedia
+  console.log(SosialMediaData,"SosialMediaData");
+  
+  
   return (
 
        <div className='HeaderContainer'>
@@ -26,21 +28,13 @@ const TopBar = (data:any) => {
             </div>
 
             <ul className='Media_Icon'>
-              <li><a href={Social?.data?.socialmedia[0]?.social_media_link}><BsFacebook/></a></li>
-              <li><a href="/about"><BsGoogle/></a></li>
-              <li><a href="/about"><BsInstagram/></a></li>
-              
-              {/* {
-                DATASOCIALMEDIA.map((icon ,index):any =>{
-                  const object_is_exist = data?.find(social => social.icon == icon.key)
-                  return (    
-                          <a href={object_is_exist?.link} target='_blank' className='btn  btn-lg btn-floating' key={index} style={{marginLeft:"5px"}} >
-                            {icon.icon}
-                          </a>
-                    )
-                  }
-                )
-              } */}
+             {SosialMediaData?.map((item:any,index:any)=>{
+              return(
+              <li key={index}><a href={item?.social_media_link}>
+                <img className='SocialMediaIMage' src={item?.social_media_image} alt="" />
+                </a></li>
+              )
+             })}
             </ul>
             <div className='MenuNav'>
 
