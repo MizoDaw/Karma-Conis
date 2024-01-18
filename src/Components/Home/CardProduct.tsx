@@ -50,7 +50,8 @@ const CardProduct= ({ item }:any) => {
                   <div className='AddProduct'>
                     <Tooltip title="Add To Cart">
                       <PlusOutlined  onClick={()=>mutate({
-                        
+                          product_id:item?.id,
+                          quantity:1
                       })
                       } />
                     </Tooltip>

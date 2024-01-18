@@ -5,9 +5,15 @@ import { ShoppingCartOutlined } from '@ant-design/icons'
 import CardItem from '../Ui/CardItem'
 import { Link } from 'react-router-dom'
 import { useCartData } from '../../Redux/DispatchData'
+import { useGetCart } from '../../api/cart'
 
 const ViewCart = () => {
   const { DataCart,count} = useCartData()
+  const {data } = useGetCart()
+
+  console.log(data?.data?.length);
+  
+  
   return (
     <div className='ViewCart'>
          <WithDrawer

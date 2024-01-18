@@ -1,7 +1,7 @@
 import { useQuery } from 'react-query';
 import useAxios from './useAxios';
 
-function useGetQuery(key: string, url: string , params:any={}) {
+function useGetQuery(key: string, url: string , params:any={} , options?:any) {
   const axios = useAxios();
 
   return useQuery(key, async () => {
@@ -12,6 +12,8 @@ function useGetQuery(key: string, url: string , params:any={}) {
       console.error('An error occurred:', error);
     },
     refetchOnWindowFocus: false,
+    ...options
+    
   });
 }
 
