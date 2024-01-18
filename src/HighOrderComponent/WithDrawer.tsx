@@ -5,12 +5,12 @@ import {  Drawer, Space } from 'antd';
 interface WithDrawerProps {
   button: React.ReactNode;
   children: ReactNode;
-  title:string;
+  title?:string;
   className?:string
   width?: string
 }
 
-const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ="Basic Drawer",className,width = 250 }) => {
+const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ,className,width = 250 }) => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps['placement']>('right');
 
