@@ -12,7 +12,7 @@ const BottomBar = () => {
           <div className='NavMenus'>
           <Link className='Link' to={'/'} >  <h1>home</h1> </Link>
           <Link className='Link' to={'/about'} >  <h1>about</h1> </Link>
-          <Link className='Link' to={'/'} >  <h1>contact</h1> </Link>
+          <Link className='Link' to={'/contact'} >  <h1>contact</h1> </Link>
           <Link className='Link' to={'/'} >  <h1>consigne</h1> </Link>
 
           </div>
