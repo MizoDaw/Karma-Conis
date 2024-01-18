@@ -1,18 +1,28 @@
 import { AppstoreOutlined, BarsOutlined } from '@ant-design/icons'
 import { Select } from 'antd'
-import React from 'react'
+import React, { useState } from 'react'
 import ProductsFilter from './ProductsFilter';
+import { useNavigate, useParams } from 'react-router-dom';
 
-const ProductsHeader = ({style,setstyle}:any) => {
-     const handleChange = (value: string) => {
-    console.log(`selected ${value}`);
+const ProductsHeader = ({style,setstyle,data}:any) => {
+     const handleChange = (value: any) => {
+    setShort((prevFilter:any) => ({ ...prevFilter, Shortby: value?.target.value }));
+
   };
+  const navigate = useNavigate();
+  const { category: paramCategory } = useParams();
+  const [Short, setShort] = useState<any>({
+    Shortby: paramCategory || 'jack'
+  });
 
+  
+  const handleShortChange = (e: any) => {
+  };
   return (
  <div className='Products_Header'>
 
         <div className='Products_Header_Right'>
-          <div className='Shortby'>Short by:</div>
+          {/* <div className='Shortby'>Short by:</div>
           <div>
             <Select
               defaultValue="Relevance"
@@ -24,7 +34,7 @@ const ProductsHeader = ({style,setstyle}:any) => {
                 { value: 'Price To Low', label: 'Price To Low ' },
                 { value: 'Price To High', label: 'Price To High' },
               ]}
-            /> </div>
+            /> </div> */}
                       <div>View:</div>
                       <div className={ style ? "secondary" : ""} onClick={()=>setstyle(true)} ><AppstoreOutlined /></div>
 
