@@ -1,8 +1,15 @@
 import React from 'react'
 import Layout from '../../Layout/app/Layout'
 import AboutCard from '../../Components/About/AboutCard'
+import { useGetAboutUs } from '../../api/app_info'
+
+const renderHTML = (escapedHTML: string) => React.createElement("div", { dangerouslySetInnerHTML: { __html: escapedHTML } });
 
 const About = () => {
+  const {data} = useGetAboutUs({id:1})
+
+  
+  
   return (
     <Layout>
         <h1 className='About_Header'>About Us</h1>
@@ -32,8 +39,7 @@ const About = () => {
           <h1 className='title'>Who are we</h1>
         </div>
         <div className='description'>
-          lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomx           lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom lorem iopserm omsomaoxm enaomxom somaom 
-          om somaom 
+        {renderHTML(data?.data?.translations?.at(0).content)}
         </div>
 
     </Layout>
