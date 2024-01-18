@@ -19,41 +19,51 @@ const ProductsFilter = () => {
   const { category_id: paramCategory_id, min_price: paramMin_price, max_price: paramMax_price, all: paramall,is_most_purchased:paramis_most_purchased, is_highlight:paramis_highlight} = useParams();
 
   const [filter, setFilter] = useState<FilterState>({
-    category_id: paramCategory_id || 'all',
-    min_price: paramMin_price ? parseInt(paramMin_price, 10) : 0,
-    max_price: paramMax_price ? parseInt(paramMax_price, 10) : 250,
-    all: true,
-    is_most_purchased:  false,
-    is_highlight:  false,
+  category_id: paramCategory_id || 'all',
+  min_price: paramMin_price ? parseInt(paramMin_price, 10) : 0,
+  max_price: paramMax_price ? parseInt(paramMax_price, 10) : 250,
+  all: true,
+  is_most_purchased:  false,
+  is_highlight:  false,
+});
 
-  });
-  const {data} = useGetAllCategories()
-  const CagtegoriesData = data?.data?.data?.map((item:any)=>{
-    return item
-  })
-    const CategoriesArry = CagtegoriesData?.map((item:any)=>{
-      return(
-        {value: item?.category_translations[0]?.name,lable: item?.category_translations[0]?.id}
-      )
-    })
+const { data } = useGetAllCategories();
+const CategoriesArry = data?.data?.data?.map((item: any) => ({
+  value: item?.category_translations[0]?.name,
+  label: item?.category_translations[0]?.id,
+}));
 
-  useEffect(() => {
-    if (!isInitialRender.current) {
-      navigate(`/Products?category_id=${filter.category_id}&min_price=${filter.min_price}&max_price=${filter.max_price}&is_most_purchased=${filter.is_most_purchased}&is_highlight=${filter.is_highlight}`);
-    } else {
-      isInitialRender.current = false;
-    }
-  }, [filter, navigate]);
-  
+CategoriesArry?.push({ value: "undefined", label: 'all' });
+
+useEffect(() => {
+  if (!isInitialRender.current) {
+    const queryParams = {
+      category_id: filter.category_id !== 'all' ? filter.category_id : undefined,
+      min_price: filter.min_price !== 0 ? filter.min_price : undefined,
+      max_price: filter.max_price !== 250 ? filter.max_price : undefined,
+      is_most_purchased: filter.is_most_purchased ? filter.is_most_purchased : undefined,
+      is_highlight: filter.is_highlight ? filter.is_highlight : undefined,
+    };
+
+    const queryString = Object.entries(queryParams)
+      .filter(([key, value]) => value !== undefined)
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&');
+
+    navigate(`/Products${queryString ? `?${queryString}` : ''}`);
+  } else {
+    isInitialRender.current = false;
+  }
+}, [filter, navigate]);
   // ...
   
   const isInitialRender = useRef<any>(true);
   
   
-  const handleChange = (value:any, option:any | Array<any>) => {
-    setFilter((prevFilter) => ({ ...prevFilter, category_id: option?.lable }));
-    
+  const handleChange = (value: any, option: any | Array<any>) => {
+    setFilter((prevFilter) => ({ ...prevFilter, category_id: option?.label }));
   };
+  
 
   const onChangeInput = (min: number, max: number) => {
     setFilter((prevFilter) => ({ ...prevFilter, min_price: min, max_price: max }));

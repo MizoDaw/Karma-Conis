@@ -3,6 +3,8 @@ import { Select } from 'antd'
 import React, { useState } from 'react'
 import ProductsFilter from './ProductsFilter';
 import { useNavigate, useParams } from 'react-router-dom';
+import WithDrawer from '../../HighOrderComponent/WithDrawer';
+import { BsFillTerminalFill } from 'react-icons/bs';
 
 const ProductsHeader = ({style,setstyle,data}:any) => {
      const handleChange = (value: any) => {
@@ -22,6 +24,20 @@ const ProductsHeader = ({style,setstyle,data}:any) => {
  <div className='Products_Header'>
 
         <div className='Products_Header_Right'>
+        <WithDrawer
+              className="showfillter"
+    title="ProductsFilter"
+      button={ 
+          <div className="Cart_Icon">
+          <BsFillTerminalFill  />
+
+          </div>
+    }
+    >
+ <ProductsFilter/>
+    
+ 
+    </WithDrawer>
           {/* <div className='Shortby'>Short by:</div>
           <div>
             <Select
@@ -35,11 +51,11 @@ const ProductsHeader = ({style,setstyle,data}:any) => {
                 { value: 'Price To High', label: 'Price To High' },
               ]}
             /> </div> */}
+
                       <div>View:</div>
                       <div className={ style ? "secondary" : ""} onClick={()=>setstyle(true)} ><AppstoreOutlined /></div>
 
                       <div className={ style ? "" : "secondary"} onClick={()=>setstyle(false)} ><BarsOutlined /></div>
-
         </div>
       </div>  )
 }
