@@ -39,7 +39,8 @@ const Auth = () => {
       <Field name="email" type="email" placeholder="Email" />
       <Field name="password" type="password" placeholder="Password" />
       <button>Sign Up</button>
-    {/* </form> */}
+      <p className='navigateto' onClick={handleLoginClick} >or login</p>
+
     </Form>
     </Formik>
 
@@ -58,6 +59,9 @@ const Auth = () => {
       <Field name="password" type="password" placeholder="Password" />
       <a href="#">Forget Your Password?</a>
       <button>Sign In</button>
+      <p className='navigateto' onClick={handleRegisterClick} >or login</p>
+
+
       </Form>
     </Formik>
   </div>
@@ -69,6 +73,7 @@ const Auth = () => {
         <button className="hidden" id="login" onClick={handleLoginClick}>
           Sign In
         </button>
+
       </div>
       <div className="toggle-panel toggle-right">
         <h1>Hello, Friend!</h1>
