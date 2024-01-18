@@ -6,8 +6,8 @@ import { Currency } from '../../Layout/app/Const';
 import useLoadingState from '../../Hooks/useLoadingState';
 import { Link } from 'react-router-dom';
 import { BaseURL } from '../../api/config';
-import { TranslateObject } from '../Utils/TranlateRes';
 import { useTranslation } from 'react-i18next';
+import { mapTranslatedProperties } from '../../Hooks/mapTranslatedProperties';
 
 
 
@@ -15,7 +15,7 @@ const CardProduct= ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
   const {i18n} = useTranslation()
 
-
+  console.log(item,"noa");
 
   return (
           <Skeleton className='unset' loading={loading} active >
@@ -33,7 +33,8 @@ const CardProduct= ({ item }:any) => {
                 <img src={BaseURL + item?.product_main_image } alt={"product image"} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
-                {/* <div>{TranslateObject(item?.at(0)?.translations, i18n.language ,'name')}</div> */}
+                <div className='Card_Product_Bottom_name'>{mapTranslatedProperties(item?.product_translations,'name',"1")}</div>
+                <div className='Card_Product_Bottom_desc'>{mapTranslatedProperties(item?.product_translations,'description',"1")}</div>
                 <span>
                   <div>
                     <strong>
