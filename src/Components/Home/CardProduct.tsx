@@ -28,7 +28,7 @@ const CardProduct= ({ item }:any) => {
             <Link className='eye_product' to={`/product/${item.id}`}>
               <EyeFilled  />
             </Link><br/>
-            <HeartFilled />
+            {/* <HeartFilled /> */}
           </div>
 
               <div className='Card_Product_Top'>
