@@ -88,10 +88,10 @@ const Footer = ({data}:any) => {
                 style={{ width: 60, backgroundColor: "#7c4dff", height: 2 }}
               />
               <p>
-                <i className="fas fa-home mr-3" /> New York, NY 10012, US
+                <i className="fas fa-home mr-3" /> +41 52 214 11 10
               </p>
               <p>
-                <i className="fas fa-envelope mr-3" /> info@example.com
+                <i className="fas fa-envelope mr-3" /> info@leunumismatik.com
               </p>
            
             </div>
@@ -107,8 +107,8 @@ const Footer = ({data}:any) => {
         style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
         © 2023 Copyright:
-        <a className="text-white " href="https://https://karimaldeen.vercel.app/">
-         <p>https:// karimaldeen. vercel. app</p>  
+        <a className="text-white " href="https://leunumismatik.com/en/home">
+         <p>https://leunumismatik.com/en/home</p>  
         </a>
       </div>
       {/* Copyright */}

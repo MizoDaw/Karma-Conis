@@ -21,9 +21,9 @@ const TopBar = (data:any) => {
         <header className='Header'>
          <span className='TopBar_info' style={{display:'flex' , alignItems:"center"}}>
           
-         <MdOutlineEmail style={{marginInline:"5px"}} size={20}/>  ibrahim@gmail.com  
+         <MdOutlineEmail style={{marginInline:"5px"}} size={20}/> info@leunumismatik.com
           <span style={{marginInline:"10px"}}></span>
-         <FaPhone size={20}  style={{marginInline:"5px"}}/>  0951968994
+         <FaPhone size={20}  style={{marginInline:"5px"}}/>  +41 52 214 11 10
          </span>
 
           <nav>
