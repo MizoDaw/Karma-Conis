@@ -8,11 +8,10 @@ import useUpdateMutation from "./helper/useUpdateMutation"
 
 const API = {
     
-    GET:"/api/user/product/getAll",
+    GET:"/api/user/category/getAll",
 
 }
 
-const KEY = "PRODUCT"
+const KEY = "Categories"
 
-export const useGetAllProduct = (params?:any) => useGetQuery(KEY , API.GET, params)
-export const useGetAllProductWithPaginations = (params?:any) => useGetQueryPagination(KEY, API.GET, params);
+export const useGetAllCategories = (params?:any) => useGetQuery(KEY , API.GET, params)

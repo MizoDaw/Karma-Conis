@@ -4,13 +4,14 @@ import ProductsHeader from './ProductsHeader';
 import ProductsFilter from './ProductsFilter';
 import ProductsCards from './ProductsCards';
 import ProductPagination from './ProductPagination';
-import { useGetAllProduct } from '../../api/Product';
+import { useGetAllProduct, useGetAllProductWithPaginations } from '../../api/Product';
 
 const Products = () => {
 
   const [style, setstyle] = useState(false)
-  const { data } = useGetAllProduct();
-
+  const { data } = useGetAllProductWithPaginations();
+  console.log(data);
+  
   const Props = { style, setstyle,data }
 
   return (
