@@ -18,6 +18,16 @@
    display: flex; justify-content: center; align-items: center;
  }
     .Card_Product{
+      // display: none !important;
+      .product_icons{
+         position: absolute;
+         top: 68%;
+         right: 13.5%;
+         // .eye_product{
+            svg{
+               color: var(--secondary);
+            }
+      }
     width: 260px;
     height: 340px;
     background-color:var(--bg);
@@ -59,6 +69,7 @@
          font-size: 24px;
          flex-direction: column;
          gap: 10px;
+         // display: none;
          svg{
             color: #fff !important; 
             opacity: 0.8;
@@ -94,7 +105,6 @@
       flex: 20%;
             strong{
                color: var(--secondary);
-
             }
             small{
                text-decoration: line-through;
@@ -235,6 +245,16 @@
   
        @media screen and (max-width: 650px)  {
        .Card_Product{
+         .product_icons{
+            top: 68%;
+            right: 10%;
+            // .eye_product{
+               line-height: 6px;
+               svg{
+                  font-size: 12px !important;
+                  color: var(--secondary);
+               }
+         }
     width: 150px;
     height: 220px;
     background-color:var(--bg);
@@ -459,7 +479,15 @@
          }
    }
 
-   @media screen and (max-width: 420px)  {
+   @media screen and (max-width: 460px)  {
+      //  .product_icons{
+      //          top: 68%;
+      //          right: 10%;
+      //             line-height: 6px;
+      //             svg{
+      //                font-size: 1px !important;
+      //             }
+            // }
       .ProductsCards2{
       flex: 100%;
       display: flex;
@@ -471,6 +499,8 @@
       .FullCard{
    
          .Card_Product{
+            
+           
             width: 94%;
             height: 32vw;
             background-color:var(--bg);
