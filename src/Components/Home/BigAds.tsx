@@ -9,7 +9,6 @@ type TBigAds = {
 const BigAds:React.FC<TBigAds> = ({data}) => {
  
   
-    console.log(data , "IBRAHIMMMMMMMMMMMMMMMmmmm");
     
   return (
     <div className='BigAds'>

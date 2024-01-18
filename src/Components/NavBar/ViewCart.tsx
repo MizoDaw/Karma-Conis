@@ -11,7 +11,7 @@ const ViewCart = () => {
   const { DataCart,count} = useCartData()
   const {data } = useGetCart()
 
-  console.log(data?.data?.length);
+  console.log(data?.data);
   
   
   return (
