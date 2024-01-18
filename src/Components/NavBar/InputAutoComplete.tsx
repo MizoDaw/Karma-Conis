@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { AutoComplete, Input } from 'antd';
 import { useGetAllProductWithSearch } from '../../api/Product';
-import { useNavigate } from 'react-router-dom';
-import useSearchResults from '../../Hooks/useSearchResults'; // Assuming you place the hook in a separate file
+import { useNavigate, useLocation } from 'react-router-dom';
+import useSearchResults from '../../Hooks/useSearchResults';
 
 const App: React.FC = () => {
   const { data } = useGetAllProductWithSearch();
   const navigate = useNavigate();
+  const location = useLocation();
 
   const names = data?.data?.map((item: any) => item?.product_translations[0]?.name);
 
@@ -26,11 +27,12 @@ const App: React.FC = () => {
   };
 
   const onSearchSubmit = (value: string) => {
-    // Prevent the default form submission
     if (value) {
       setQuery(value);
+      navigate(`/products?search=${value}`);
     }
   };
+
 
   const options = results.map((name: any) => ({
     value: name,
@@ -45,12 +47,7 @@ const App: React.FC = () => {
       </div>
     ),
   }));
-
-  useEffect(() => {
-    if (query) {
-      navigate(`/products?search=${query}`);
-    }
-  }, [query, navigate]);
+  
 
   return (
     <AutoComplete
