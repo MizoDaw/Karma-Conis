@@ -17,7 +17,7 @@ const TopBar = (data:any) => {
 
        <div className='HeaderContainer'>
         <header className='Header'>
-         <span style={{display:'flex' , alignItems:"center"}}>
+         <span className='TopBar_info' style={{display:'flex' , alignItems:"center"}}>
           
          <MdOutlineEmail style={{marginInline:"5px"}} size={20}/>  ibrahim@gmail.com  
           <span style={{marginInline:"10px"}}></span>
@@ -27,7 +27,7 @@ const TopBar = (data:any) => {
           <nav>
             <div className="Menu_Group">
               <Link className='Link' to={'/'} >  <h1>Register</h1> </Link>
-              <Link className='Link' to={'/'} >  <h1>Login</h1> </Link>
+              <Link className='Link' to={'/auth'} >  <h1>Login</h1> </Link>
               
               {/* <Theme/> */}
               {/* <Translate/> */}
