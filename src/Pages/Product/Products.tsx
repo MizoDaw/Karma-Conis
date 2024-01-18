@@ -4,11 +4,15 @@ import ProductsHeader from './ProductsHeader';
 import ProductsFilter from './ProductsFilter';
 import ProductsCards from './ProductsCards';
 import ProductPagination from './ProductPagination';
+import { useGetAllProduct } from '../../api/Product';
 
 const Products = () => {
 
   const [style, setstyle] = useState(false)
-  const Props = { style, setstyle }
+  const { data } = useGetAllProduct();
+
+  const Props = { style, setstyle,data }
+
   return (
     <Layout className='Products'>
       <ProductsHeader {...Props} />

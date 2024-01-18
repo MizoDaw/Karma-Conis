@@ -4,9 +4,8 @@ import { useAllProductsData } from '../../Redux/DispatchData'
 import ProductPagination from './ProductPagination'
 import { useGetAllProduct } from '../../api/Product'
 
-const ProductsCards = ({ style, setstyle }: any) => {
+const ProductsCards = ({ style, setstyle,data }: any) => {
 
-  const { data } = useGetAllProduct();
   console.log(data?.data?.data);
   
   return (
