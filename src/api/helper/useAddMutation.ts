@@ -23,8 +23,16 @@ function useAddMutation(key: string, url: string): UseMutationResult<AxiosRespon
         toast.success(data.message || "Add Successful");
       },
       onError: (error:any) => {
-        const message = error?.response?.data?.message || t("failed_to_add_data");
-        toast.error(message);
+        // console.log("fwergfrrrrrrrrrrrr",error.response.this.status);
+          console.log(error.response);
+          
+        if(error.response.status == 401 || error?.response?.status == 403){
+          toast.error("Please Login First")
+        }else{
+
+          const message = error?.response?.data?.message || t("failed_to_add_data");
+          toast.error(message);
+        }
       }
     }
   );

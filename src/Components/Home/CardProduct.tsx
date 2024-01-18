@@ -9,12 +9,14 @@ import { BaseURL } from '../../api/config';
 import useImageError from '../../Hooks/useImageError';
 import { useTranslation } from 'react-i18next';
 import { mapTranslatedProperties } from '../../Hooks/mapTranslatedProperties';
+import { useAddToCart } from '../../api/cart';
 
 
 
 const CardProduct= ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
   const {i18n} = useTranslation()
+  const {mutate} = useAddToCart()
 
   console.log(item);
   
@@ -25,7 +27,7 @@ const CardProduct= ({ item }:any) => {
               <div className='Card_Product_Top'>
                 <span className='Right'>
                <Link to={`/product/${item.id}`}>
-                <EyeFilled />
+                <EyeFilled  />
               </Link>
                   <HeartFilled />
                 </span>
@@ -47,7 +49,10 @@ const CardProduct= ({ item }:any) => {
                   </div>
                   <div className='AddProduct'>
                     <Tooltip title="Add To Cart">
-                      <PlusOutlined />
+                      <PlusOutlined  onClick={()=>mutate({
+                        
+                      })
+                      } />
                     </Tooltip>
                   </div>
                 </span>
