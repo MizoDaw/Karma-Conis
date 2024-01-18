@@ -24,7 +24,7 @@ const Page = () => {
       <CategoriesSwiper data={data} />
       <MovesAds {...MovesAdsData} />
       <Highlight data={data?.data?.product_highlight}  />
-      {/* <BigAds data={BigAdsData} /> */}
+      <BigAds data={data?.data?.ads} />
       <Purchase data={data?.data?.product_most_purchase}  />
 
     </Layout> 

@@ -15,16 +15,20 @@ const TopBar = (data:any) => {
 
        <div className='HeaderContainer'>
         <header className='Header'>
-         
-        <Link to={'/'} >  <h1>Karma Antique Coins</h1> </Link>
+         <span>
+          
+         email : ibrahim@gmail.com  
+          <span style={{marginInline:"10px"}}></span>
+         phone : 0951968994
+         </span>
 
           <nav>
             <div className="Menu_Group">
               <Link className='Link' to={'/'} >  <h1>Register</h1> </Link>
               <Link className='Link' to={'/'} >  <h1>Login</h1> </Link>
               
-              <Theme/>
-              <Translate/>
+              {/* <Theme/> */}
+              {/* <Translate/> */}
             </div>
 
             <ul className='Media_Icon'>

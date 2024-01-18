@@ -1,7 +1,8 @@
 .HeaderContainer{
     display: flex;
     flex-direction: column;
-    height: 80px;
+    height: 50px;
+    justify-content: center;
     background: var(--primary );
 
     .links{
@@ -9,10 +10,10 @@
         width: 100%;
        .mid_links{
             width: 90%;
-            margin: auto;
+            // margin: auto;
             display: flex;
             justify-content: center;
-            align-items: end;
+            // align-items: end;
             .Link{
                 border-right: 2px solid var(--secondary);
                 padding-inline: 30px;
@@ -31,15 +32,15 @@
 
 
 .Header{
-    border-top: 1px solid var(--secondary);
-    display: flex; justify-content: space-between; align-items: start;
-    padding-top: 15px;
+    // border-top: 1px solid var(--secondary);
+    display: flex; justify-content: space-between; align-items: center !important;
+    // padding-top: 15px;
     color: var(--white);
     padding-inline: 5vw;
-    margin-bottom: 10px;
+    // margin-bottom: 10px;
 
     h1{
-        font-size: 19px;
+        font-size: 14px;
         margin-bottom: 0;
         cursor: pointer;
         @include Hover_outline_characters;
