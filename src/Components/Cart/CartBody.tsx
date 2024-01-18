@@ -3,14 +3,13 @@ import CartItem from './CartItem'
 import CheckoutForm from './CheckoutForm';
 
 
-const CartBody = () => {
-  const { DataCart} = useCartData()
+const CartBody = ({data}:any) => {
 
 
    return (
     <div className="CartBody">
             <div className="CartBody_Left">
-            { DataCart?.map((item ,index)=>{
+            { data?.map((item:any ,index:number)=>{
             return(
           <div key={index}>  <CartItem item={item}/> </div>
            ) })  }
