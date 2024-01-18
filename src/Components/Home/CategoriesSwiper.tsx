@@ -8,8 +8,7 @@ import Categories from './Categories';
 
 
 const CategoriesSwiper = (data:any) => {
-  console.log(data?.data?.data?.category,'CategoriesSwiper');
-  
+    
   return (
     <div className='CategoriesSwiper'>
       <Swiper

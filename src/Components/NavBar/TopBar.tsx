@@ -5,10 +5,10 @@ import Translate from '../Utils/Translate'
 import { Link } from 'react-router-dom'
 import { MenuFoldOutlined } from '@ant-design/icons'
 import { DATASOCIALMEDIA } from '../../config/SOCIALMEDIA'
+import { BaseURL } from '../../api/config'
 
 const TopBar = (data:any) => {
   const SosialMediaData =data?.data?.data?.socialmedia
-  console.log(SosialMediaData,"SosialMediaData");
   
   
   return (
@@ -29,9 +29,10 @@ const TopBar = (data:any) => {
 
             <ul className='Media_Icon'>
              {SosialMediaData?.map((item:any,index:any)=>{
+
               return(
               <li key={index}><a href={item?.social_media_link}>
-                <img className='SocialMediaIMage' src={item?.social_media_image} alt="" />
+                <img className='SocialMediaIMage' src={BaseURL + item?.social_media_image} alt="" />
                 </a></li>
               )
              })}

@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import {  Rate, Skeleton, Tooltip } from 'antd';
 import { EyeFilled, HeartFilled, PlusOutlined } from '@ant-design/icons';
 import { TProduct } from '../../Layout/app/Types';
-import { Currency } from '../../Layout/app/Const';
+import { Currency, UserImageURL } from '../../Layout/app/Const';
 import useLoadingState from '../../Hooks/useLoadingState';
 import { Link } from 'react-router-dom';
 import { BaseURL } from '../../api/config';
+import useImageError from '../../Hooks/useImageError';
 import { useTranslation } from 'react-i18next';
 import { mapTranslatedProperties } from '../../Hooks/mapTranslatedProperties';
 
@@ -30,7 +31,7 @@ const CardProduct= ({ item }:any) => {
                 </span>
               </div>
               <div className='Card_Product_Mid'>
-                <img src={BaseURL + item?.product_main_image } alt={"product image"} width="100%" height="60%" />
+                <img src={BaseURL+item?.product_main_image|| UserImageURL} onError={useImageError} alt={item?.name} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
                 <div className='Card_Product_Bottom_name'>{mapTranslatedProperties(item?.product_translations,'name',"1")}</div>

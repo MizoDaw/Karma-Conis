@@ -7,7 +7,7 @@ type TProductSection = {
   data: TCardProduct 
 }
 
-const ProductSection: React.FC<TProductSection> = ({ data }) => {
+const ProductSection= ({ data  } :any) => {
   const { title, href, count, icon } = data
   const TitleProps = { title, href, count, icon }
   if (data?.data?.length > 0) {
