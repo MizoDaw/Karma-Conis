@@ -11,16 +11,15 @@ const ViewCart = () => {
   const { DataCart,count} = useCartData()
   const {data } = useGetCart()
 
-  console.log(data?.data);
   
-  
+    
   return (
     <div className='ViewCart'>
          <WithDrawer
          width='350'
     title="Cart Item"
       button={ 
-      <Badge className='Badge_Button' count={count}>
+      <Badge className='Badge_Button' count={data?.data?.data?.at(0)?.cart_items_count}>
           <div className="Cart_Icon">
           <ShoppingCartOutlined  />
 

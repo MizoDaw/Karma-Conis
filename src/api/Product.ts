@@ -8,9 +8,13 @@ import useUpdateMutation from "./helper/useUpdateMutation"
 const API = {
     
     GET:"/api/user/product/getAll",
+    GETONE:"/api/user/product/getOne",
+
 
 }
 
 const KEY = "PRODUCT"
 
 export const useGetAllProduct = (params?:any) => useGetQuery(KEY , API.GET, params)
+
+export const useGetSingleProduct = (params?:any) => useGetQuery(KEY , API.GETONE, params)

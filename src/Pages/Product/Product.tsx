@@ -6,12 +6,22 @@ import { Currency } from '../../Layout/app/Const'
 import ProductSection from '../../Components/Home/ProductSection'
 import { ProductSectionData } from '../Home/HomeData'
 import { useParams } from 'react-router-dom'
+import { useGetSingleProduct } from '../../api/Product'
+import { BaseURL } from '../../api/config'
+import { useAddToCart } from '../../api/cart'
 
 const OneProduct = () => {
 
   const { id } = useParams()
 
   const [value, setValue] = useState(1);
+  const {data} = useGetSingleProduct({product_id : id})
+
+
+  const Product =data?.data?.product 
+  const  product_highlight = data?.data?.product_highlight
+  const product_most_purchase = data?.data?.product_most_purchase
+  const {mutate} = useAddToCart()
 
   const onChange = (e: RadioChangeEvent) => {
     console.log('radio checked', e.target.value);
@@ -33,13 +43,13 @@ const OneProduct = () => {
     <Layout className='Product'>
       <div className='Product_Info'>
         <div className='Product_Left'>
-          <img src={Product?.img} alt={Product?.name} width="100%" height="60%" />
+          <img src={BaseURL+ Product?.product_main_image} alt={Product?.name} width="100%" height="60%" />
 
         </div>
         <div className='Product_Right'>
-          <h3>{Product?.name}</h3>
+          <h3>{Product?.product_translations?.at(0)?.name}</h3>
           <div>
-            <h6>Brand  : </h6> <h6>{Product?.brand}</h6>
+            <h6>Category  : </h6> <img  src={BaseURL+ Product?.category?.category_image} style={{width:30, height:30 , borderRadius:"50%" }}/> <h6>{Product?.category?.category_translations?.at(0)?.name}</h6>
           </div>
 
           {/* <div>
@@ -54,23 +64,41 @@ const OneProduct = () => {
           </div> */}
 
           <div className='Product_Description'>
-            <h6>Description  : </h6>
-            <Collapse ghost items={items} />
+            <h6>Description  : {Product?.product_translations?.at(0)?.description} </h6>
+            {/* <Collapse ghost items={items} /> */}
 
           </div>
           <div>
-            <h6 >Price  : </h6> <h6 className='Price'> {Product?.price} {Currency} </h6>
+            <h6 >Price  : </h6> <h6 className='Price'> {Product?.product_price} {Currency} </h6>
+            <br/>
+            <h6 >Quantity  : </h6> <h6 className='Price'> {Product?.product_quantity}  </h6>
 
           </div>
+
           <div>
+          <h6 >Purchasing Count  : </h6> <h6 className='Price'> {Product?.product_purchasing_count}  </h6>
+
           </div>
-          <Button type="primary" block>
+          <Button type="primary" block onClick={()=>mutate({
+                          product_id:Product?.id,
+                          quantity:1
+                      })
+                      }>
             Add to Cart
           </Button>
         </div>
       </div>
-      <ProductSection data={ProductSectionData} />
-      <ProductSection data={ProductSectionData2} />
+      <ProductSection data={product_highlight} props_product={{
+        title:"product Highlight",
+
+        href:'/products'
+      }} />
+      <ProductSection data={product_most_purchase}  
+       props_product={{
+        title:"product Most Purchase",
+
+        href:'/products'
+      }} />
 
 
 

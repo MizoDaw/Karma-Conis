@@ -11,7 +11,7 @@ const ProductsCards = ({ style, setstyle,data }: any) => {
   return (
     <div className={style ? "ProductsCards" : "ProductsCards2"} >
       {
-        data?.data?.data.map((item: any, index: any) => {
+        data?.data?.data?.map((item: any, index: any) => {
           return (
             <div className={style ? "normalCard" : "FullCard"} key={index}><CardProduct item={item} /></div>
 
