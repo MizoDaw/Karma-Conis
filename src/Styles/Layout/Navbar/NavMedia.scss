@@ -33,7 +33,17 @@
     padding-inline: 6%;
     align-items: flex-start;
     .MenuButton{
-        background: var(--primary);
+      background: var(--primary) !important;
+      .Menu_anv{
+         .Link{
+            font-size: 15px;
+            font-weight: 400;
+            text-transform: capitalize;
+            :hover{
+               background: #000;
+            }
+        }
+      }
     }
 
     

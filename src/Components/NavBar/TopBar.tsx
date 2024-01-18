@@ -26,7 +26,7 @@ const TopBar = (data:any) => {
 
           <nav>
             <div className="Menu_Group">
-              <Link className='Link' to={'/'} >  <h1>Register</h1> </Link>
+              <Link className='Link' to={'/auth'} >  <h1>Register</h1> </Link>
               <Link className='Link' to={'/auth'} >  <h1>Login</h1> </Link>
               
               {/* <Theme/> */}
