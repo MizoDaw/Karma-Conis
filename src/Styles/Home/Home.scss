@@ -1,26 +1,23 @@
+
 .MenuBody{
     width: 250px;
 }
 .Home_Page_Body{
     background: var(--bg2);
-
 }
-
 .HeroSection{
     overflow: hidden !important;
     display: flex; 
     padding: 0vw 4vw;
-    // gap: 6%;
     color: var(--black);
     .HeroSection_Carousel{
         width: 100%;
         height: 100%;
             img{
                 margin-top: 5px;
-            margin-inline: 20px;
+                margin-inline: 20px;
                 width: 100%;
                 height: 33vw;
-
                 object-fit: contain;
             }
     }       
@@ -28,17 +25,16 @@
     display: none !important; 
     transform: translateX(-20%);
     width: 0%;
-        display: flex; 
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 4%;
-
-        img{
-            height: 16vw;
-            width: 100%;
-            object-fit: contain;
-        }
+    display: flex; 
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4%;
+    img{
+        height: 16vw;
+        width: 100%;
+        object-fit: contain;
+    }
 }
  .ant-carousel .slick-initialized .slick-dots-bottom li button{
     background-color:var(--black) !important;
@@ -244,7 +240,7 @@
 
   .BigAds{
     display: flex;
-    padding: 10px 5vw;
+    padding: 10px 2vw;
     width: 100%;
     gap: 20px;
     >div{
@@ -253,10 +249,9 @@
         position: relative;
         img{
             width: 100%;
-                    height: 150px;
-            object-fit: cover;
+            height: 150px;
+            object-fit: contain;
         }
-      
     }
       .BigAds_Info{
         padding: 20px;

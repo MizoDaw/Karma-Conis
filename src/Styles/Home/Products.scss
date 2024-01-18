@@ -20,15 +20,13 @@
       }
   }
   .Products_Header_Right{
-          @include Flex; gap: 1.6vw;
-          font-size: 2vw;
-          .Cart_Icon{
-                      width: 20px;
-                      display: none;
-  
-          }
-          
-      }
+      @include Flex; gap: 1.6vw;
+      font-size: 2vw;
+      .Cart_Icon{
+      width: 20px;
+      // display: none;
+      }   
+   }
   }
   .secondary{
       color: var(--secondary);
@@ -100,20 +98,20 @@
      @media screen and (max-width: 600px) {
       
   .ant-pagination-options{
-      display: none !important;
+      // display: none !important;
       a{
           font-size: 10px !important;
   
       }
       svg{
-          display: none;
+         //  display: none;
       }
   }
   .ProductsFilter{
       display: none;
   }
   .Shortby,.ant-select{
-      display: none;
+      // display: none;
   }
    .Cart_Icon{
               svg{width: 2vw;
@@ -132,7 +130,7 @@
       display: block !important;
   }
       .ProductsFilter_header{
-              display: none !important;
+            //   display: none !important;   
       }
   }
   
@@ -186,35 +184,42 @@
              flex-direction: column;
              gap: 10px;
              svg{
-
-               //  opacity: 0;
                 &:hover{
                    opacity: 1;
                 }
-    
-    
              }
            }
-    
         }
         .Card_Product_Mid{
           overflow: hidden;
           flex: 80%;
-                   img{
-                      width: 100%;
-                      height: 100%;
-                      object-fit: cover;
-                         mix-blend-mode: multiply;
-                         &:hover{
-                            scale: 1.2;
-                            cursor: pointer;
-                         }
-                    }
-    
+            img{
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               mix-blend-mode: multiply;
+               &:hover{
+                  scale: 1.2;
+                  cursor: pointer;
+               }
+            }
         } 
         .Card_Product_Bottom{
           padding-inline: 10px;
           flex: 20%;
+         //  line-height:50px;
+          .Card_Product_Bottom_name{
+            font-size: 20px !important;
+            font-weight: 400;
+            // margin-bottom: 1vw;
+            min-height: 2.5vw;
+            
+          }
+          .Card_Product_Bottom_desc{
+            font-size: 13px;
+            min-height: 4.3vw;
+            margin-bottom: 2vw;
+          }
                 strong{
                    color: var(--secondary);
     
@@ -332,7 +337,7 @@ justify-content: center;
 }
         
  .Right{
-   display: none !important; 
+   // display: none !important; 
    }
     .AddProduct{
      position: absolute;
@@ -582,7 +587,7 @@ justify-content: center;
 
 @media screen and (max-width: 500px)  {
 .secondary{
-   display: none;
+   // display: none;
 }
 
 }

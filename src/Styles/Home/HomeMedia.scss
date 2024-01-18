@@ -1,10 +1,17 @@
 
    @media screen and (max-width: 600px) {
                
-          .HeroSection_Ads,.Moves_Ads,.special_properties,.BigAds{
-    display: none !important;
-}       
-                    
+    .HeroSection_Ads,.special_properties{
+        display: none !important;
+    }       
+    .BigAds{
+        display: flex; flex-direction: column;
+        img{
+            width: 90% !important;
+            // justify-content: center !important;align-items: center !important;
+            // margin-inline: auto !important;
+        }
+    }     
  .HeroSection_Carousel{
         width: 100% !important;
         height: 100%;
