@@ -14,13 +14,12 @@ const Page = () => {
     const { DataHeroSection } = useHeroSectionData();
     
     const {data} = useGetAllHome();
-    console.log(data);
-
- 
+  console.log(data,"Page");
+    
   return (
     <Layout data={data} className='HomePage'>
-      <HeroSection data={DataHeroSection} />
-      <CategoriesSwiper data={CategoriesData} />
+      {/* <HeroSection data={data?.data?.slider} /> */}
+      <CategoriesSwiper data={data} />
       <MovesAds {...MovesAdsData} />
       <ProductSection data={Product}/>
       <BigAds data={BigAdsData} />
