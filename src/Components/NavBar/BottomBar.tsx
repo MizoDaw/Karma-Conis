@@ -1,7 +1,6 @@
 import React from 'react'
 import DropdownMenu from '../Ui/DropdownMenu'
 import DropDown from '../Ui/DropDown'
-import { menuItems } from '../Ui/MenuItemsData'
 import ViewCart from './ViewCart'
 import { Link } from 'react-router-dom'
 

@@ -2,49 +2,83 @@ import { Divider, InputNumber, Radio, Select, Space } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { useNavigate, useParams } from 'react-router-dom';
+import { useGetAllCategories } from '../../api/categories';
 
 interface FilterState {
-  category: string;
-  minPrice: number;
-  maxPrice: number;
-  selectedOption: string;
+  category_id: string;
+  min_price: number;
+  max_price: number;
+  all: boolean;
+  is_most_purchased: boolean;
+  is_highlight: boolean;
+
 }
 
 const ProductsFilter = () => {
   const navigate = useNavigate();
-  const { category: paramCategory, minPrice: paramMinPrice, maxPrice: paramMaxPrice, selectedOption: paramSelectedOption } = useParams();
+  const { category_id: paramCategory_id, min_price: paramMin_price, max_price: paramMax_price, all: paramall,is_most_purchased:paramis_most_purchased, is_highlight:paramis_highlight} = useParams();
 
   const [filter, setFilter] = useState<FilterState>({
-    category: paramCategory || 'jack',
-    minPrice: paramMinPrice ? parseInt(paramMinPrice, 10) : 0,
-    maxPrice: paramMaxPrice ? parseInt(paramMaxPrice, 10) : 250,
-    selectedOption: paramSelectedOption || 'all',
-  });
+  category_id: paramCategory_id || 'all',
+  min_price: paramMin_price ? parseInt(paramMin_price, 10) : 0,
+  max_price: paramMax_price ? parseInt(paramMax_price, 10) : 250,
+  all: true,
+  is_most_purchased:  false,
+  is_highlight:  false,
+});
 
-  useEffect(() => {
-    if (!isInitialRender.current) {
-      navigate(`/Products?${filter.category}&${filter.minPrice}&${filter.maxPrice}&${filter.selectedOption}`);
-    } else {
-      isInitialRender.current = false;
-    }
-  }, [filter, navigate]);
-  
+const { data } = useGetAllCategories();
+const CategoriesArry = data?.data?.data?.map((item: any) => ({
+  value: item?.category_translations[0]?.name,
+  label: item?.category_translations[0]?.id,
+}));
+
+CategoriesArry?.push({ value: "undefined", label: 'all' });
+
+useEffect(() => {
+  if (!isInitialRender.current) {
+    const queryParams = {
+      category_id: filter.category_id !== 'all' ? filter.category_id : undefined,
+      min_price: filter.min_price !== 0 ? filter.min_price : undefined,
+      max_price: filter.max_price !== 250 ? filter.max_price : undefined,
+      is_most_purchased: filter.is_most_purchased ? filter.is_most_purchased : undefined,
+      is_highlight: filter.is_highlight ? filter.is_highlight : undefined,
+    };
+
+    const queryString = Object.entries(queryParams)
+      .filter(([key, value]) => value !== undefined)
+      .map(([key, value]) => `${key}=${value}`)
+      .join('&');
+
+    navigate(`/Products${queryString ? `?${queryString}` : ''}`);
+  } else {
+    isInitialRender.current = false;
+  }
+}, [filter, navigate]);
   // ...
   
   const isInitialRender = useRef<any>(true);
   
-  const handleChange = (value: string) => {
-    setFilter((prevFilter) => ({ ...prevFilter, category: value }));
+  
+  const handleChange = (value: any, option: any | Array<any>) => {
+    setFilter((prevFilter) => ({ ...prevFilter, category_id: option?.label }));
   };
+  
 
   const onChangeInput = (min: number, max: number) => {
-    setFilter((prevFilter) => ({ ...prevFilter, minPrice: min, maxPrice: max }));
+    setFilter((prevFilter) => ({ ...prevFilter, min_price: min, max_price: max }));
   };
 
-  const handleRadioChange = (e: RadioChangeEvent) => {
-    setFilter((prevFilter) => ({ ...prevFilter, selectedOption: e.target.value }));
+  const handleAllChange = (e: RadioChangeEvent) => {
+    setFilter((prevFilter) => ({ ...prevFilter, all: true ,is_highlight:false ,is_most_purchased:false }));
   };
 
+  const handleis_most_purchasedChange = (e: RadioChangeEvent) => {
+    setFilter((prevFilter) => ({ ...prevFilter, all: false ,is_highlight:false ,is_most_purchased:true }));
+  };
+  const handleis_highlightChange = (e: RadioChangeEvent) => {
+    setFilter((prevFilter) => ({ ...prevFilter, all: false ,is_highlight:true ,is_most_purchased:false }));
+  };
   return (
     <div className='ProductsFilter'>
       <span className='ProductsFilter_header'>ProductsFilter </span>
@@ -53,10 +87,10 @@ const ProductsFilter = () => {
 
       <div>
         <Select
-          value={filter.category}
+          value={filter.category_id}
           style={{ width: '100%' }}
           onChange={handleChange}
-          options={[{ value: 'jack', label: 'Jack' }]}
+          options={CategoriesArry}
         />
       </div>
       <div className='ProductsFilter_Text'>Price Range</div>
@@ -64,15 +98,15 @@ const ProductsFilter = () => {
         <InputNumber
           min={0}
           max={1000}
-          defaultValue={filter.minPrice}
-          onChange={(value) => onChangeInput(value as number, filter.maxPrice)}
+          defaultValue={filter.min_price}
+          onChange={(value) => onChangeInput(value as number, filter.max_price)}
         />
         {' > '}
         <InputNumber
           min={0}
           max={1000}
-          defaultValue={filter.maxPrice}
-          onChange={(value) => onChangeInput(filter.minPrice, value as number)}
+          defaultValue={filter.max_price}
+          onChange={(value) => onChangeInput(filter.min_price, value as number)}
         />
       </div>
       <Divider />
@@ -80,36 +114,37 @@ const ProductsFilter = () => {
       <Space direction='vertical'>
         <Radio
           value='all'
-          checked={filter.selectedOption === 'all'}
+          checked={filter.all === true}
           className='ProductsFilter_options'
-          onChange={handleRadioChange}
+          onChange={handleAllChange}
         >
           All
         </Radio>
         <Radio
           value='highlight'
-          checked={filter.selectedOption === 'highlight'}
+          checked={filter.is_highlight === true}
           className='ProductsFilter_options'
-          onChange={handleRadioChange}
+          onChange={handleis_highlightChange}
         >
           Highlight
+          
         </Radio>
         <Radio
           value='mostPurchased'
-          checked={filter.selectedOption === 'mostPurchased'}
+          checked={filter.is_most_purchased === true}
           className='ProductsFilter_options'
-          onChange={handleRadioChange}
+          onChange={handleis_most_purchasedChange}
         >
           Most Purchased
         </Radio>
-        <Radio
+        {/* <Radio
           value='favourite'
           checked={filter.selectedOption === 'favourite'}
           className='ProductsFilter_options'
           onChange={handleRadioChange}
         >
           Favourite
-        </Radio>
+        </Radio> */}
       </Space>
       <div></div>
     </div>

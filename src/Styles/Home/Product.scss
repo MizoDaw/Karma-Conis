@@ -4,6 +4,7 @@
     display: flex;
     justify-content: center;
     min-height: 350px;
+   
         h6,h3{
             text-wrap: nowrap;
 
@@ -47,9 +48,22 @@
     }
     
 }
+.Cart_Icon{
+    display: none;
+    position: absolute;
+    right: 30px;
+    bottom: -10px;
+
+}
+.Products_Header{
+    position: relative;
+}
 
 
 @media screen and (max-width: 600px) {
+    .Cart_Icon{
+        display: block;
+    }
 .Product_Info{
     padding: 10vw 0vw 20vw 0vw ;
     align-items: center;

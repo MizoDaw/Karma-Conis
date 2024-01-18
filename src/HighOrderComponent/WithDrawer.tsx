@@ -7,10 +7,11 @@ interface WithDrawerProps {
   children: ReactNode;
   title?:string;
   className?:string
-  width?: string
+  width?: string,
+  turn_of?:boolean
 }
 
-const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ,className,width = 250 }) => {
+const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ,className,width = 250 , turn_of}) => {
   const [open, setOpen] = useState(false);
   const [placement, setPlacement] = useState<DrawerProps['placement']>('right');
 
@@ -28,7 +29,7 @@ const WithDrawer: React.FC<WithDrawerProps> = ({ button, children,title ,classNa
         placement={placement}
         closable={false}
         onClose={() => setOpen(false)}
-        open={open}
+        open={turn_of ? false  :open}
         key={placement}
         width ={width}
       >

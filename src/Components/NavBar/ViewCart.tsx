@@ -3,7 +3,7 @@ import WithDrawer from '../../HighOrderComponent/WithDrawer'
 import { Badge, Button } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import CardItem from '../Ui/CardItem'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import { useCartData } from '../../Redux/DispatchData'
 import { useGetCart } from '../../api/cart'
 
@@ -11,17 +11,18 @@ const ViewCart = () => {
   const { DataCart,count} = useCartData()
   const {data } = useGetCart()
 
-  console.log(data?.data);
   
-  
+    const navigate = useNavigate()
   return (
     <div className='ViewCart'>
          <WithDrawer
          width='350'
+         turn_of={true}
+
     title="Cart Item"
       button={ 
-      <Badge className='Badge_Button' count={count}>
-          <div className="Cart_Icon">
+      <Badge className='Badge_Button' count={data?.data?.data?.at(0)?.cart_items_count} >
+          <div className="Cart_Icon"  onClick={()=>navigate('/cart')}>
           <ShoppingCartOutlined  />
 
           </div>

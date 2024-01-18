@@ -27,13 +27,13 @@ const MidBar = () => {
             <InputAutoComplete/>
         </div>
         <div className='MidBar_Right'>
-        <div className="Cart_Icon">
+        {/* <div className="Cart_Icon"> */}
         {/* <span style={{display:"flex" , flexDirection:"column",  alignItems:"center", marginTop:"20px"}}>
           <UserOutlined  />
           <p style={{}}>ibrahim</p>
         </span> */}
 
-          </div>
+          {/* </div> */}
    <ViewCart/>
     
 
