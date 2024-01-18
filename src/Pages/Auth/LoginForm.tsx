@@ -1,9 +1,10 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Formik, Form, Field } from 'formik';
 import Translate from '../../Components/Utils/Translate';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router-dom';
 import { TOKEN_KEY } from '../../config/AppKey';
+import { useLogin } from '../../api/auth';
 
 
 const LoginForm = () => {
@@ -11,14 +12,27 @@ const LoginForm = () => {
 
   const navigate = useNavigate()
 
-  
+    const {mutate , isSuccess ,data} =useLogin()
   const handelSubmit = (values:any)=>{
-
+    console.log(values);
     
+      mutate({
+        email:values.username,
+        password:values.password   
+      })
     // Implemnt Your Auth Code 
-    localStorage.setItem(TOKEN_KEY, "fake")
-    navigate('/', { replace: true })
+    // localStorage.setItem(TOKEN_KEY, "fake")
+    // navigate('/', { replace: true })
   }
+  useEffect(()=>{
+
+    if(isSuccess){
+      localStorage.setItem(TOKEN_KEY , ((data as any )?.data.token));
+          navigate('/', { replace: true })
+
+      
+    }
+  },[isSuccess])
   return (
     <div className='LoginForm'>
       <nav className='Login_Nav'>

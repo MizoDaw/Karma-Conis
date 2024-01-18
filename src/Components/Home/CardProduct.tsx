@@ -7,11 +7,13 @@ import useLoadingState from '../../Hooks/useLoadingState';
 import { Link } from 'react-router-dom';
 import { BaseURL } from '../../api/config';
 import useImageError from '../../Hooks/useImageError';
+import { useTranslation } from 'react-i18next';
 
 
 
 const CardProduct= ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
+  const {i18n} = useTranslation()
 
   return (
           <Skeleton className='unset' loading={loading} active >
@@ -29,7 +31,7 @@ const CardProduct= ({ item }:any) => {
                 <img src={BaseURL+item?.product_main_image|| UserImageURL} onError={useImageError} alt={item?.name} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
-                <div>{item?.name}</div>
+                {/* <div>{TranslateObject(item?.at(0)?.translations, i18n.language ,'name')}</div> */}
                 <span>
                   <div>
                     <strong>
