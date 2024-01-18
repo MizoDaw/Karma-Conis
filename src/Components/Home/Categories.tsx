@@ -8,7 +8,6 @@ import useLangCode from '../../Hooks/useLangCode';
 
 const Categories = ({item}:any) => {
   const code = useLangCode()
-  console.log(item?.category_translations,"item,,,,,,,,,,,,,,");
 
   return (
     <div className='Categories'>

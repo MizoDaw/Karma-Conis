@@ -24,9 +24,10 @@ const MidBar = () => {
         </div>
         <div className='MidBar_Right'>
         <div className="Cart_Icon">
-        <Link to="/auth">
+        {/* <span style={{display:"flex" , flexDirection:"column",  alignItems:"center", marginTop:"20px"}}>
           <UserOutlined  />
-        </Link>
+          <p style={{}}>ibrahim</p>
+        </span> */}
 
           </div>
    <ViewCart/>

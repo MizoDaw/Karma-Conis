@@ -1,11 +1,14 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import {  useNavigate } from 'react-router-dom';
 import { TOKEN_KEY } from '../../config/AppKey';
 import { Formik, Form, Field } from 'formik';
+import { useLogin } from '../../api/auth';
 const Auth = () => {
   const [isActive, setIsActive] = useState(false);
 
+  const {mutate , isSuccess , data} = useLogin()
+  
   const handleRegisterClick = () => {
     setIsActive(true);
   };
@@ -20,9 +23,23 @@ const Auth = () => {
   
   const handelSubmit = (values:any)=>{
 
-    localStorage.setItem(TOKEN_KEY, "fake")
-    navigate('/', { replace: true })
+      console.log(values);
+      
+    mutate({
+      email:values['email'],
+      password:values['password']
+    })
+    
   }
+
+  useEffect(()=>{
+    if(isSuccess){
+      console.log(data);
+      localStorage.setItem(TOKEN_KEY, (data as any )?.data?.token)
+    navigate('/', { replace: true })
+      
+    }
+  },[isSuccess])
   return (
     <div className='Auth'>
 <div  id="container" className={isActive ? 'container active' : 'container'}>
@@ -39,7 +56,8 @@ const Auth = () => {
       <Field name="email" type="email" placeholder="Email" />
       <Field name="password" type="password" placeholder="Password" />
       <button>Sign Up</button>
-    {/* </form> */}
+      <p className='navigateto' onClick={handleLoginClick} >or login</p>
+
     </Form>
     </Formik>
 
@@ -58,6 +76,9 @@ const Auth = () => {
       <Field name="password" type="password" placeholder="Password" />
       <a href="#">Forget Your Password?</a>
       <button>Sign In</button>
+      <p className='navigateto' onClick={handleRegisterClick} >or login</p>
+
+
       </Form>
     </Formik>
   </div>
@@ -69,6 +90,7 @@ const Auth = () => {
         <button className="hidden" id="login" onClick={handleLoginClick}>
           Sign In
         </button>
+
       </div>
       <div className="toggle-panel toggle-right">
         <h1>Hello, Friend!</h1>
