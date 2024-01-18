@@ -26,13 +26,13 @@ const App: React.FC = () => {
     }
   };
 
-
   const onSearchSubmit = (value: string) => {
-    // Prevent the default form submission
     if (value) {
       setQuery(value);
+      navigate(`/products?search=${value}`);
     }
   };
+
 
   const options = results.map((name: any) => ({
     value: name,
@@ -47,6 +47,7 @@ const App: React.FC = () => {
       </div>
     ),
   }));
+  
 
   return (
     <AutoComplete

@@ -353,6 +353,9 @@ justify-content: center;
 
 .Products{
     @media screen and (max-width: 910px)  {  
+      .Products_Header{
+         display: none;
+   }
         .Card_Product{
      width: 150px;
      height: 220px;
@@ -581,9 +584,3 @@ justify-content: center;
          
 
 
-@media screen and (max-width: 500px)  {
-.secondary{
-   // display: none;
-}
-
-}

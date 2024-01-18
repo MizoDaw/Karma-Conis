@@ -8,7 +8,7 @@ import { useGetAllProduct, useGetAllProductWithPaginations } from '../../api/Pro
 
 const Products = () => {
 
-  const [style, setstyle] = useState(false)
+  const [style, setstyle] = useState(true)
   const { data } = useGetAllProductWithPaginations();
   console.log(data);
   
