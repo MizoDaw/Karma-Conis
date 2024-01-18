@@ -21,7 +21,7 @@ const App: React.FC = () => {
     const selectedItem = data?.data?.find((item: any) => item?.product_translations[0]?.name === value);
     
     if (selectedItem) {
-      navigate(`/product/${selectedItem?.product_translations[0]?.id}`);
+      navigate(`/product/${selectedItem.id}`);
     }
   };
 
