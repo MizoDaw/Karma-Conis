@@ -1,6 +1,39 @@
 
 
    @media screen and (max-width: 600px) {
+      
+      .logo_drawer_container{
+         display: flex;justify-content: space-between;
+         align-items: start;
+         h1{
+             line-height: 25px;
+            font-size: 15px;
+            font-weight: bold;
+            color: var(--primary);
+
+         }
+         .logo_bg{
+            background: var(--primary);
+            // position: relative;
+            border-radius: 50%;
+            display: flex;justify-content: center;align-items: center;
+            height: 40px;width: 40px;
+            .logo_drawer{
+               width: 80%;
+            }
+         }
+      }
+      .Link_NavMenu{
+         img{
+         display: none !important;
+         }
+         
+         h1{
+            font-size: 20px;
+            font-weight: bold;
+            color: var(--secondary);
+         }
+      }
                     .Menu_Group,.MidBar_Left,.MidBar_Right,.NavMenus,.BottomBar{
                         display: none;
                     }
@@ -10,7 +43,7 @@
          padding-bottom: 20px;
       }
       .menu_nav_icon{
-         margin-top: 20px;
+         // margin-top: 20px;
       }
       .ViewCart{
          margin-top: 10px;
@@ -35,14 +68,15 @@
     .MenuButton{
       background: var(--primary) !important;
       .Menu_anv{
-         .Link{
-            font-size: 15px;
-            font-weight: 400;
-            text-transform: capitalize;
-            :hover{
-               background: #000;
-            }
-        }
+         
+         // .Link{
+         //    font-size: 15px;
+         //    font-weight: 400;
+         //    text-transform: capitalize;
+         //    :hover{
+         //       background: #000;
+         //    }
+      //   }
       }
     }
 
