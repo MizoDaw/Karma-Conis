@@ -19,12 +19,11 @@ const Auth = () => {
   };  
   const [t] = useTranslation();
 
-  const navigate = useNavigate()
 
   
   
   return (
-    <div className='Auth'>
+    <div className='Auth logo_image_bg'>
 <div  id="container" className={isActive ? 'container active' : 'container'}>
   <RegisterForm
   handleLoginClick={handleLoginClick}
@@ -34,9 +33,10 @@ const Auth = () => {
     handleRegisterClick={handleRegisterClick}
   
   />
-  <div className="toggle-container">
+  <div className="toggle-container ">
     <div className="toggle">
-      <div className="toggle-panel toggle-left">
+      <div className="toggle-panel toggle-left  "  >
+
         <h1>Welcome Back!</h1>
         <p>Enter your personal details to use all of site features</p>
         <button className="hidden" id="login" onClick={handleLoginClick}>

@@ -27,11 +27,12 @@ function LoginForm({handleRegisterClick}:any) {
     },[isSuccess , Navigate , data])
   return (
     <div className="form-container sign-in">
-  <Formik
+  <Formik 
         initialValues={{ email: '', password: '' }}
         onSubmit={handelSubmit}
       >
-        <Form>
+        <Form >
+      <img  src='/logo/Logo.png' style={{width:210}} />
       <h1>Sign In</h1>
       <div  className='login_dev'>
       <label>Email</label>

@@ -3,10 +3,11 @@ import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useRegister } from '../../api/auth';
 import { authStorage } from '../../auth/AuthStorage';
+import { LoadingButton } from '../../Components/Utils/Loading/LoadingButton';
 
 function RegisterForm({ handleLoginClick }: any) {
   const navigate = useNavigate()
-  const { mutate, isSuccess, data } = useRegister()
+  const { mutate, isSuccess, data , isLoading } = useRegister()
 
   const handelSubmit = (values: any) => {
 
@@ -38,6 +39,8 @@ function RegisterForm({ handleLoginClick }: any) {
       >
         <Form>
           {/* <form> */}
+          <img  src='/logo/Logo.png' style={{width:160}} />
+
           <h2>Create Account</h2>
           <div className='login_dev'>
           <label>Name</label>
@@ -52,7 +55,7 @@ function RegisterForm({ handleLoginClick }: any) {
           <label>Password</label>
           <Field name="password" type="password" placeholder="Password" />
           </div>
-          <button>Sign Up</button>
+          <LoadingButton isLoading={isLoading}>Sign Up</LoadingButton >
           <p className='navigateto' onClick={handleLoginClick} >or login</p>
 
         </Form>
