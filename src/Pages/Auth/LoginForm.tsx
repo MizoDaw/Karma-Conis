@@ -2,12 +2,14 @@ import { Field, Form, Formik } from 'formik'
 import React, { useEffect } from 'react'
 import { useLogin } from '../../api/auth'
 import { LoadingButton } from '../../Components/Utils/Loading/LoadingButton'
-import { Navigate, useNavigate } from 'react-router-dom'
-import { authStorage } from '../../auth/AuthStorage'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { login } from '../../Redux/auth/AuthReducer'
 
 function LoginForm({handleRegisterClick}:any) {
   const Navigate = useNavigate() 
     const {mutate , isSuccess ,isLoading, data} = useLogin()
+    const dispatch = useDispatch()
 
     const handelSubmit = (values:any)=>{
 
@@ -19,12 +21,12 @@ function LoginForm({handleRegisterClick}:any) {
     
     useEffect(()=>{
       if(isSuccess){
-        authStorage.storeToken((data as any )?.data?.token)
-        authStorage.storeUser((data as any )?.data?.user)
+        dispatch(login((data as any )?.data))
+        
       Navigate('/', { replace: true })
         
       }
-    },[isSuccess , Navigate , data])
+    },[isSuccess , Navigate, dispatch , data])
   return (
     <div className="form-container sign-in">
   <Formik 
