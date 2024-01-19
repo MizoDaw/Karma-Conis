@@ -32,8 +32,8 @@ function LoginForm({handleRegisterClick}:any) {
         onSubmit={handelSubmit}
       >
         <Form >
-      <img  src='/logo/Logo.png' style={{width:210}} />
-      <img  src='/logo/logo3.png' style={{width:210}} />
+      {/* <img  src='/logo/Logo.png' style={{width:210}} /> */}
+      <img  src='/logo/logo3.png' style={{width:110}} />
 
       <h1>Sign In</h1>
       <div  className='login_dev'>

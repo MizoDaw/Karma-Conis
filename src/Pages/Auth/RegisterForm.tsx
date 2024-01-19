@@ -39,7 +39,7 @@ function RegisterForm({ handleLoginClick }: any) {
       >
         <Form>
           {/* <form> */}
-          <img  src='/logo/Logo.png' style={{width:160}} />
+          <img  src='/logo/logo3.png' style={{width:100}} />
 
           <h2>Create Account</h2>
           <div className='login_dev'>
