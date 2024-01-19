@@ -7,13 +7,14 @@
  
         .logo_contianer{
             width:25%;
-            background: var(--primary);
+            // background: var(--primary);
             height: 5vw;
-            border-radius: 50%;
+            // border-radius: 50%;
             display: flex;align-items: center;justify-content: center;
             .logo{
+
                 display: flex;justify-content: center;align-items: center;
-                width: 80%;
+                width: 9vw;
             }
         }
         .cls-2{
