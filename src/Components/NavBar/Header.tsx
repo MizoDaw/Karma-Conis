@@ -9,50 +9,42 @@ import { Dropdown } from 'antd';
 import { NavLink } from 'react-router-dom';
 import Translate from '../Utils/Translate';
 
-const HeaderText = 'KARMNTINA'
+const HeaderText = 'Karma Antique Ecommerce'
 const Header = () => {
   const [t] = useTranslation();
-  const { isAuthenticated } = useAuth();
-  const state = useSelector((state:any) => state.auth)
+  const {isAuthenticated} = useSelector((state:any) => state.auth)
 
-  console.log(state);
-  const [refreash , setRefreash] = useState(false)
   const dispatch = useDispatch()
   
-  const [Open, setOpen] = useState(false)
 
 
 
   return (
     <div className='Header d-flex'>
-      {Open ? <div className='BlackScreen'></div> : ''}
      
       <div className='Header__Left'>
 
 
-        <div className='Sha5da'><FaEnvelope /> {"hello"}</div>
+        <div className='Sha5da'><FaEnvelope /> {"info@leunumismatik.com"}</div>
         <div> {t(`${HeaderText}`)} </div>
       </div>
 
       <div className='Header__Right'>
        
         <div className='Header__Right_2'>
-          {/* <LanguageDropdown /> */}
           <Translate/>
-          {/* <Dropdown/> */}
         </div>
         <div className='Header__Right_3' >
           {
           isAuthenticated? (
                 <div onClick={()=>{
                   dispatch(logout())
-                  setRefreash(v => !v)
                 }}>
                     <FaUser size={13}/>
                 {t("Logout")}
                 </div>
             ) : (
-              <NavLink to={'/login'}>
+              <NavLink to={'/auth'}>
                <FaUser size={13}/>
                 {t("Login")}
               </NavLink>

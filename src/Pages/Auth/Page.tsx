@@ -6,10 +6,20 @@ import { Formik, Form, Field } from 'formik';
 import { useLogin, useRegister } from '../../api/auth';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
+import { useSelector } from 'react-redux';
 const Auth = () => {
   const [isActive, setIsActive] = useState(false);
+  const  {isAuthenticated}= useSelector((state:any)=>state.auth)
+  const navigate = useNavigate()
 
+  useEffect(()=>{
 
+    if(isAuthenticated){
+      navigate('/')
+    }
+  },[isAuthenticated])
+  console.log(isAuthenticated);
+  
   const handleRegisterClick = () => {
     setIsActive(true);
   };

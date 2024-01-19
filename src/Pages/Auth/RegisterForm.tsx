@@ -2,13 +2,15 @@ import { Field, Form, Formik } from 'formik'
 import React, { useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import { useRegister } from '../../api/auth';
-import { authStorage } from '../../auth/AuthStorage';
 import { LoadingButton } from '../../Components/Utils/Loading/LoadingButton';
+import { useDispatch } from 'react-redux';
+import { register } from '../../Redux/auth/AuthReducer';
 
 function RegisterForm({ handleLoginClick }: any) {
   const navigate = useNavigate()
   const { mutate, isSuccess, data , isLoading } = useRegister()
 
+  const dispatch = useDispatch()
   const handelSubmit = (values: any) => {
 
     mutate(
@@ -25,12 +27,12 @@ function RegisterForm({ handleLoginClick }: any) {
 
   useEffect(() => {
     if (isSuccess) {
-      authStorage.storeToken((data as any)?.data?.token)
-      authStorage.storeToken((data as any)?.data?.user)
+      dispatch(register((data as any)?.data))
+   
       navigate('/', { replace: true })
 
     }
-  }, [isSuccess, navigate, data])
+  }, [isSuccess, navigate, data , dispatch])
   return (
     <div className="form-container sign-up">
       <Formik
@@ -39,7 +41,7 @@ function RegisterForm({ handleLoginClick }: any) {
       >
         <Form>
           {/* <form> */}
-          <img  src='/logo/logo3.png' style={{width:100}} />
+          <img  src='/logo/logo3.png' style={{width:100}}  alt='LOGO'/>
 
           <h2>Create Account</h2>
           <div className='login_dev'>
