@@ -20,7 +20,7 @@ function useAddMutation(key: string, url: string): UseMutationResult<AxiosRespon
     {
       onSuccess: (data) => {
         queryClient.invalidateQueries([key]);
-        toast.success(data.message || "Add Successful");
+        // toast.success(data.message || "Add Successful");
 
         
       },

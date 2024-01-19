@@ -12,7 +12,6 @@ import Highlight from '../../Components/Home/Sections/Highlight'
 import Purchase from '../../Components/Home/Sections/Purchase'
 
 const Page = () => {
-    const { Product } = useProductData()
     
     const {data} = useGetAllHome();
     

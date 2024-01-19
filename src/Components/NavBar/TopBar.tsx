@@ -51,14 +51,14 @@ const TopBar = (data:any) => {
             </div>
 
             <ul className='Media_Icon'>
-             {SosialMediaData?.map((item:any,index:any)=>{
+             {/* {SosialMediaData?.map((item:any,index:any)=>{
 
               return(
               <li key={index}><a href={item?.social_media_link}>
                 <img className='SocialMediaIMage' src={BaseURL + item?.social_media_image} alt="" />
                 </a></li>
               )
-             })}
+             })} */}
             </ul>
             <div className='MenuNav'>
 
