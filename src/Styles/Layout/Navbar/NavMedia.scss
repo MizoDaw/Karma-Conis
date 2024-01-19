@@ -67,6 +67,8 @@
     align-items: flex-start;
     .MenuButton{
       background: var(--primary) !important;
+      // background: red;
+         height: 41px;
       .Menu_anv{
          
          // .Link{
@@ -108,3 +110,51 @@
                
                     
    }
+
+
+.Top_Section_Right{
+   display: flex; align-items: center;
+   justify-content: center;
+   flex-direction: column;
+   h4{
+       font-weight: bold;
+       font-size: .3em !important;
+   }
+.Phone1{
+   height: 50px;
+   width: 50px;
+
+   background: #f5f5f5;
+   line-height: 50px;
+   text-align: center;
+   border-radius: 50%;
+   // float: left;
+  
+   margin-right: 20px;
+   color: var(--primary);
+
+}
+   svg{
+       font-size: 1.2vw;
+      
+   }
+   .Phone2{
+      width: 100%;
+
+   right: 7px;
+      align-items: center;
+      display: flex;justify-content: center;
+       h3{
+           font-weight: 900;
+           text-align: center;
+           font-size: .6em;
+       }
+   }
+}
+
+
+@media screen and (max-width: 450px) {
+   .Top_Section_Right{
+    display: none;
+   }
+}
