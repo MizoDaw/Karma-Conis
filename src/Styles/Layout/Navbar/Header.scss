@@ -202,6 +202,11 @@
         font-size: 1.2vw;
         margin-inline: 6px;
     }
+    @media screen and (max-width:430px) {
+        &{
+            font-size:.35em;
+        }
+    }
     font-size: .8em;
 }
 .Header__Right{
