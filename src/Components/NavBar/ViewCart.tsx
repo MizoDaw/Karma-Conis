@@ -1,6 +1,6 @@
 import React from 'react'
 import WithDrawer from '../../HighOrderComponent/WithDrawer'
-import { Badge, Button } from 'antd'
+import { Badge, Button, Tooltip } from 'antd'
 import { ShoppingCartOutlined } from '@ant-design/icons'
 import CardItem from '../Ui/CardItem'
 import { Link, useNavigate } from 'react-router-dom'
@@ -23,13 +23,16 @@ const ViewCart = () => {
       button={ 
       <Badge className='Badge_Button' count={data?.data?.data?.at(0)?.cart_items_count} >
           <div className="Cart_Icon"  onClick={()=>navigate('/cart')}>
+          <Tooltip title="cart">
           <ShoppingCartOutlined  />
+          </Tooltip>
 
           </div>
     </Badge>
     }
     >
       <div className='Drawer_Body'>
+        
     <div className='Card_Items'>
       {DataCart.map((item:any, index:number) => (
         <CardItem data={item} />

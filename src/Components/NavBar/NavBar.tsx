@@ -9,7 +9,6 @@ const NavBar = ({data}:any) => {
     <>
       <Header/>
     <div>
-        {/* <TopBar data={data}/> */}
      <div className='FnBar'>
        <MidBar/>
       <BottomBar/>

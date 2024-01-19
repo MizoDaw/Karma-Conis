@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import ViewCart from './ViewCart';
 import { MenuOutlined, ShoppingCartOutlined, UserOutlined } from '@ant-design/icons';
 import WithDrawer from '../../HighOrderComponent/WithDrawer';
-import { Button, Divider } from 'antd';
+import { Button, Divider, Tooltip } from 'antd';
 import Theme from '../Utils/Theme';
 import Translate from '../Utils/Translate';
 import { CiHome } from "react-icons/ci";
@@ -13,6 +13,7 @@ import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { LuBoxes } from "react-icons/lu";
 import { useState } from 'react';
 import { TOKEN_KEY } from '../../config/AppKey';
+import { FaPhoneAlt } from 'react-icons/fa';
 
 const MidBar = () => {
   const [isAuth , setIsAuth] = useState<any>(localStorage.getItem(TOKEN_KEY))
@@ -31,16 +32,22 @@ const MidBar = () => {
             <InputAutoComplete/>
         </div>
         <div className='MidBar_Right'>
-        {/* <div className="Cart_Icon"> */}
-        {/* <span style={{display:"flex" , flexDirection:"column",  alignItems:"center", marginTop:"20px"}}>
-          <UserOutlined  />
-          <p style={{}}>ibrahim</p>
-        </span> */}
+        <div className='Top_Section_Right'>
+                <div className='Phone1'>
+            <Tooltip title="0951968994" >
+            <FaPhoneAlt/>
 
-          {/* </div> */}
-   <ViewCart/>
-    
-
+            </Tooltip>
+            </div>
+            <div className='Phone2'>
+            {/* <h3>{('951968994')}</h3> */}
+            
+            </div>
+            </div>
+              <ViewCart/>
+            
+              
+   
         </div>
         <div className='MediaMenu'> 
         {/* <ViewCart/> */}
