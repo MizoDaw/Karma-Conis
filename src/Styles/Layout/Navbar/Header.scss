@@ -186,7 +186,11 @@
     align-items: center;
     padding: 2vh 8vw;
     background: var(--primary);
-
+    @media screen and (max-width:430px) {
+        &{
+            padding: 0  5vw;
+        }
+    }
 }
 .Sha5da{
     padding:  0 10px ;
@@ -223,7 +227,7 @@
     .Header__Right_2{
        cursor: pointer;
         margin-inline: 20px;
-        font-size: 14px     ;
+        font-size: 1em     ;
         svg,img{
            margin-inline: 10px; 
         }
@@ -237,6 +241,12 @@
         padding:  0 10px ;
         margin-top: 5px;
 
+        font-size:.8em;
+        @media screen and (max-width:430px) {
+            &{
+                font-size:.5em;
+            }
+        }
         svg{
             margin-inline: 10px;
             
