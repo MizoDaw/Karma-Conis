@@ -6,10 +6,10 @@
     }       
     .BigAds{
         display: flex; flex-direction: column;
-        img{
+        img:nth-child(1){
             width: 96% !important;
-            // justify-content: center !important;align-items: center !important;
-            // margin-inline: auto !important;
+            margin-top: -20px !important;
+            line-height: 30px;
         }
     }     
  .HeroSection_Carousel{
