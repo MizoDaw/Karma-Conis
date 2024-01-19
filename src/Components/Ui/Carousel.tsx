@@ -34,7 +34,11 @@
 import React from 'react';
 import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
-const bannerData  = [
+
+
+const CarouselApp = (data:any) =>{
+
+  const bannerData  = [
     {
       imageUrl: '../Coins/coins_home_image.jpg',
       title: 'NEW ARRIVALS',
@@ -60,24 +64,23 @@ const bannerData  = [
       btn:"Shop Now"
     },
   ]
+  return (
 
-const CarouselApp = (data:any) => (
-
-  
-  <Carousel autoplay>
-    {data?.data?.data.map((item:any, index:number) => (
-      <div className='banner_Container' key={index}>
-        <img alt='' className='banner1' src={item.imageUrl} />
-        <div className='banner_Info'>
-          <h1 className='underLineText'>{item.title}</h1>
-          <h2>
-            {item.subtitle} <br /> <strong>{item.discount}</strong>
-          </h2>
-          <Link to={item.link}>{item?.btn} &#8599; </Link>
+    <Carousel autoplay>
+      {bannerData.map((item:any, index:number) => (
+        <div className='banner_Container' key={index}>
+          <img alt='' className='banner1' src={item.imageUrl} />
+          <div className='banner_Info'>
+            <h1 className='underLineText'>{item.title}</h1>
+            <h2>
+              {item.subtitle} <br /> <strong>{item.discount}</strong>
+            </h2>
+            <Link to={item.link}>{item?.btn} &#8599; </Link>
+          </div>
         </div>
-      </div>
-    ))}
-  </Carousel>
-);
+      ))}
+    </Carousel>
+  );
+}
 
 export default CarouselApp;
