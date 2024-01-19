@@ -245,7 +245,11 @@
     }
   
 @media screen and (max-width: 650px)  {
+   .Cards {
+         max-height: 280px !important;
+   }
        .Card_Product{
+         margin-inline: auto;
          .product_icons{
             top: 68%;
             right: 10%;
@@ -327,9 +331,9 @@
     .Card_Product_Bottom{
       padding-inline: 5px;
       flex: 20%;
-      font-size: 1.7vw;
+      font-size: 15px;
       .ant-rate {
-         font-size: 1.7vw !important;
+         font-size: 15px !important;
       }
             strong{
                color: var(--secondary);

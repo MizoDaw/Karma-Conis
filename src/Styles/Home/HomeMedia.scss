@@ -12,6 +12,18 @@
             line-height: 30px;
         }
     }     
+    .SubTitle{
+ 
+        padding:  10px 10px 10px 10px;
+      
+        font-size: 13px;
+   
+      }
+      .HeroSection{
+        height: 54vw;
+        margin-bottom: 30px;
+
+      }
  .HeroSection_Carousel{
         width: 100% !important;
         height: 100%;
@@ -19,12 +31,38 @@
                 margin-top: 5px;
             margin-inline: 20px;
                 width: 100%;
-                height: 33vw;
+                height: 54vw !important;
 
                 object-fit: fill !important;
             }
   
   }       
+  .banner_Container{
+    position: relative;
+    .banner1{
+        width: 100% !important;
+        object-fit: fill !important;
+    }
+    .banner_Info{
+        position: absolute;
+        top: 20%;
+        left: 10%;
+        color: var(--white);
+        h1{
+            font-size: 5.5vw;
+        }
+        h2{
+            font-size: 3.5vw;
+            font-weight: bold;
+        }
+        strong{
+            color: var(--secondary);
+        }
+        a{
+            font-size: 3vw;
+        }
+    }
+}
     
         .special_properties{
     width: 90%;
@@ -90,6 +128,7 @@
             }
         }
     }
+  
 }
 
 @media screen and (max-width: 700px) {
@@ -101,6 +140,68 @@
             }
         }
     }
+    .Moves_Ads{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 3vw auto;
+    @include Shadow;
+    padding:  0vw 20px;
+    background: var(--primary);
+    position: relative;
+    overflow: hidden;
+    .Moves_Ads_Left{
+              width: 35vw;
+        height: 50px;
+        background: var(--secondary);
+        display: flex; justify-content: center; align-items: center;
+        transform: skewX(-35deg);
+        z-index: 5;
+        position:relative;
+        left:-7vw;
+        font-weight: bold;
+        color: var(--bg);
+        font-size: 2.2vw;
+        padding-left: 4vw;
+
+     
+
+}
+
+
+}
+
+
+.Moves_Ads_Right_Text {
+    background-color: transparent;
+
+    color: transparent;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 5px;
+    overflow: hidden;
+    position: relative;
+    &::before {
+        content: attr(data-text); 
+        position: absolute;
+        top: -25%;
+      white-space: nowrap;
+      animation: moveText 15s linear infinite;
+      color: var(--white);
+      font-weight: bold;
+      font-size: 2vw;
+    }
+  
+    @keyframes moveText {
+      from {
+        right: -500%;
+      }
+      to {
+        right: 900%; /* Move off-screen to the left */
+      }
+    }
+  }
 }
 @media screen and (max-width: 450px) {
     .Moves_Ads{

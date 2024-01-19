@@ -21,15 +21,23 @@ const CardSwiper: React.FC<CardSwiperProps> = ({ data }) => {
         freeMode={true}
       
         breakpoints={{
-          200: {
+          260: {
             slidesPerView: 1,
             spaceBetween: 10,
           },
-          300: {
+          360: {
+            slidesPerView: 1,
+            spaceBetween: 10,
+          },
+          430: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
-          500: {
+          570: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          640: {
             slidesPerView: 3,
             spaceBetween: 20,
           },

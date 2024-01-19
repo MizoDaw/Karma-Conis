@@ -36,7 +36,7 @@
         img{
             height: 16vw;
             width: 100%;
-            object-fit: contain;
+            // object-fit: contain;
         }
 }
  .ant-carousel .slick-initialized .slick-dots-bottom li button{
@@ -205,7 +205,7 @@
         position: absolute;
         top: -15%;
       white-space: nowrap;
-      animation: moveText 5s linear infinite;
+      animation: moveText 15s linear infinite;
       color: var(--white);
       font-weight: bold;
       font-size: 2vw;
@@ -296,9 +296,9 @@
 
 
 @media screen and (max-width:650px) {
-    // .SubTitle{
-    //     z-index: 9999999 !important;
-    //     margin-bottom: -12vw !important;
+.BigAds{
+    display: none !important;
+}
     }
 
 // }
