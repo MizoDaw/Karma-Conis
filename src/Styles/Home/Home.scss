@@ -223,7 +223,7 @@
   
   .SubTitle{
     width: 90%;
-    margin: 1vw 2vw ;
+    margin: 1vw auto ;
     padding:  1vw 2vw 0vw 2vw;
     display: flex;
     justify-content: space-between;
@@ -231,6 +231,15 @@
     color: var(--text);
     font-size: 20px;
     font-weight: bolder;
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    @include Shadow;
+    padding:  1vw 2vw;
+
+    background: var(--bg);
     svg{
         color: var(--secondary);
         font-size: 20px;
@@ -243,9 +252,14 @@
 
   .BigAds{
     display: flex;
-    padding: 10px 2vw;
-    width: 100%;
+    padding: 10px 0vw;
+    width: 90%;
     gap: 20px;
+    margin-inline: auto;
+    margin-bottom: 40px;
+    font-weight: bold;
+
+
     >div{
         flex: 50%;
         height: 150px;
@@ -260,7 +274,8 @@
         padding: 20px;
             position: absolute;
             top: 0;
-            color: var(--text);
+            color: var(--white);
+            font-weight: bold;
 
             >div{
                 display: flex; gap: 5px;

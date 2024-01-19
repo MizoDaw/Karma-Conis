@@ -20,7 +20,9 @@ const Page = () => {
   return (
     <Layout data={data} className='HomePage'>
       <HeroSection data={data?.data?.slider} />
-      <CategoriesSwiper data={data} />
+      <SpecialProperties data={specialPropertiesData} />
+      {/* <CategoriesSwiper data={data} /> */}
+
       <MovesAds {...MovesAdsData} />
       <Highlight data={data?.data?.product_highlight}  />
       <BigAds data={data?.data?.ads} />
