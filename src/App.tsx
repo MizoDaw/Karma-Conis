@@ -9,6 +9,8 @@ import Products from './Pages/Product/Products';
 import About from './Pages/About/About';
 import Contact from './Pages/Contact/Contact';
 import Consigne from './Pages/Consigne/Consigne';
+import SingleOrderPage from './Pages/SingleOrder/SingleOrderPage';
+import OrdersPage from './Pages/Orders/OrdersPage';
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
 
 const App = () => {
@@ -24,7 +26,9 @@ const App = () => {
       <Route path="/cart" element={<Suspense fallback={<Loading />}> <CartPage /></Suspense>} />
       <Route path="/about" element={<Suspense fallback={<Loading />}> <About /></Suspense>} />
       <Route path="/contact" element={<Suspense fallback={<Loading />}> <Contact /></Suspense>} />
+      <Route path="/single_order" element={<Suspense fallback={<Loading />}> <SingleOrderPage /></Suspense>} />
       <Route path="/consigne" element={<Suspense fallback={<Loading />}> <Consigne /></Suspense>} />
+      <Route path="/orders" element={<Suspense fallback={<Loading />}> <OrdersPage /></Suspense>} />
 
 
     </Routes>
