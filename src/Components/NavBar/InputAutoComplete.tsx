@@ -3,11 +3,13 @@ import { AutoComplete, Input } from 'antd';
 import { useGetAllProductWithSearch } from '../../api/Product';
 import { useNavigate, useLocation } from 'react-router-dom';
 import useSearchResults from '../../Hooks/useSearchResults';
+import { useTranslation } from 'react-i18next';
 
 const App: React.FC = () => {
   const { data } = useGetAllProductWithSearch();
   const navigate = useNavigate();
   const location = useLocation();
+  const [t] = useTranslation();
 
   const names = data?.data?.map((item: any) => item?.product_translations[0]?.name);
 
@@ -47,7 +49,7 @@ const App: React.FC = () => {
       </div>
     ),
   }));
-  
+
 
   return (
     <AutoComplete
@@ -56,7 +58,7 @@ const App: React.FC = () => {
       onSelect={onSelect}
       onSearch={handleSearch}
     >
-      <Input.Search size='large' placeholder='input here' enterButton onSearch={onSearchSubmit} />
+      <Input.Search size='large' placeholder={t(`Search here`)} enterButton onSearch={onSearchSubmit} />
     </AutoComplete>
   );
 };

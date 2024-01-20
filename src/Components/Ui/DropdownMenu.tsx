@@ -3,10 +3,12 @@ import { Dropdown, Button, Menu } from 'antd';
 import { AppstoreOutlined, DownOutlined, MailOutlined } from '@ant-design/icons';
 import { useGetAllCategories } from '../../api/categories';
 import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const DropdownMenu = () => {
   const { data, isError, isLoading } = useGetAllCategories();
   const navigate = useNavigate()
+  const [t] = useTranslation();
 
   if (isLoading) {
     return <div>Loading...</div>;
@@ -37,11 +39,12 @@ const DropdownMenu = () => {
     </Menu>
   );
 
+
   return (
     <Dropdown overlay={menu} placement="bottomLeft" className="DropdownMenu" trigger={['click']}>
       <Button>
         <AppstoreOutlined />
-        Categories
+        {t("Categories")}
         <DownOutlined />
       </Button>
     </Dropdown>
