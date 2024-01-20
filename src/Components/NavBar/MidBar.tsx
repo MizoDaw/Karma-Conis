@@ -14,17 +14,21 @@ import { LuBoxes } from "react-icons/lu";
 import { useState } from 'react';
 import { TOKEN_KEY } from '../../config/AppKey';
 import { FaPhoneAlt } from 'react-icons/fa';
+import { useDispatch, useSelector } from 'react-redux';
+import { logout } from '../../Redux/auth/AuthReducer';
 
 const MidBar = () => {
-  const [isAuth , setIsAuth] = useState<any>(localStorage.getItem(TOKEN_KEY))
-  const navigate = useNavigate()
+  const {isAuthenticated} = useSelector((state:any) => state.auth)
+
+  const dispatch = useDispatch()
+    const navigate = useNavigate()
 
   return (
     <div className="MidBar">
         <div className='MidBar_Left'>  
           <div className='logo_contianer'>
             <Link className='logo' to="/">
-              <img src='../logo-without-text.png' alt='logo' className='logo'/>
+              <img src='/logo/logo3.png' alt='logo' className='logo'/>
             </Link>
           </div>
         </div>
@@ -62,7 +66,7 @@ const MidBar = () => {
                 <h1>Karma Coins
                   <br/>
                   {
-                    ! isAuth ?
+                    ! isAuthenticated ?
                       <>
                         <Link className='Link' to={'/auth'}  onClick={()=>navigate('/auth' )}>  <h1>Login</h1> </Link>
                     
@@ -70,8 +74,7 @@ const MidBar = () => {
                       <>
 
                       <h1 onClick={()=>{
-                        localStorage.removeItem(TOKEN_KEY)
-                        setIsAuth(false)
+                        dispatch(logout())
                       }}>Logout</h1>
                       </>
 

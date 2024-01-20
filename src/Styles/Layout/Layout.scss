@@ -1,6 +1,15 @@
 .Footer{
     width: 100%;
     margin-top: 30px;
+    p , a {
+        color: white !important;
+        font-weight: 400 !important;
+    }
+    h6{
+        color: whitesmoke;
+        opacity: .8;
+        font-weight: 800 !important;
+    }
     .Footer_Header{
         background-color: var(--secondary);
         color: var(--bg);
@@ -47,4 +56,12 @@
        margin-top: 5px;
     background: var(--secondary);
     color: var(--bg);
+   }
+
+   .footer_links{
+    display:"flex";
+     align-items:"center";
+     width:"100%";
+      justify-content:"center";
+
    }
