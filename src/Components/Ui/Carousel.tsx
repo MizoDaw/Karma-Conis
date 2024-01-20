@@ -34,6 +34,7 @@
 import React from 'react';
 import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 const CarouselApp = (data:any) =>{
@@ -64,6 +65,8 @@ const CarouselApp = (data:any) =>{
       btn:"Shop Now"
     },
   ]
+  const [t] = useTranslation();
+
   return (
 
     <Carousel autoplay>
@@ -71,11 +74,11 @@ const CarouselApp = (data:any) =>{
         <div className='banner_Container' key={index}>
           <img alt='' className='banner1' src={item.imageUrl} />
           <div className='banner_Info'>
-            <h1 className='underLineText'>{item.title}</h1>
+            <h1 className='underLineText'> {t(`${item.title}`)} </h1>
             <h2>
-              {item.subtitle} <br /> <strong>{item.discount}</strong>
+            {t(`${item.subtitle}`)} <br /> <strong> {t(`${item.discount}`)} </strong>
             </h2>
-            <Link to={item.link}>{item?.btn} &#8599; </Link>
+            <Link to={item.link}> {t(`${item.btn}`)}  &#8599; </Link>
           </div>
         </div>
       ))}

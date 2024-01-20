@@ -1,6 +1,7 @@
 import React from 'react';
 import { THeroAd } from '../../Layout/app/Types';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 const HeroAds = ({data}:any) => {
@@ -11,7 +12,7 @@ const HeroAds = ({data}:any) => {
       subtitle: 'SUMMER SALE',
       discount: '30% OFF',
       link: '/',
-          btn:"shop now"
+            btn:"Shop Now"
   
     },
     {
@@ -20,10 +21,12 @@ const HeroAds = ({data}:any) => {
       subtitle: 'SUMMER SALE',
       discount: '40% OFF',
       link: '/',
-          btn:"shop now"
+            btn:"Shop Now"
   
     },
   ];
+  const [t] = useTranslation();
+
   
   return (
     <div className='HeroSection_Ads'>
@@ -31,11 +34,11 @@ const HeroAds = ({data}:any) => {
         <div className='Ad_Container' key={index}>
           <img alt='' className='banner1' src={item.imageUrl} />
           <div className='Ad_Info'>
-            <h4 className='underLineText'>{item.title}</h4>
+            <h4 className='underLineText'> {t(`${item.title}`)}</h4>
             <h5>
-              {item.subtitle} <br /> <strong>{item.discount}</strong>
+            {t(`${item.subtitle}`)}  <br /> <strong> {t(`${item.discount}`)} </strong>
             </h5>
-            <Link to={item.link}>{item?.btn}</Link>
+            <Link to={item.link}> {t(`${item.btn}`)} </Link>
           </div>
         </div>
       ))}

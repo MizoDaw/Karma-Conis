@@ -139,5 +139,5 @@ export const specialPropertiesData: TSpecialProperty[] = [
   },
 ];
 
- export const MovesAdsData :TMovesAdsData={LeftText:'Auction Incomming ... ', RightText:'Register Now For Auction To Get Notification', Link:'/products'}
+ export const MovesAdsData :TMovesAdsData={LeftText:'Auction Incomming ...', RightText:'Register Now For Auction To Get Notification', Link:'/products'}
 
