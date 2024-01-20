@@ -29,8 +29,8 @@ const ProductsFilter = () => {
 
 const { data } = useGetAllCategories();
 const CategoriesArry = data?.data?.data?.map((item: any) => ({
-  value: item?.category_translations[0]?.name,
-  label: item?.category_translations[0]?.id,
+  value: item?.category_translations[0]?.id,
+  label: item?.category_translations[0]?.name,
 }));
 
 CategoriesArry?.push({ value: "undefined", label: 'all' });
@@ -61,7 +61,7 @@ useEffect(() => {
   
   
   const handleChange = (value: any, option: any | Array<any>) => {
-    setFilter((prevFilter) => ({ ...prevFilter, category_id: option?.label }));
+    setFilter((prevFilter) => ({ ...prevFilter, category_id: option?.value }));
   };
   
 

@@ -18,7 +18,9 @@ const About = () => {
             <AboutCard image={1} name='MOaz IbRAHIM' position='Front END' email='Moaz@Sdnone.net'/>
             <AboutCard image={1} name='MOaz IbRAHIM' position='Front END' email='Moaz@Sdnone.net'/>           */}
 
-            <span><img src='../logo-without-text.png' alt='logo' className='logo_image'/></span>
+            <span>
+              <img src='../logo-without-text.png' alt='logo' className='logo_image'/>
+              </span>
         </div>
 
         <div className='Bottom_Card_container' >

@@ -5,21 +5,23 @@ import ProductsFilter from './ProductsFilter';
 import ProductsCards from './ProductsCards';
 import ProductPagination from './ProductPagination';
 import { useGetAllProduct, useGetAllProductWithPaginations } from '../../api/Product';
+import { Spin } from 'antd';
 
 const Products = () => {
 
   const [style, setstyle] = useState(true)
-  const { data } = useGetAllProductWithPaginations();
+  const { data , isLoading } = useGetAllProductWithPaginations();
   console.log(data);
   
-  const Props = { style, setstyle,data }
+  const Props = { style, setstyle,data ,isLoading }
 
   return (
     <Layout className='Products'>
       <ProductsHeader {...Props} />
       <div className='Products_Body'>
         <ProductsFilter />
-          <ProductsCards {...Props} />
+        {isLoading ? <Spin/>  :   <ProductsCards {...Props} /> }
+
       </div>
     </Layout>
   )

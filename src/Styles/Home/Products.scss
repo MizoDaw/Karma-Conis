@@ -24,7 +24,7 @@
       font-size: 2vw;
       .Cart_Icon{
       width: 20px;
-      // display: none;
+      display: none;
       }   
    }
   }
@@ -39,6 +39,7 @@
   
   
       .ProductsFilter{
+         max-width:280px;
           flex: 25%;
            @include Shadow;
       padding:  18px 2vw;
@@ -279,7 +280,8 @@ padding: 20px;
   
 .Left{
   text-wrap: nowrap;
-  min-width: 60px;
+  min-width: 90px;
+  position: absolute;
 }
   .Card_Product_Mid{
   overflow: hidden;

@@ -1,29 +1,23 @@
-import React from 'react'
-import CardProduct from '../../Components/Home/CardProduct'
-import { useAllProductsData } from '../../Redux/DispatchData'
-import ProductPagination from './ProductPagination'
-import { useGetAllProduct } from '../../api/Product'
+import React from 'react';
+import { Spin } from 'antd';
+import CardProduct from '../../Components/Home/CardProduct';
+import ProductPagination from './ProductPagination';
 
-const ProductsCards = ({ style, setstyle,data }: any) => {
-
-  console.log(data?.data?.data);
-  
+const ProductsCards = ({ style, setStyle, data, isLoading }: any) => {
   return (
-    <div className={style ? "ProductsCards" : "ProductsCards2"} >
-      {
-        data?.data?.map((item: any, index: any) => {
-          return (
-            <div className={style ? "normalCard" : "FullCard"} key={index}><CardProduct item={item} /></div>
-          )
-        })
-      }
+    <div className={style ? 'ProductsCards' : 'ProductsCards2'}>
+      {isLoading ? (
+        <Spin />
+      ) : (
+        data?.data?.map((item: any, index: any) => (
+          <div className={style ? 'normalCard' : 'FullCard'} key={index}>
+            <CardProduct item={item} />
+          </div>
+        ))
+      )}
       <ProductPagination data={data?.pagination} />
-
-
-
     </div>
+  );
+};
 
-  )
-}
-
-export default ProductsCards
+export default ProductsCards;
