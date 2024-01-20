@@ -47,32 +47,32 @@ const Footer = ({data}:any) => {
            
             {/* Grid column */}
             {/* Grid column */}
-            <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4" style={{display:"flex", flexDirection:"column"}}>
+            <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4" >
               {/* Links */}
               <h6 className="text-uppercase fw-bold">Karma Antique</h6>
               <hr
                 className="mb-4 mt-0 d-inline-block"
                 style={{ width: '60%',  backgroundColor: "#7c4dff", height: 2 }}
               />
-              <p style={{display:"flex", alignItems:"center"}}>
+              <p className='footer_links'>
                 <CiHome size={20}/>
                 <Link to="/" className="text-white">
                   Home
                 </Link>
               </p>
-              <p style={{display:"flex", alignItems:"center"}}>
+              <p className='footer_links'>
                 <MdOutlineShoppingCart/>
                 <Link to="/products" className="text-white">
                   Products
                 </Link>
               </p>
-              <p style={{display:"flex", alignItems:"center"}}>
+              <p className='footer_links'>
                 <IoIosInformationCircleOutline/>
                 <Link to="/about" className="text-white">
                   About us
                 </Link>
               </p>
-              <p style={{display:"flex", alignItems:"center"}}>
+              <p className='footer_links'>
                 <IoMdContacts/>
                 <Link to="/contact" className="text-white">
                   Contact us
