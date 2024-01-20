@@ -1,7 +1,7 @@
 
    @media screen and (max-width: 600px) {
                
-    .HeroSection_Ads,.special_properties{
+    .HeroSection_Ads{
         display: none !important;
     }       
     .BigAds{
@@ -72,8 +72,7 @@
     margin: 2vw auto;
     background: transparent !important;
     box-shadow: none !important;
-
-            flex-direction: column;
+            flex-wrap: wrap;
 
     svg{
         font-size: 4.4vw;
@@ -86,7 +85,7 @@
         gap: 15px;
         border-right: none !important;
         margin-top: 15px;
-            padding:  10px 3vw;
+            padding-top:  10px;
 
             background: var(--bg);
 
@@ -135,47 +134,58 @@
     .Moves_Ads{
         .Moves_Ads_Right_Text {
             font-size: 10px;
-            &::before {
-                top: 25% !important;
-            }
+          
         }
     }
-    .Moves_Ads{
-    width: 90%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin: 3vw auto;
-    @include Shadow;
-    padding:  0vw 20px;
-    background: var(--primary);
-    position: relative;
-    overflow: hidden;
+
     .Moves_Ads_Left{
-              width: 35vw;
-        height: 50px;
-        background: var(--secondary);
-        display: flex; justify-content: center; align-items: center;
-        transform: skewX(-35deg);
-        z-index: 5;
-        position:relative;
-        left:-7vw;
-        font-weight: bold;
-        color: var(--bg);
-        font-size: 2.2vw;
-        padding-left: 4vw;
+        width: 35vw;
+  height: 50px !important;
+  // background: var(--secondary);
+  display: flex; justify-content: center; align-items: center;
+  z-index: 5;
+  position:relative;
+  left:-7vw;
+  font-weight: bold;
+  color: var(--bg);
+  font-size: 2vw;
+  padding-left: 4vw;
+  position: relative;
+  &::before{
+  transform: skewX(-35deg);
 
-     
+      z-index: -1;
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: var(--secondary);
+
+  }
+
+
+
+}
+.Moves_Ads_Right{
+
+text-align: right;
+width: 60%;
+&::before {
+  font-size: 2vw;
+  inset: 5px;
+  z-index: 3;
+  content: '';
+  position: absolute;
+  border: 1px dashed #fff;
 
 }
 
 
 }
-
-
 .Moves_Ads_Right_Text {
     background-color: transparent;
-
     color: transparent;
     font-size: 16px;
     font-weight: bold;
@@ -183,32 +193,35 @@
     overflow: hidden;
     position: relative;
     &::before {
-        content: attr(data-text); 
-        position: absolute;
-        top: -25%;
-      white-space: nowrap;
-      animation: moveText 15s linear infinite;
-      color: var(--white);
-      font-weight: bold;
-      font-size: 2vw;
+      content: attr(data-text); 
+      position: absolute;
+      top: -40% !important;
+    white-space: nowrap;
+    animation: moveText 15s linear infinite;
+    color: var(--white);
+    font-weight: bold;
+    font-size: 2vw;
     }
-  
+    
     @keyframes moveText {
-      from {
-        right: -500%;
-      }
-      to {
-        right: 900%; /* Move off-screen to the left */
-      }
+    from {
+      right: -44vw;
     }
-  }
+    to {
+      right: 60vw; 
+    }
+    }
+    
+    
+    
+    }
+
 }
+
+
+
 @media screen and (max-width: 450px) {
-    .Moves_Ads{
-        .Moves_Ads_Right_Text {
-            &::before {
-                top: 35% !important;
-            }
-        }
-    }
+  .Moves_Ads .Moves_Ads_Left{
+            left: -9vw !important;
+  }
 }

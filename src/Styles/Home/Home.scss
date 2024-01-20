@@ -159,16 +159,29 @@
     .Moves_Ads_Left{
               width: 35vw;
         height: 70px;
-        background: var(--secondary);
+        // background: var(--secondary);
         display: flex; justify-content: center; align-items: center;
-        transform: skewX(-35deg);
         z-index: 5;
         position:relative;
         left:-7vw;
         font-weight: bold;
         color: var(--bg);
-        font-size: 2.2vw;
+        font-size: 2vw;
         padding-left: 4vw;
+        position: relative;
+        &::before{
+        transform: skewX(-35deg);
+
+            z-index: -1;
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: var(--secondary);
+
+        }
 
      
 
@@ -194,7 +207,8 @@
 
 
 .Moves_Ads_Right_Text {
-    background-color: var(--bg);
+    background-color: transparent;
+    color: transparent;
     font-size: 16px;
     font-weight: bold;
     padding: 5px;
@@ -203,7 +217,7 @@
     &::before {
         content: attr(data-text); 
         position: absolute;
-        top: -15%;
+        top: -10%;
       white-space: nowrap;
       animation: moveText 15s linear infinite;
       color: var(--white);
@@ -213,10 +227,10 @@
   
     @keyframes moveText {
       from {
-        right: 100%;
+        right: -44vw;
       }
       to {
-        right: 900%; /* Move off-screen to the left */
+        right: 60vw; 
       }
     }
   }

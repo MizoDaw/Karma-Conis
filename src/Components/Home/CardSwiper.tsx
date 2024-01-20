@@ -29,7 +29,7 @@ const CardSwiper: React.FC<CardSwiperProps> = ({ data }) => {
             slidesPerView: 1,
             spaceBetween: 10,
           },
-          430: {
+          380: {
             slidesPerView: 2,
             spaceBetween: 20,
           },
