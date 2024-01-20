@@ -47,12 +47,12 @@ const Footer = ({data}:any) => {
            
             {/* Grid column */}
             {/* Grid column */}
-            <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4">
+            <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4" style={{display:"flex", flexDirection:"column"}}>
               {/* Links */}
               <h6 className="text-uppercase fw-bold">Karma Antique</h6>
               <hr
-                className="mb-4 mt-0 d-inline-block mx-auto"
-                style={{ width: 60, backgroundColor: "#7c4dff", height: 2 }}
+                className="mb-4 mt-0 d-inline-block"
+                style={{ width: '60%',  backgroundColor: "#7c4dff", height: 2 }}
               />
               <p style={{display:"flex", alignItems:"center"}}>
                 <CiHome size={20}/>
@@ -88,15 +88,15 @@ const Footer = ({data}:any) => {
               {/* Links */}
               <h6 className="text-uppercase fw-bold">Useful links</h6>
               <hr
-                className="mb-4 mt-0 d-inline-block mx-auto"
-                style={{ width: 60, backgroundColor: "#7c4dff", height: 2 }}
+                className="mb-4 mt-0 d-inline-block "
+                style={{ width: "40%", backgroundColor: "#7c4dff", height: 2 }}
               />
               <p>
                 <a href="#!" className="text-white">
                 </a>
                <MdEmail/> abdalhaesm@gmail.com
               </p>
-              <p style={{display:"flex" , alignItems:"center", width:"100%"}}>
+              <p >
                 <a href="#!" className="text-white">
                 </a>
                 <CiPhone size={20}/> 0097466456660
