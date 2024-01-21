@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useState } from 'react'
+import Layout from '../../Layout/app/Layout'
 
-function OrdersPage() {
+import { Spin } from 'antd';
+import OrdersForm from './OrdersForm';
+
+const Orders = () => {
+
+  
+
   return (
-    <div>OrdersPage</div>
+    <Layout className='Orders'>
+     <OrdersForm/>
+    </Layout>
   )
 }
 
-export default OrdersPage
+export default Orders
+
