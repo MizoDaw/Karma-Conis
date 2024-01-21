@@ -1,12 +1,11 @@
+import { useFormikContext } from 'formik';
 import { useCartData } from '../../Redux/DispatchData';
 import CartItem from './CartItem'
 import CheckoutForm from './CheckoutForm';
 
 
 const CartBody = ({data , cart, setViewPage}:any) => {
-
-
-  console.log(cart);
+ 
   
    return (
     <div className="CartBody">

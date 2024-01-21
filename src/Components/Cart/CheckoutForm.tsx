@@ -2,15 +2,23 @@ import React from 'react'
 import { Currency } from '../../Layout/app/Const';
 import { Button, Divider, Flex, Input } from 'antd';
 import TextArea from 'antd/es/input/TextArea';
+import { useFormikContext } from 'formik';
 
 const CheckoutForm = ({delivery_fees , sub_total ,setViewPage}:any) => {
-    const onChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        console.log('Change:', e.target.value);
-      };
-    
-      const handleChange = (value: string) => {
-        console.log(`selected ${value}`);
-      };
+  const formikContext = useFormikContext();
+  const { values, submitForm } = formikContext;
+
+  const handleSubmit = () => {
+    // Execute your logic for handling form submission
+    console.log('DetailsBody submitted with values:', values);
+
+    // Proceed to the next step
+    setViewPage(1);
+
+    // Manually trigger Formik's submit function
+    submitForm();
+  };
+
   return (
     <>
          <div style={{display:"flex" , flexDirection:"column" , alignItems:"flex-start"}}>
@@ -23,7 +31,7 @@ const CheckoutForm = ({delivery_fees , sub_total ,setViewPage}:any) => {
               <div>Total : {sub_total}{Currency}</div>
         
 
-              <div> <Button block type='primary' onClick={()=>setViewPage(1)} >Checkout</Button> </div>
+              <div> <Button block type='primary'onClick={handleSubmit}  >Checkout</Button> </div>
     </>
   )
 }
