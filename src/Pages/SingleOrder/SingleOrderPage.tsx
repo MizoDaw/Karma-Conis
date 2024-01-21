@@ -19,7 +19,7 @@ import { useSelector } from 'react-redux';
 import { Currency } from '../../Layout/app/Const';
 import OrderStatus from '../../Components/Order/OrderStatus';
 import { IProduct } from '../../types/IProduct';
-import { BaseURL } from '../../api/config';
+import { BaseURL, BaseURL_IMAGE } from '../../api/config';
 import NotFoundPage from '../../Layout/app/NotFoundPage';
 import LoadingPage from '../Loading/LoadingPage';
 import { useParams, useSearchParams } from 'react-router-dom';
@@ -83,7 +83,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
                         <MDBRow>
                           <MDBCol md="2">
                             <MDBCardImage
-                              src={BaseURL + item?.product_main_image}
+                              src={BaseURL_IMAGE + item?.product_main_image}
                               fluid
                               alt="Product Image"
                             />

@@ -3,14 +3,27 @@ import Layout from '../../Layout/app/Layout'
 
 import { Spin } from 'antd';
 import OrdersForm from './OrdersForm';
+import { useGetAllOrders } from '../../api/orders';
+import LoadingPage from '../Loading/LoadingPage';
+import NotFoundPage from '../../Layout/app/NotFoundPage';
 
 const Orders = () => {
 
-  
+  const { data , isLoading , isError} = useGetAllOrders();
+  console.log(data?.data);
+
+
+
+  if(isLoading){
+    return <LoadingPage/>
+  }
+  if(isError){
+    return <NotFoundPage/>
+  }
 
   return (
     <Layout className='Orders'>
-     <OrdersForm/>
+     <OrdersForm data={data}/>
     </Layout>
   )
 }

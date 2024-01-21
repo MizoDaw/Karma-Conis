@@ -2,6 +2,9 @@ import React from 'react';
 import { Space, Table, Tag } from 'antd';
 import type { TableProps } from 'antd';
 import { useGetAllOrders } from '../../api/orders';
+import { useNavigate } from 'react-router-dom';
+import LoadingPage from '../Loading/LoadingPage';
+import NotFoundPage from '../../Layout/app/NotFoundPage';
 
 interface DataType {
   id: string;
@@ -57,15 +60,21 @@ const columns: TableProps<DataType>['columns'] = [
   },
 ];
 
-const OrdersForm = () => {
-  const { data } = useGetAllOrders();
-  console.log(data?.data);
-
-
+const OrdersForm = ({data}:any) => {
+ const navigate = useNavigate()
   return (
     <>
       <div className='Header'> Your All Order total is :  {data?.data?.order_all_total} </div>
-    <Table columns={columns} dataSource={data?.data?.order} />
+    <Table onRow={(record, rowIndex) => {
+  return {
+    onClick: (event) => {
+      navigate('/single_order?order_id=' +record?.id)
+        console.log(record);
+                    
+    },
+  };
+}}
+ columns={columns} dataSource={data?.data?.order} />
     </>
   )
 };
