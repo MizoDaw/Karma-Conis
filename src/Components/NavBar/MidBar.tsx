@@ -16,6 +16,7 @@ import { TOKEN_KEY } from '../../config/AppKey';
 import { FaPhoneAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Redux/auth/AuthReducer';
+import DropdownMenu from '../Ui/DropdownMenu';
 
 const MidBar = () => {
   const {isAuthenticated} = useSelector((state:any) => state.auth)
@@ -94,8 +95,9 @@ const MidBar = () => {
               <Link className='Link_NavMenu' to={'/orders'} >  <h1> <ShoppingCartOutlined/> Orders</h1> </Link>
 
             </div>
-              {/* <Theme/> */}
-              
+                      <Divider/>
+                      <DropdownMenu/>
+
 
             </WithDrawer>
       </div>

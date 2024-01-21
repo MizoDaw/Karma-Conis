@@ -18,9 +18,9 @@ const Page = () => {
     const {data , isLoading} = useGetAllHome();
 
 
-    if(isLoading){
-      return <LoadingPage/>
-    }
+    // if(isLoading){
+    //   return <LoadingPage/>
+    // }
 
   return (
     <Layout  className='HomePage'>

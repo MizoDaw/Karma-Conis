@@ -32,6 +32,8 @@
             font-size: 20px;
             font-weight: bold;
             color: var(--secondary);
+            margin-bottom: 16px;
+
          }
       }
                     .Menu_Group,.MidBar_Left,.MidBar_Right,.NavMenus,.BottomBar{
@@ -40,7 +42,7 @@
                     
       .Menu_anv{
          width: 100%;
-         padding-bottom: 20px;
+         padding-bottom: 0px !important   ;
       }
       .menu_nav_icon{
          // margin-top: 20px;
