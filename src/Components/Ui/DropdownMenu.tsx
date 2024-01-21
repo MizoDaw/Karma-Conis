@@ -20,7 +20,7 @@ const DropdownMenu = () => {
 
   const CategoriesArry = data.data.data.map((item: any) => ({
     value: item?.category_translations[0]?.name,
-    label: item?.category_translations[0]?.id,
+    label: item?.id,
   }));
 
   const NewmenuData = CategoriesArry.map((category: any) => ({

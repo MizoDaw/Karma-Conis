@@ -1,7 +1,7 @@
 import { Divider, InputNumber, Radio, Select, Space } from 'antd';
 import React, { useState, useEffect, useRef } from 'react';
 import type { RadioChangeEvent } from 'antd';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useGetAllCategories } from '../../api/categories';
 
 interface FilterState {
@@ -14,14 +14,16 @@ interface FilterState {
 
 }
 
+
+
 const ProductsFilter = () => {
   const navigate = useNavigate();
   const { category_id: paramCategory_id, min_price: paramMin_price, max_price: paramMax_price, all: paramall,is_most_purchased:paramis_most_purchased, is_highlight:paramis_highlight} = useParams();
-
+  const [search] = useSearchParams()
   const [filter, setFilter] = useState<FilterState>({
   category_id: paramCategory_id || 'all',
   min_price: paramMin_price ? parseInt(paramMin_price, 10) : 0,
-  max_price: paramMax_price ? parseInt(paramMax_price, 10) : 250,
+  max_price: paramMax_price ? parseInt(paramMax_price, 10) : 1000000,
   all: true,
   is_most_purchased:  false,
   is_highlight:  false,
@@ -29,20 +31,23 @@ const ProductsFilter = () => {
 
 const { data } = useGetAllCategories();
 const CategoriesArry = data?.data?.data?.map((item: any) => ({
-  value: item?.category_translations[0]?.id,
+  value: item?.id,
   label: item?.category_translations[0]?.name,
 }));
 
-CategoriesArry?.push({ value: "undefined", label: 'all' });
+CategoriesArry?.push({ value: null, label: 'all' });
 
 useEffect(() => {
+  console.log(filter.category_id);
+  
   if (!isInitialRender.current) {
     const queryParams = {
-      category_id: filter.category_id !== 'all' ? filter.category_id : undefined,
+      category_id: filter.category_id  ? filter.category_id : undefined,
       min_price: filter.min_price !== 0 ? filter.min_price : undefined,
-      max_price: filter.max_price !== 250 ? filter.max_price : undefined,
+      max_price: filter.max_price !== 1000000 ? filter.max_price : undefined,
       is_most_purchased: filter.is_most_purchased ? filter.is_most_purchased : undefined,
       is_highlight: filter.is_highlight ? filter.is_highlight : undefined,
+      search:search.get('search') ? search.get('search') : undefined
     };
 
     const queryString = Object.entries(queryParams)
@@ -97,14 +102,14 @@ useEffect(() => {
       <div>
         <InputNumber
           min={0}
-          max={1000}
+          max={1000000}
           defaultValue={filter.min_price}
           onChange={(value) => onChangeInput(value as number, filter.max_price)}
         />
         {' > '}
         <InputNumber
           min={0}
-          max={1000}
+          max={1000000}
           defaultValue={filter.max_price}
           onChange={(value) => onChangeInput(filter.min_price, value as number)}
         />
