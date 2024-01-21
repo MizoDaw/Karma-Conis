@@ -6,6 +6,7 @@ import ProductsCards from './ProductsCards';
 import ProductPagination from './ProductPagination';
 import { useGetAllProductWithPaginations } from '../../api/Product';
 import { Spin } from 'antd';
+import LoadingPage from '../Loading/LoadingPage';
 
 const Products = () => {
 
@@ -20,7 +21,7 @@ const Products = () => {
       <ProductsHeader {...Props} />
       <div className='Products_Body'>
         <ProductsFilter />
-        {isLoading ? <Spin/>  :   <ProductsCards {...Props} /> }
+        {isLoading ? <LoadingPage/>  :   <ProductsCards {...Props} /> }
 
       </div>
     </Layout>

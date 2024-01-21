@@ -2,13 +2,18 @@ import React from 'react'
 import Layout from '../../Layout/app/Layout'
 import AboutCard from '../../Components/About/AboutCard'
 import { useGetAboutUs } from '../../api/app_info'
+import LoadingPage from '../Loading/LoadingPage';
 
 const renderHTML = (escapedHTML: string) => React.createElement("div", { dangerouslySetInnerHTML: { __html: escapedHTML } });
 
 const About = () => {
-  const {data} = useGetAboutUs({id:1})
+  const {data , isLoading} = useGetAboutUs({id:1})
 
   
+  if(isLoading){
+
+    return <LoadingPage/>
+  }
   
   return (
     <Layout>
@@ -19,7 +24,7 @@ const About = () => {
             <AboutCard image={1} name='MOaz IbRAHIM' position='Front END' email='Moaz@Sdnone.net'/>           */}
 
             <span>
-              <img src='../logo-without-text.png' alt='logo' className='logo_image'/>
+              <img src='/logo/logo3.png' alt='logo' className='logo_image'/>
               </span>
         </div>
 
