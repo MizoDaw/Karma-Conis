@@ -4,7 +4,7 @@
       
       .logo_drawer_container{
          display: flex;justify-content: space-between;
-         align-items: start;
+         align-items: center;
          h1{
              line-height: 25px;
             font-size: 15px;
@@ -13,11 +13,11 @@
 
          }
          .logo_bg{
-            background: var(--primary);
+            // background: var(--primary);
             // position: relative;
             border-radius: 50%;
             display: flex;justify-content: center;align-items: center;
-            height: 40px;width: 40px;
+            height: 60px;width: 60px;
             .logo_drawer{
                width: 80%;
             }
@@ -170,7 +170,7 @@
       
       .logo_drawer_container{
          display: flex;justify-content: space-between;
-         align-items: start;
+         align-items: center;
          h1{
              line-height: 25px;
             font-size: 15px;
@@ -179,7 +179,7 @@
 
          }
          .logo_bg{
-            background: var(--primary);
+            // background: var(--primary);
             // position: relative;
             border-radius: 50%;
             display: flex;justify-content: center;align-items: center;

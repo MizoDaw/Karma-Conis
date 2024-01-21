@@ -66,7 +66,7 @@ const MidBar = () => {
               <div className='logo_drawer_container'>
                 <h1>Karma Coins
                   <br/>
-                  {
+                  {/* {
                     ! isAuthenticated ?
                       <>
                         <Link className='Link' to={'/auth'}  onClick={()=>navigate('/auth' )}>  <h1>Login</h1> </Link>
@@ -79,11 +79,11 @@ const MidBar = () => {
                       }}>Logout</h1>
                       </>
 
-                    }
+                    } */}
                 </h1>
 
                 <div className='logo_bg'>
-                  <img src='../logo-without-text.png' alt='logo' className='logo_drawer'/>
+                  <img src='./logo/logo3.png' alt='logo' className='logo_drawer'/>
                 </div>
               </div>
               <Divider/>
