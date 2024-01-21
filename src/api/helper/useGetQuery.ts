@@ -21,6 +21,7 @@ function useGetQuery(key: string, url: string , params:any={} , options?:any) {
       console.error('An error occurred:', error);
     },
     refetchOnWindowFocus: false,
+    
     ...options
     
   });

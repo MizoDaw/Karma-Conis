@@ -83,6 +83,7 @@ import { BaseURL, BaseURL_IMAGE } from '../../api/config';
 import useImageError from '../../Hooks/useImageError';
 import { useTranslation } from 'react-i18next';
 import { useAddToCart } from '../../api/cart';
+import { toast } from 'react-toastify';
 
 
 
@@ -123,11 +124,13 @@ const CardProduct = ({ item }:any) => {
                       {Currency}
                     </small>
                   </div>
-                  <div className='AddProduct' onClick={()=>mutate({
+                  <div className='AddProduct' onClick={()=>{mutate({
                           product_id:item?.id,
                           quantity:1
                       })
-                      }>
+                      toast.success('added to cart')
+
+                      }}>
                     <Tooltip title="Add To Cart">
                       <PlusOutlined />
                     </Tooltip>

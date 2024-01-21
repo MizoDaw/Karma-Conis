@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import { TOKEN_KEY } from "../config/AppKey";
 import useAddMutation from "./helper/useAddMutation";
 import useGetQuery from "./helper/useGetQuery";
@@ -15,9 +16,14 @@ const  KEY = "CART"
 const  KEY2 = "SINGLE_ORDER"
 
 export const useAddToCart =  ()=>useAddMutation(KEY , API.AddToCart )
-export const useGetCart =  ()=>useGetQuery(KEY  , API.GET  ,{} , {
-    enabled:localStorage.getItem(TOKEN_KEY) ? true :false
-})
+export const useGetCart =  ()=>{
+    const {isAuthenticated} = useSelector((state:any)=>state.auth)
+    console.log(isAuthenticated);
+    
+    return useGetQuery(KEY  , API.GET  ,{} , {
+        enabled:isAuthenticated
+    })
+}
 
 export const useCheckout = ()=>useAddMutation(KEY , API.CHECK)
 

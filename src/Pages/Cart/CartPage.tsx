@@ -7,11 +7,18 @@ import DetailsBody from '../../Components/Cart/Details/DetailsBody';
 import PaymentBody from '../../Components/Cart/Payment/PaymentBody';
 import ReviewBody from '../../Components/Cart/Review/ReviewBody';
 import { useGetCart } from '../../api/cart';
+import LoadingPage from '../Loading/LoadingPage';
 
 const CartPage: React.FC = () => {
   const [ViewPage, setViewPage] = useState<number>(0);
   const propsState = { ViewPage, setViewPage };
-  const { data } = useGetCart();
+  const { data , isLoading } = useGetCart();
+
+
+  if(isLoading){
+    return <LoadingPage/>
+  }
+console.log(data?.data?.at(0)?.cart_items);
 
   const MemoizedStepsUi = memo(() => {
     return <StepsUi {...propsState} />;
@@ -20,7 +27,7 @@ const CartPage: React.FC = () => {
   const RenderPageContent = memo(() => {
     switch (ViewPage) {
       case 0:
-        return <CartBody {...propsState} />;
+        return <CartBody data={data?.data?.at(0)?.cart_items} cart={data?.data?.at(0)} {...propsState} />;
       case 1:
         return <DetailsBody {...propsState} />;
       case 2:

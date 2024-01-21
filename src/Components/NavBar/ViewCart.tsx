@@ -10,7 +10,8 @@ import { useGetCart } from '../../api/cart'
 const ViewCart = () => {
   const { DataCart,count} = useCartData()
   const {data } = useGetCart()
-
+  console.log(data?.data?.data?.at(0)?.cart_items_count);
+  
   
     const navigate = useNavigate()
   return (
@@ -21,7 +22,7 @@ const ViewCart = () => {
 
     title="Cart Item"
       button={ 
-      <Badge className='Badge_Button' count={data?.data?.data?.at(0)?.cart_items_count} >
+      <Badge className='Badge_Button' count={data?.data?.at(0)?.cart_items_count} >
           <div className="Cart_Icon"  onClick={()=>navigate('/cart')}>
           <Tooltip title="cart">
           <ShoppingCartOutlined  />

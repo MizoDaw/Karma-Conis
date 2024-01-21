@@ -19,10 +19,7 @@ import { logout } from '../../Redux/auth/AuthReducer';
 import DropdownMenu from '../Ui/DropdownMenu';
 
 const MidBar = () => {
-  const {isAuthenticated} = useSelector((state:any) => state.auth)
 
-  const dispatch = useDispatch()
-    const navigate = useNavigate()
 
   return (
     <div className="MidBar">

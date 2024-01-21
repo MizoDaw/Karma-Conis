@@ -3,25 +3,33 @@ import PaymentForm from './PaymentForm';
 import { Button, Divider, Input, Radio, Space } from 'antd';
 import { useCheckout } from '../../../api/cart';
 import { useFormikContext } from 'formik';
+interface ValuesType {
+  building: string,
 
+lat: string ,
+long: string ,
+note: string , 
+payment_method: string,
+phone : string,
+zone: string,
+
+}
 const PaymentBody = ({ setViewPage }: any) => {
   const formikContext = useFormikContext();
   const {values, setFieldValue, submitForm } = formikContext;
 
   const handleSubmit = () => {
     console.log(values);
-    
+      const data = values as ValuesType
       mutate({
-        values
+        ...(data as object),
+        zone_number:+data?.zone,
+        'payment_method': 'cash_on_delivery',
       })
       
-    if(status == 'success'){
-      console.log(isSuccess , "OORRR");
-        setViewPage(3)
-        submitForm();
-
-      }
+   
   };
+
   const [selectedValue, setSelectedValue] = useState(1);
 
   const {mutate , isLoading , isSuccess , data , status } = useCheckout()
@@ -31,6 +39,16 @@ const PaymentBody = ({ setViewPage }: any) => {
 
   };
 
+  useEffect(()=>{
+    console.log(isSuccess);
+    
+    if(isSuccess){
+      console.log(isSuccess , "OORRR");
+        setViewPage(3)
+        submitForm();
+
+      }
+  },[isSuccess])
 
   type TRadioUi = { value: number; title: string, className?: string; children: React.ReactNode }
   const RadioUi = ({ value, children, title, className }: TRadioUi) => {
