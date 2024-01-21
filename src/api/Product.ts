@@ -18,8 +18,8 @@ const KEY = "PRODUCT"
 const KEY2 = "PRODUCT2"
 
 export const useGetAllProduct = (params?:any) => useGetQuery(KEY , API.GET, params)
-export const useGetAllProductWithPaginations = (params?:any) => useGetQueryPagination(KEY, API.GET, params);
+export const useGetAllProductWithPaginations = () => useGetQueryPagination(KEY, API.GET );
 
 export const useGetSingleProduct = (params?:any) => useGetQuery(KEY , API.GETONE, params)
 
-export const useGetAllProductWithSearch = (params?:any) => useGetQueryPagination(KEY2, API.GET, params);
+export const useGetAllProductWithSearch = () => useGetQueryPagination(KEY2, API.GET );
