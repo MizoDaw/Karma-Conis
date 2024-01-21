@@ -109,7 +109,7 @@ const CardProduct = ({ item }:any) => {
                 <img src={ BaseURL +item?.product_main_image|| UserImageURL} onError={useImageError} alt={item?.name} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
-                <div>{item?.product_translations?.at(0).name}</div>
+                <div>{item?.product_translations?.at(0)?.name}</div>
                 {/* <div>
                   <Rate allowHalf disabled defaultValue={item?.rate} />
                 </div> */}

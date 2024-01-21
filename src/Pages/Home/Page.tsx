@@ -10,14 +10,20 @@ import {useHeroSectionData, useProductData} from '../../Redux/DispatchData'
 import { useGetAllHome } from '../../api/Home'
 import Highlight from '../../Components/Home/Sections/Highlight'
 import Purchase from '../../Components/Home/Sections/Purchase'
+import Loading from '../../Components/Utils/Loading/Loading'
+import LoadingPage from '../Loading/LoadingPage'
 
 const Page = () => {
     
-    const {data} = useGetAllHome();
-    
+    const {data , isLoading} = useGetAllHome();
+
+
+    if(isLoading){
+      return <LoadingPage/>
+    }
 
   return (
-    <Layout data={data} className='HomePage'>
+    <Layout  className='HomePage'>
       <HeroSection data={data?.data?.slider} />
       <SpecialProperties data={specialPropertiesData} />
       {/* <CategoriesSwiper data={data} /> */}

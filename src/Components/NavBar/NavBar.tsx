@@ -4,7 +4,7 @@ import TopBar from './TopBar'
 import BottomBar from './BottomBar'
 import Header from './Header'
 
-const NavBar = ({data}:any) => {
+const NavBar = () => {
   return (
     <>
       <Header/>
