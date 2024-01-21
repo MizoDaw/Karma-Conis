@@ -4,7 +4,7 @@ import ProductsHeader from './ProductsHeader';
 import ProductsFilter from './ProductsFilter';
 import ProductsCards from './ProductsCards';
 import ProductPagination from './ProductPagination';
-import { useGetAllProduct, useGetAllProductWithPaginations } from '../../api/Product';
+import { useGetAllProductWithPaginations } from '../../api/Product';
 import { Spin } from 'antd';
 
 const Products = () => {

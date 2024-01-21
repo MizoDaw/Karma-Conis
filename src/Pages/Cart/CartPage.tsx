@@ -24,7 +24,7 @@ const CartPage: React.FC = () => {
 const RenderPageContent = memo(({ ViewPage}:any) => {
   switch (ViewPage) {
     case 0:
-      return <CartBody  data={data?.data?.data?.at(0)?.cart_items} cart={data?.data?.data?.at(0)} setViewPage={setViewPage}/>;
+      return <CartBody  data={data?.data?.at(0)?.cart_items} cart={data?.data?.at(0)} setViewPage={setViewPage}/>;
     case 1:
       return <DetailsBody  {...propsState} />;
     case 2:

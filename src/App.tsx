@@ -1,17 +1,18 @@
 import {lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Loading from './Components/Utils/Loading/Loading';
-import Auth from './Pages/Auth/Page';
-import Page from './Pages/Home/Page';
-import Product from './Pages/Product/Product';
-import CartPage from './Pages/Cart/CartPage';
-import Products from './Pages/Product/Products';
-import About from './Pages/About/About';
-import Contact from './Pages/Contact/Contact';
 import Consigne from './Pages/Consigne/Consigne';
-import SingleOrderPage from './Pages/SingleOrder/SingleOrderPage';
-import OrdersPage from './Pages/Orders/OrdersPage';
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
+
+const OrdersPage = lazy(() => import("./Pages/Orders/OrdersPage"))
+const Contact = lazy(() => import("./Pages/Contact/Contact"))
+const About = lazy(() => import("./Pages/About/About"))
+const Products = lazy(() => import("./Pages/Product/Products"))
+const Product = lazy(() => import("./Pages/Product/Product"))
+const Home  = lazy(() => import("./Pages/Home/Page"))
+const CartPage = lazy(() => import("./Pages/Cart/CartPage"))
+const Auth = lazy(() => import("./Pages/Auth/Page"))
+const SingleOrderPage = lazy(() => import("./Pages/SingleOrder/SingleOrderPage"))
 
 const App = () => {
 
@@ -20,7 +21,7 @@ const App = () => {
     <Routes>
       <Route path="*" element={<Suspense fallback={<Loading />}> <Page404 /></Suspense>} />
       <Route path="/auth" element={<Suspense fallback={<Loading />}> <Auth /></Suspense>} />
-      <Route path="/" element={<Suspense fallback={<Loading />}> <Page /></Suspense>} />
+      <Route path="/" element={<Suspense fallback={<Loading />}> <Home /></Suspense>} />
       <Route path="/product/:id" element={<Suspense fallback={<Loading />}> <Product /></Suspense>} />
       <Route path="/products" element={<Suspense fallback={<Loading />}> <Products /></Suspense>} />
       <Route path="/cart" element={<Suspense fallback={<Loading />}> <CartPage /></Suspense>} />

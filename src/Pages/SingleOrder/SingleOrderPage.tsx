@@ -19,13 +19,16 @@ import { useSelector } from 'react-redux';
 import { Currency } from '../../Layout/app/Const';
 import OrderStatus from '../../Components/Order/OrderStatus';
 import { IProduct } from '../../types/IProduct';
-import { BaseURL } from '../../api/config';
+import { BaseURL, BaseURL_IMAGE } from '../../api/config';
 import NotFoundPage from '../../Layout/app/NotFoundPage';
 import LoadingPage from '../Loading/LoadingPage';
+import { useParams, useSearchParams } from 'react-router-dom';
   
   export default function SingleOrderPage() {
   
-    const {data, isLoading , isError} = useGetSingleOrder({order_id:3})
+    const  [search]= useSearchParams()
+    const  order_id = search.get('order_id')
+    const {data, isLoading , isError} = useGetSingleOrder({order_id})
     const  {user}= useSelector((state:any)  => state.auth)
 
     const order = data?.data 
@@ -80,7 +83,7 @@ import LoadingPage from '../Loading/LoadingPage';
                         <MDBRow>
                           <MDBCol md="2">
                             <MDBCardImage
-                              src={BaseURL + item?.product_main_image}
+                              src={BaseURL_IMAGE + item?.product_main_image}
                               fluid
                               alt="Product Image"
                             />

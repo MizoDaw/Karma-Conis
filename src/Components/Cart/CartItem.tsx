@@ -4,7 +4,7 @@ import {  Card, Skeleton ,Popconfirm,Button, Tooltip} from 'antd';
 import useLoadingState from '../../Hooks/useLoadingState';
 import { TProduct } from '../../Layout/app/Types';
 import { Currency } from '../../Layout/app/Const';
-import { BaseURL } from '../../api/config';
+import { BaseURL, BaseURL_IMAGE } from '../../api/config';
 
 
 
@@ -24,17 +24,17 @@ const CartItem: React.FC <CartItemProps> = ({item}) => {
       <Card loading={loading}>
    
       <span className='Cart_Img'>
-      <img alt=''  style={{objectFit:"contain"}} src={BaseURL+item.product.product_main_image}   />
+      <img alt=''  style={{objectFit:"contain"}} src={BaseURL_IMAGE+item.product.product_main_image}   />
       </span>
       <span className='Cart_Info' style={{marginInline:"10px"}}>
         <h5> {item?.product?.product_translations?.at(0)?.name} </h5>
         <span style={{display:"flex" , alignItems:"center", justifyContent:"space-around"}}>
 
-        <img style={{borderRadius:"50%", width:30 , height:'30', marginRight:"10px"}} src={BaseURL + item.product.category?.category_image}  /> <h6>  {item.product?.category?.category_translations?.at(0)?.name} </h6>
+        <img style={{borderRadius:"50%", width:30 , height:'30', marginRight:"10px"}} src={BaseURL_IMAGE + item.product.category?.category_image}  /> <h6>  {item.product?.category?.category_translations?.at(0)?.name} </h6>
 
         </span>
         <strong>Price : {Currency}{item.product.product_price} </strong> 
-        <p> Quantity :{item.product.product_quantity} </p> 
+        <p> Quantity :{item.quantity} </p> 
 
       </span>
       {/* <span className='Cart_Counter'>

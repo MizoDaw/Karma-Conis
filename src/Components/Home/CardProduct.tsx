@@ -79,7 +79,7 @@ import { TProduct } from '../../Layout/app/Types';
 import { Currency, UserImageURL } from '../../Layout/app/Const';
 import useLoadingState from '../../Hooks/useLoadingState';
 import { Link } from 'react-router-dom';
-import { BaseURL } from '../../api/config';
+import { BaseURL, BaseURL_IMAGE } from '../../api/config';
 import useImageError from '../../Hooks/useImageError';
 import { useTranslation } from 'react-i18next';
 import { useAddToCart } from '../../api/cart';
@@ -106,7 +106,7 @@ const CardProduct = ({ item }:any) => {
                 </span>
               </div>
               <div className='Card_Product_Mid'>
-                <img src={ BaseURL +item?.product_main_image|| UserImageURL} onError={useImageError} alt={item?.name} width="100%" height="60%" />
+                <img src={ BaseURL_IMAGE +item?.product_main_image|| UserImageURL} onError={useImageError} alt={item?.name} width="100%" height="60%" />
               </div>
               <div className='Card_Product_Bottom'>
                 <div>{item?.product_translations?.at(0)?.name}</div>
