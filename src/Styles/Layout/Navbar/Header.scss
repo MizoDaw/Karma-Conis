@@ -174,7 +174,7 @@
         font-size: 10px;
     }    
 }
-@media screen and (max-width:430px) {
+@media screen and (max-width:470px) {
     .TopBar_info{
         font-size: 6px;
     }    
@@ -186,7 +186,7 @@
     align-items: center;
     padding: 2vh 8vw;
     background: var(--primary);
-    @media screen and (max-width:430px) {
+    @media screen and (max-width:470px) {
         &{
             padding: .5vh  5vw;
         }
@@ -206,7 +206,7 @@
         font-size: 1.2vw;
         margin-inline: 6px;
     }
-    @media screen and (max-width:430px) {
+    @media screen and (max-width:470px) {
         &{
             font-size:.35em;
         }
@@ -231,7 +231,7 @@
         svg,img{
            margin-inline: 10px; 
         }
-        @media screen and (max-width:430px) {
+        @media screen and (max-width:470px) {
             &{
         margin-inline: 10px;
 
@@ -252,7 +252,7 @@
         // margin-top: 5px;
 
         font-size:.8em;
-        @media screen and (max-width:430px) {
+        @media screen and (max-width:470px) {
             &{
                 font-size:.3em;
             }
