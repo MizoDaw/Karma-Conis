@@ -44,9 +44,6 @@ const Footer = ({data}:any) => {
           {/* Grid row */}
           <div className="row mt-3">
             {/* Grid column */}
-           
-            {/* Grid column */}
-            {/* Grid column */}
             <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4" >
               {/* Links */}
               <h6 className="text-uppercase fw-bold">Karma Antique</h6>

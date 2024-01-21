@@ -91,6 +91,7 @@ const MidBar = () => {
               <Link className='Link_NavMenu' to={'/contact'} >  <h1><MdOutlinePhonelinkRing/> Contact</h1> </Link>
               <Link className='Link_NavMenu' to={'/products'} >  <h1> <LuBoxes/> Products</h1> </Link>
               <Link className='Link_NavMenu' to={'/cart'} >  <h1> <ShoppingCartOutlined/> Cart</h1> </Link>
+              <Link className='Link_NavMenu' to={'/orders'} >  <h1> <ShoppingCartOutlined/> Orders</h1> </Link>
 
             </div>
               {/* <Theme/> */}
