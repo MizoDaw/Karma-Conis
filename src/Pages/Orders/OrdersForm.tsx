@@ -65,7 +65,7 @@ const OrdersForm = () => {
   return (
     <>
       <div className='Header'> Your All Order total is :  {data?.data?.order_all_total} </div>
-    <Table columns={columns} dataSource={data?.data?.order} />;
+    <Table columns={columns} dataSource={data?.data?.order} />
     </>
   )
 };
