@@ -3,7 +3,7 @@ import Loading from '../../Components/Utils/Loading/Loading'
 
 function LoadingPage() {
   return (
-    <div style={{width:"100vw", height:"100vh" , display:"flex", justifyContent:"center", alignItems:"center"}}>
+    <div  className='loading_page'>
         <Loading/>
     </div>
   )

@@ -2,6 +2,7 @@ import {lazy, Suspense } from 'react';
 import { Route, Routes } from 'react-router-dom'
 import Loading from './Components/Utils/Loading/Loading';
 import Consigne from './Pages/Consigne/Consigne';
+import LoadingPage from './Pages/Loading/LoadingPage';
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
 
 const OrdersPage = lazy(() => import("./Pages/Orders/OrdersPage"))
@@ -19,17 +20,17 @@ const App = () => {
   
   return (
     <Routes>
-      <Route path="*" element={<Suspense fallback={<Loading />}> <Page404 /></Suspense>} />
-      <Route path="/auth" element={<Suspense fallback={<Loading />}> <Auth /></Suspense>} />
-      <Route path="/" element={<Suspense fallback={<Loading />}> <Home /></Suspense>} />
-      <Route path="/product/:id" element={<Suspense fallback={<Loading />}> <Product /></Suspense>} />
-      <Route path="/products" element={<Suspense fallback={<Loading />}> <Products /></Suspense>} />
-      <Route path="/cart" element={<Suspense fallback={<Loading />}> <CartPage /></Suspense>} />
-      <Route path="/about" element={<Suspense fallback={<Loading />}> <About /></Suspense>} />
-      <Route path="/contact" element={<Suspense fallback={<Loading />}> <Contact /></Suspense>} />
-      <Route path="/single_order" element={<Suspense fallback={<Loading />}> <SingleOrderPage /></Suspense>} />
-      <Route path="/consigne" element={<Suspense fallback={<Loading />}> <Consigne /></Suspense>} />
-      <Route path="/orders" element={<Suspense fallback={<Loading />}> <OrdersPage /></Suspense>} />
+      <Route path="*" element={<Suspense fallback={<LoadingPage />}> <Page404 /></Suspense>} />
+      <Route path="/auth" element={<Suspense fallback={<LoadingPage />}> <Auth /></Suspense>} />
+      <Route path="/" element={<Suspense fallback={<LoadingPage />}> <Home /></Suspense>} />
+      <Route path="/product/:id" element={<Suspense fallback={<LoadingPage />}> <Product /></Suspense>} />
+      <Route path="/products" element={<Suspense fallback={<LoadingPage />}> <Products /></Suspense>} />
+      <Route path="/cart" element={<Suspense fallback={<LoadingPage />}> <CartPage /></Suspense>} />
+      <Route path="/about" element={<Suspense fallback={<LoadingPage />}> <About /></Suspense>} />
+      <Route path="/contact" element={<Suspense fallback={<LoadingPage />}> <Contact /></Suspense>} />
+      <Route path="/single_order" element={<Suspense fallback={<LoadingPage />}> <SingleOrderPage /></Suspense>} />
+      <Route path="/consigne" element={<Suspense fallback={<LoadingPage />}> <Consigne /></Suspense>} />
+      <Route path="/orders" element={<Suspense fallback={<LoadingPage />}> <OrdersPage /></Suspense>} />
 
 
     </Routes>
