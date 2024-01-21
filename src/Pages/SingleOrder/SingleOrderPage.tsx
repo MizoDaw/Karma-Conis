@@ -14,9 +14,31 @@ import {
     MDBTypography,
   } from "mdb-react-ui-kit";
 import Layout from '../../Layout/app/Layout';
+import { useGetSingleOrder } from '../../api/cart';
+import { useSelector } from 'react-redux';
+import { Currency } from '../../Layout/app/Const';
+import OrderStatus from '../../Components/Order/OrderStatus';
+import { IProduct } from '../../types/IProduct';
+import { BaseURL } from '../../api/config';
+import NotFoundPage from '../../Layout/app/NotFoundPage';
+import LoadingPage from '../Loading/LoadingPage';
   
   export default function SingleOrderPage() {
+  
+    const {data, isLoading , isError} = useGetSingleOrder({order_id:3})
+    const  {user}= useSelector((state:any)  => state.auth)
+
+    const order = data?.data 
     
+    console.log(data?.data);
+    
+
+    if(isLoading){
+      return <LoadingPage/>
+    }
+    if(isError){
+      return <NotFoundPage/>
+    }
     return (
       <Layout>
         <section
@@ -30,98 +52,98 @@ import Layout from '../../Layout/app/Layout';
                   <MDBCardHeader className="px-4 py-5">
                     <MDBTypography tag="h5" className="text-muted mb-0">
                       Thanks for your Order,{" "}
-                      <span  className=''>Anna</span>!
+                      <span  className=''>{user?.name}</span>!
+                    </MDBTypography>
+                    <MDBTypography tag="h5" className="text-muted mt-4">
+                   <OrderStatus  order_status={order?.order_status}/>
                     </MDBTypography>
                   </MDBCardHeader>
                   <MDBCardBody className="p-4">
                     <div className="d-flex justify-content-between align-items-center mb-4">
                       <p
-                        className="lead fw-normal mb-0 primary"
+                        className="lead fw-normal mb-0 "
                         // style={{ color: "#a8729a" }}
                       >
                         Receipt
                       </p>
                       <p className="small text-muted mb-0">
-                        Receipt Voucher : 1KAU9-84UIL
+                        Order Code  : {order?.order_code}
                       </p>
                     </div>
   
-                  
-  
+                  {
+                    order?.items?.map((item:IProduct)=>{
+                      return (
+                      
                     <MDBCard className="shadow-0 border mb-4">
                       <MDBCardBody>
                         <MDBRow>
                           <MDBCol md="2">
                             <MDBCardImage
-                              src="https://mdbcdn.b-cdn.net/img/Photos/Horizontal/E-commerce/Products/1.webp"
+                              src={BaseURL + item?.product_main_image}
                               fluid
-                              alt="Phone"
+                              alt="Product Image"
                             />
                           </MDBCol>
                           <MDBCol
                             md="2"
                             className="text-center d-flex justify-content-center align-items-center"
                           >
-                            <p className="text-muted mb-0">iPad</p>
+                            <p className="text-muted mb-0">{item?.product_translations?.at(0)?.name}</p>
+                          </MDBCol>
+                         
+                          <MDBCol
+                            md="2"
+                            className="text-center d-flex justify-content-center align-items-center"
+                          >
+                            
                           </MDBCol>
                           <MDBCol
                             md="2"
                             className="text-center d-flex justify-content-center align-items-center"
                           >
-                            <p className="text-muted mb-0 small">Pink rose</p>
+                            <p className="text-muted mb-0 small">Qty: {item.product_quantity}</p>
                           </MDBCol>
                           <MDBCol
                             md="2"
                             className="text-center d-flex justify-content-center align-items-center"
                           >
-                            <p className="text-muted mb-0 small">
-                              Capacity: 32GB
-                            </p>
-                          </MDBCol>
-                          <MDBCol
-                            md="2"
-                            className="text-center d-flex justify-content-center align-items-center"
-                          >
-                            <p className="text-muted mb-0 small">Qty: 1</p>
-                          </MDBCol>
-                          <MDBCol
-                            md="2"
-                            className="text-center d-flex justify-content-center align-items-center"
-                          >
-                            <p className="text-muted mb-0 small">$399</p>
+                            <p className="text-muted mb-0 small">{item.product_price}</p>
                           </MDBCol>
                         </MDBRow>
                      
                       </MDBCardBody>
-                    </MDBCard>
+                    </MDBCard> 
   
+                      )
+                    })
+                  }
+
                     <div className="d-flex justify-content-between pt-2">
                       <p className="fw-bold mb-0">Order Details</p>
                       <p className="text-muted mb-0">
-                        <span className="fw-bold me-4">Total</span> $898.00
+                        <span className="fw-bold me-4">Total</span> {order?.order_total} {Currency}
                       </p>
                     </div>
   
                     <div className="d-flex justify-content-between pt-2">
-                      <p className="text-muted mb-0">Invoice Number : 788152</p>
+                      <p className="text-muted mb-0">System Number : 0097466456660</p>
                       <p className="text-muted mb-0">
-                        <span className="fw-bold me-4">Discount</span> $19.00
+                        <span className="fw-bold me-4">Discount</span> 0 {Currency}
                       </p>
                     </div>
   
                     <div className="d-flex justify-content-between">
                       <p className="text-muted mb-0">
-                        Invoice Date : 22 Dec,2019
+                        Invoice Date : {order?.created_at}
                       </p>
                       <p className="text-muted mb-0">
-                        <span className="fw-bold me-4">GST 18%</span> 123
+                        <span className="fw-bold me-4">Payment Method</span> {order?.payment_method}
                       </p>
                     </div>
   
                     <div className="d-flex justify-content-between mb-5">
-                      <p className="text-muted mb-0">
-                        Recepits Voucher : 18KU-62IIK
-                      </p>
+                    
                       <p className="text-muted mb-0">
                         <span className="fw-bold me-4">Delivery Charges</span>{" "}
                         Free
@@ -140,7 +162,7 @@ import Layout from '../../Layout/app/Layout';
                       tag="h5"
                       className="d-flex align-items-center justify-content-end text-white text-uppercase mb-0"
                     >
-                      Total paid: <span className="h2 mb-0 ms-2">$1040</span>
+                      Total paid: <span className="h2 mb-0 ms-2">{order?.order_total}{Currency}</span>
                     </MDBTypography>
                   </MDBCardFooter>
                 </MDBCard>

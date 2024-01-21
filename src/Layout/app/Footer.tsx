@@ -10,7 +10,6 @@ import { useGetSocialMedia } from '../../api/social_media';
 const Footer = () => {
 
   const { data } = useGetSocialMedia()
-  console.log(data.data);
   const SoicalMedia = data?.data
   return (
     <div className='Footer'>
