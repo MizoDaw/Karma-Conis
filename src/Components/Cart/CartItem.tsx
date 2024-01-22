@@ -35,13 +35,6 @@ const CartItem: React.FC <CartItemProps> = ({item}) => {
         <p> Quantity :{item.quantity} </p> 
 
       </span>
-      {/* <span className='Cart_Counter'>
-        <Button  shape="circle" icon={<PlusSquareOutlined />} onClick={()=>{setCounter(v => ++v) ; setPrice(v=> 2 * v )} } />
-        <div className='Counter'>
-          {Counter}
-        </div>
-        <Button  shape="circle" icon={<MinusSquareOutlined />} onClick={()=>{setCounter(v => v > 1 ? --v : v) ;setPrice(v=> Counter > 1 ? v/2 : v )}} />
-      </span> */}
       <span className='Cart_Delete'>
       <Popconfirm
     title="Delete the Item"
