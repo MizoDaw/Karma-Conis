@@ -10,7 +10,6 @@ const CheckoutForm = ({delivery_fees , sub_total ,setViewPage}:any) => {
 
   const handleSubmit = () => {
     // Execute your logic for handling form submission
-    console.log('DetailsBody submitted with values:', values);
 
     // Proceed to the next step
     setViewPage(1);

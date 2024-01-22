@@ -6,7 +6,6 @@ interface StepsUiProps {
 }
 const StepsUi: React.FC <StepsUiProps>= ({ViewPage,setViewPage}) => {
   const [current, setCurrent] = useState(ViewPage);
-    console.log(current);
   const onChange = (value: number) => {
     // setViewPage(value)
     // setCurrent(value);

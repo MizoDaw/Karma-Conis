@@ -18,7 +18,6 @@ const  KEY2 = "SINGLE_ORDER"
 export const useAddToCart =  ()=>useAddMutation(KEY , API.AddToCart )
 export const useGetCart =  ()=>{
     const {isAuthenticated} = useSelector((state:any)=>state.auth)
-    console.log(isAuthenticated);
     
     return useGetQuery(KEY  , API.GET  ,{} , {
         enabled:isAuthenticated

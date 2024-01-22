@@ -2,11 +2,11 @@ import React from 'react';
 import type { PaginationProps } from 'antd';
 import { Pagination } from 'antd';
 import { useLocation, useNavigate, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 
 
 const ProductPagination = ({data}:any) =>{
-  console.log(data,"data");
   
   const navigate = useNavigate();
 const location = useLocation();
@@ -20,6 +20,7 @@ const onChange = (page: number, pageSize?: number) => {
 const onShowSizeChange = (current: number, pageSize: number) => {
   navigate(`?page=${current}&per_page=${pageSize}`, { replace: true });
 };
+const [t]= useTranslation()
   return  (
 
 
@@ -27,9 +28,9 @@ const onShowSizeChange = (current: number, pageSize: number) => {
       <Pagination  
      className='text-center mt-3 paginateStyle'
      total={data?.total}
-     showTotal={(total: any) => `Total ${data?.total} items`}
+     showTotal={(total: any) => `${t("Total")} ${data?.total} ${t("items")}`}
      pageSize={pageSize}
-     pageSizeOptions={[5 ,8, 24, 32, 40]}
+     pageSizeOptions={[5 ,8, 24]}
      defaultCurrent={currentPage}
      current={currentPage}  
      onChange={onChange}

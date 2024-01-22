@@ -12,7 +12,6 @@ const Products = () => {
 
   const [style, setstyle] = useState(true)
   const { data , isLoading } = useGetAllProductWithPaginations();
-  console.log(data);
   
   const Props = { style, setstyle,data ,isLoading }
 

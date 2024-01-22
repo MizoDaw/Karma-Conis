@@ -8,7 +8,6 @@ const DetailsBody = ({ setViewPage }: any) => {
 
   const handleSubmit = () => {
     // Execute your logic for handling form submission
-    console.log('DetailsBody submitted with values:', values);
 
     // Proceed to the next step
     setViewPage(2);
@@ -20,7 +19,6 @@ const DetailsBody = ({ setViewPage }: any) => {
   return (
     <div className="DetailsBody">
       <div className="DetailsBody_Left">
-        <Form>
           <div className='Address'>
             <h5>Shipping Address</h5>
             <div>
@@ -42,7 +40,6 @@ const DetailsBody = ({ setViewPage }: any) => {
               </Button>
             </div>
           </div>
-        </Form>
       </div>
     </div>
   );

@@ -10,7 +10,6 @@ import { useGetCart } from '../../api/cart'
 const ViewCart = () => {
   const { DataCart,count} = useCartData()
   const {data } = useGetCart()
-  console.log(data?.data?.data?.at(0)?.cart_items_count);
   
   
     const navigate = useNavigate()
@@ -36,7 +35,7 @@ const ViewCart = () => {
         
     <div className='Card_Items'>
       {DataCart.map((item:any, index:number) => (
-        <CardItem data={item} />
+        <CardItem key={index} data={item} />
       ))}
     </div>
     

@@ -3,6 +3,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import type { RadioChangeEvent } from 'antd';
 import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useGetAllCategories } from '../../api/categories';
+import { useTranslation } from 'react-i18next';
 
 interface FilterState {
   category_id: string;
@@ -20,6 +21,7 @@ const ProductsFilter = () => {
   const navigate = useNavigate();
   const { category_id: paramCategory_id, min_price: paramMin_price, max_price: paramMax_price, all: paramall,is_most_purchased:paramis_most_purchased, is_highlight:paramis_highlight} = useParams();
   const [search] = useSearchParams()
+  const [t] = useTranslation()
   const [filter, setFilter] = useState<FilterState>({
   category_id: paramCategory_id || 'all',
   min_price: paramMin_price ? parseInt(paramMin_price, 10) : 0,
@@ -35,10 +37,9 @@ const CategoriesArry = data?.data?.data?.map((item: any) => ({
   label: item?.category_translations[0]?.name,
 }));
 
-CategoriesArry?.push({ value: null, label: 'all' });
+CategoriesArry?.push({ value: undefined, label: 'all' });
 
 useEffect(() => {
-  console.log(filter.category_id);
   
   if (!isInitialRender.current) {
     const queryParams = {
@@ -86,9 +87,9 @@ useEffect(() => {
   };
   return (
     <div className='ProductsFilter'>
-      <span className='ProductsFilter_header'>ProductsFilter </span>
+      <span className='ProductsFilter_header'>{t("ProductsFilter")} </span>
       <Divider />
-      <div className='ProductsFilter_Text'> Categories </div>
+      <div className='ProductsFilter_Text'> {t("Categories")} </div>
 
       <div>
         <Select
@@ -98,7 +99,7 @@ useEffect(() => {
           options={CategoriesArry}
         />
       </div>
-      <div className='ProductsFilter_Text'>Price Range</div>
+      <div className='ProductsFilter_Text'>{t("Price Range")}</div>
       <div>
         <InputNumber
           min={0}
@@ -123,7 +124,7 @@ useEffect(() => {
           className='ProductsFilter_options'
           onChange={handleAllChange}
         >
-          All
+          {t("All")}
         </Radio>
         <Radio
           value='highlight'
@@ -131,7 +132,7 @@ useEffect(() => {
           className='ProductsFilter_options'
           onChange={handleis_highlightChange}
         >
-          Highlight
+          {t("Highlight")}
           
         </Radio>
         <Radio
@@ -140,7 +141,7 @@ useEffect(() => {
           className='ProductsFilter_options'
           onChange={handleis_most_purchasedChange}
         >
-          Most Purchased
+          {t("Most Purchased")}
         </Radio>
         {/* <Radio
           value='favourite'

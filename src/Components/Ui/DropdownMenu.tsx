@@ -4,10 +4,11 @@ import { AppstoreOutlined, DownOutlined, MailOutlined } from '@ant-design/icons'
 import { useGetAllCategories } from '../../api/categories';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import type { MenuProps } from 'antd';
 
 const DropdownMenu = () => {
   const { data, isError, isLoading } = useGetAllCategories();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [t] = useTranslation();
 
   if (isLoading) {
@@ -28,20 +29,31 @@ const DropdownMenu = () => {
     label: category.value,
     icon: <MailOutlined />,
   }));
-
-  const menu = (
+  const items: any = NewmenuData?.map((item: any) => ({
+    key: item.key,
+    label: (
+      <a target="_blank" rel="noopener noreferrer" href={`https://www.example.com/${item.key}`}>
+        {item.label}
+      </a>
+    ),
+    icon: item.icon, // You can include the icon if available
+    disabled: item.disabled,
+    danger: item.danger,
+  }));
+  
+  const menu: React.ReactNode = (
     <Menu>
-      {NewmenuData?.map((item:any) => (
-        <Menu.Item key={item.key}>
-          <div onClick={()=> navigate(`/products?categories_id=${item?.key}`)}>{item.label}</div>
+      {items.map((menuItem: any) => (
+        <Menu.Item key={menuItem.key} disabled={menuItem.disabled} danger={menuItem.danger}>
+          {menuItem.label}
         </Menu.Item>
       ))}
     </Menu>
   );
-
+  
 
   return (
-    <Dropdown overlay={menu} placement="bottomLeft" className="DropdownMenu" trigger={['click']}>
+    <Dropdown menu={{items}} placement="bottomLeft" className="DropdownMenu" trigger={['click']}>
       <Button>
         <AppstoreOutlined />
         {t("Categories")}

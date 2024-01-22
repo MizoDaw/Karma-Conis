@@ -18,7 +18,6 @@ const CartPage: React.FC = () => {
   if(isLoading){
     return <LoadingPage/>
   }
-console.log(data?.data?.at(0)?.cart_items);
 
   const MemoizedStepsUi = memo(() => {
     return <StepsUi {...propsState} />;

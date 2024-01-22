@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import {  useNavigate } from 'react-router-dom';
-import { TOKEN_KEY } from '../../config/AppKey';
-import { Formik, Form, Field } from 'formik';
-import { useLogin, useRegister } from '../../api/auth';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import { useSelector } from 'react-redux';
@@ -18,7 +15,6 @@ const Auth = () => {
       navigate('/')
     }
   },[isAuthenticated])
-  console.log(isAuthenticated);
   
   const handleRegisterClick = () => {
     setIsActive(true);
@@ -46,20 +42,20 @@ const Auth = () => {
   <div className="toggle-container ">
     <div className="toggle">
       <div className="toggle-panel toggle-left  "  >
-      <h1>Hello, Friend!</h1>
-        <p>Register with your personal details to use all of site features</p>
+      <h1>{t("Hello, Friend!")}</h1>
+        <p>{t("Register with your personal details to use all of site features")}</p>
        
         <button className="hidden" id="login" onClick={handleLoginClick}>
-          Sign In
+          {t("Sign In")}
         </button>
 
       </div>
       <div className="toggle-panel toggle-right">
-      <h1>Welcome Back!</h1>
-        <p>Enter your personal details to use all of site features</p>
+      <h1>{t("Welcome Back!")}</h1>
+        <p>{t("Enter your personal details to use all of site features")}</p>
         
         <button className="hidden" id="register" onClick={handleRegisterClick}>
-          Sign Up
+          {t("Sign Up")}
         </button>
       </div>
     </div>

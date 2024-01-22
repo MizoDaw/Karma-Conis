@@ -19,7 +19,6 @@ const PaymentBody = ({ setViewPage }: any) => {
   const {values, setFieldValue, submitForm } = formikContext;
 
   const handleSubmit = () => {
-    console.log(values);
       const data = values as ValuesType
       mutate({
         ...(data as object),

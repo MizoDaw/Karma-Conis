@@ -12,11 +12,9 @@ interface CartItemProps {
   item: Product;
 }
 const CartItem: React.FC <CartItemProps> = ({item}) => {
-  console.log(item);
   
   const [loading, resetLoading] = useLoadingState(true, 2000);
-  const [Counter, setCounter] = useState<number>(1);
-  const [Price, setPrice] = useState<number>(210);
+
 
   return (
     <div className='CartItem'>

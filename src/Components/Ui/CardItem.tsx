@@ -6,15 +6,16 @@ import { TProduct } from '../../Layout/app/Types';
 
 interface CartItemProps {
   data: TProduct;
+  key : number
 }
 
-const CardItem: React.FC<CartItemProps> = ({ data }) => {
+const CardItem: React.FC<CartItemProps> = ({ data,key }) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
   const [Counter, setCounter] = useState<number>(data?.count);
   const [Price, setPrice] = useState<number>(data?.price);
 
   return (
-    <Skeleton loading={loading} active avatar style={{ width: "100%", marginTop: 22 }}>
+    <Skeleton key={key} loading={loading} active avatar style={{ width: "100%", marginTop: 22 }}>
       <Card className='CardItem' style={{ width: "100%", marginTop: 16 }} loading={loading}>
         <span className='Card_Counter'>
           <Button shape="circle" icon={<PlusCircleFilled />} onClick={() => { setCounter(v => ++v); setPrice(v => 2 * v) }} />

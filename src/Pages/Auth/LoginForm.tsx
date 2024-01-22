@@ -5,11 +5,13 @@ import { LoadingButton } from '../../Components/Utils/Loading/LoadingButton'
 import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from '../../Redux/auth/AuthReducer'
+import { useTranslation } from 'react-i18next'
 
 function LoginForm({handleRegisterClick}:any) {
   const Navigate = useNavigate() 
     const {mutate , isSuccess ,isLoading, data} = useLogin()
     const dispatch = useDispatch()
+    const [t] = useTranslation()
 
     const handelSubmit = (values:any)=>{
 
@@ -37,18 +39,18 @@ function LoginForm({handleRegisterClick}:any) {
       {/* <img  src='/logo/Logo.png' style={{width:210}} /> */}
       <img  src='/logo/logo3.png' style={{width:110}} />
 
-      <h1>Sign In</h1>
+      <h1>{t("Sign In")}</h1>
       <div  className='login_dev'>
-      <label>Email</label>
+      <label>{t("Email")}</label>
       <Field name="email" type="email" placeholder="Email" />
       </div>
       <div className='login_dev'>
-      <label>Password</label>
+      <label>{t("Password")}</label>
       <Field name="password" type="password" placeholder="Password" />
       </div>
       {/* <a href="#">Forget Your Password?</a> */}
-      <LoadingButton  isLoading={isLoading}  >Sign In</LoadingButton>
-      <p className='navigateto' onClick={handleRegisterClick} >or Register</p>
+      <LoadingButton  isLoading={isLoading}  >{t("Sign In")}</LoadingButton>
+      <p className='navigateto' onClick={handleRegisterClick} >{t("or Register")}</p>
 
 
       </Form>

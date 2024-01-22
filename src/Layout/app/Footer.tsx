@@ -6,11 +6,26 @@ import { MdEmail, MdOutlineShoppingCart } from 'react-icons/md';
 import { CiHome, CiPhone } from 'react-icons/ci';
 import { IoIosInformationCircleOutline, IoMdContacts } from "react-icons/io";
 import { useGetSocialMedia } from '../../api/social_media';
+import { useTranslation } from 'react-i18next';
 
 const Footer = () => {
 
-  const { data } = useGetSocialMedia()
-  const SoicalMedia = data?.data
+  const { data: socialMediaData } = useGetSocialMedia()
+  const [t] = useTranslation()
+  const socialMediaItems = Array.isArray(socialMediaData)
+  ? socialMediaData.map((social: any, index: number) => (
+      <Tooltip key={index} title={social.social_media_link}>
+        <img
+          onClick={() => {
+            window.location.href = social.social_media_link;
+          }}
+          alt="social-image"
+          src={`${BaseURL}${social.social_media_image}`}
+          style={{ width: 40 }}
+        />
+      </Tooltip>
+    ))
+  : null;
   return (
     <div className='Footer'>
       <>
@@ -23,19 +38,9 @@ const Footer = () => {
             <section
               className=" Footer_Header">
               <div className="me-7 ">
-                <span>Our Social Networks:</span>
+                <span>{t("Our Social Networks:")}</span>
               </div>
-              {SoicalMedia?.map((social: any) => <>
-
-                <Tooltip title={social.social_media_link} >
-
-                  <img onClick={() => {
-                    window.location.href = social.social_media_link
-                  }} alt={"social-image"} src={BaseURL + social.social_media_image} style={{ width: 40 }}
-
-                  />
-                </Tooltip>
-              </>)}
+              {socialMediaItems}
             </section>
 
             <section className="">
@@ -45,7 +50,7 @@ const Footer = () => {
                   {/* Grid column */}
                   <div className="col-md-3 col-lg-3 col-xl-3 mx-auto mb-4" >
                     {/* Links */}
-                    <h6 className="text-uppercase fw-bold">Karma Antique</h6>
+                    <h6 className="text-uppercase fw-bold">{t("Karma Antique")}</h6>
                     <hr
                       className="mb-4 mt-0 d-inline-block"
                       style={{ width: '60%', backgroundColor: "#7c4dff", height: 2 }}
@@ -53,25 +58,25 @@ const Footer = () => {
                     <p className='footer_links'>
                       <CiHome size={20} />
                       <Link to="/" className="text-white">
-                        Home
+                        {t("Home")}
                       </Link>
                     </p>
                     <p className='footer_links'>
                       <MdOutlineShoppingCart />
                       <Link to="/products" className="text-white">
-                        Products
+                        {t("Products")}
                       </Link>
                     </p>
                     <p className='footer_links'>
                       <IoIosInformationCircleOutline />
                       <Link to="/about" className="text-white">
-                        About us
+                        {t("About us")}
                       </Link>
                     </p>
                     <p className='footer_links'>
                       <IoMdContacts />
                       <Link to="/contact" className="text-white">
-                        Contact us
+                        {t("Contact us")}
                       </Link>
                     </p>
 
@@ -82,7 +87,7 @@ const Footer = () => {
                   {/* Grid column */}
                   <div className="col-md-4 col-lg-4 col-xl-4 mx-auto mb-4">
                     {/* Links */}
-                    <h6 className="text-uppercase fw-bold">Useful links</h6>
+                    <h6 className="text-uppercase fw-bold">{t("Useful links")}</h6>
                     <hr
                       className="mb-4 mt-0 d-inline-block "
                       style={{ width: "40%", backgroundColor: "#7c4dff", height: 2 }}
@@ -109,10 +114,10 @@ const Footer = () => {
                       style={{ width: 60, backgroundColor: "#7c4dff", height: 2 }}
                     />
                     <p>
-                      Syria
+                      {t("Syria")}
                     </p>
                     <p>
-                      Damascus , Mazzeh
+                      {t("Damascus")} , {t("Mazzeh")}
                     </p>
 
                   </div>
@@ -127,7 +132,7 @@ const Footer = () => {
               className="text-center p-3"
               style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
             >
-              © 2024 Copyright:
+              © 2024 {t("Copyright")}:
               <a className="text-white " href="https://sdnone.net/">
                 <p>SdnOne </p>
               </a>

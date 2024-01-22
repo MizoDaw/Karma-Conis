@@ -46,7 +46,7 @@ const Contact: React.FC = () => {
     <Layout className="Contact" >
       <div>
         <h1>{t('Contact Us')}</h1>
-        <p>{t('Lorem Iposem please enter your text Lorem Iposem please enter your text Lorem Iposem please enter your text')}</p>
+        <p>{t('Send your message and it will be automatically sent to my Gmail')}</p>
         <ContactImage />
       </div>
       <div>

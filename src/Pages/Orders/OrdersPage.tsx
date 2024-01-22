@@ -10,7 +10,6 @@ import NotFoundPage from '../../Layout/app/NotFoundPage';
 const Orders = () => {
 
   const { data , isLoading , isError} = useGetAllOrders();
-  console.log(data?.data);
 
 
 
