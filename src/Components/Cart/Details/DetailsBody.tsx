@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { Button, Input, Form } from 'antd';
 import { ErrorMessage, Field, useFormikContext } from 'formik';
 import InputCart from './InputCart';
@@ -25,6 +25,9 @@ const DetailsBody = ({ setViewPage }: any) => {
       }
     },500)
   };
+  
+
+
 
   return (
     <div className="DetailsBody">
@@ -51,8 +54,16 @@ const DetailsBody = ({ setViewPage }: any) => {
               </Button>
             </div>
           </div>
+          <div>
+            <Button type="dashed" block onClick={() => setViewPage(0)}>
+              Back to cart
+            </Button>
+            <Button onClick={handleSubmit} className='primary' type="primary" block>
+              Proceed To Payment
+            </Button>
+          </div>
+        </div>
       </div>
-    </div>
   );
 };
 

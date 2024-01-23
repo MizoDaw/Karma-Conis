@@ -13,7 +13,7 @@ const Page = () => {
 
   return (
     <Layout  className='HomePage'>
-      <HeroSection data={data?.data?.slider} />
+      <HeroSection data={data?.data} />
       <SpecialProperties data={specialPropertiesData} />
       <MovesAds {...MovesAdsData} />
       <Highlight data={data?.data?.product_highlight}  />

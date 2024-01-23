@@ -35,9 +35,17 @@ import React from 'react';
 import { Carousel } from 'antd';
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { BaseURL } from '../../api/config';
 
 
 const CarouselApp = (data:any) =>{
+  const ImageData = data?.data?.slider?.map((item:any)=>{
+    return item?.slider_translations?.map((item:any)=>{
+      return item?.image
+    })
+  })
+  
+
 
   const bannerData  = [
     {
@@ -66,11 +74,11 @@ const CarouselApp = (data:any) =>{
     },
   ]
   const [t] = useTranslation();
-
+      
   return (
 
-    <Carousel autoplay>
-      {bannerData.map((item:any, index:number) => (
+    <Carousel>
+      {/* {bannerData.map((item:any, index:number) => (
         <div className='banner_Container' key={index}>
           <img alt='' className='banner1' src={item.imageUrl} />
           <div className='banner_Info'>
@@ -80,6 +88,11 @@ const CarouselApp = (data:any) =>{
             </h2>
             <Link to={item.link}> {t(`${item.btn}`)}  &#8599; </Link>
           </div>
+        </div>
+      ))} */}
+        {ImageData?.map((item:any, index:number) => (
+        <div className='banner_Container' key={index}>
+          <img alt='' className='banner1' src={BaseURL + item[0]} />
         </div>
       ))}
     </Carousel>

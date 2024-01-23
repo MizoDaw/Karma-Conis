@@ -11,6 +11,7 @@ import LoadingPage from '../Loading/LoadingPage';
 import * as yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 
+
 const CartPage: React.FC = () => {
   const [ViewPage, setViewPage] = useState<number>(0);
   const propsState = { ViewPage, setViewPage };
@@ -75,7 +76,7 @@ const CartPage: React.FC = () => {
     console.log(values);
     
   };
-
+  
 
   return (
     <Layout className='CartPage'>
