@@ -1,4 +1,4 @@
-import React, { useState, memo } from 'react';
+import React, { useState, memo, useEffect } from 'react';
 import { Formik, Form } from 'formik';
 import Layout from '../../Layout/app/Layout';
 import StepsUi from '../../Components/Cart/StepsUi';
@@ -6,14 +6,34 @@ import CartBody from '../../Components/Cart/CartBody';
 import DetailsBody from '../../Components/Cart/Details/DetailsBody';
 import PaymentBody from '../../Components/Cart/Payment/PaymentBody';
 import ReviewBody from '../../Components/Cart/Review/ReviewBody';
-import { useGetCart } from '../../api/cart';
+import { useCheckout, useCreatePayment, useGetCart } from '../../api/cart';
 import LoadingPage from '../Loading/LoadingPage';
+import * as yup from 'yup';
+import { useNavigate } from 'react-router-dom';
 
 const CartPage: React.FC = () => {
   const [ViewPage, setViewPage] = useState<number>(0);
   const propsState = { ViewPage, setViewPage };
   const { data , isLoading } = useGetCart();
+  const {mutate , isLoading:LoadingCheckout , isSuccess  } = useCheckout()
+  const {mutate:createPayment , isLoading:LoadingPayment , isSuccess:SuccessPayemnt , data:UrlPaymnet } = useCreatePayment()
+  const navigate = useNavigate()
+  useEffect(()=>{
+    if(SuccessPayemnt){
+      window.location.href = ((UrlPaymnet?.data));
+      
+    }
+  },[SuccessPayemnt])
+  useEffect(()=>{
+    console.log(isSuccess);
+    
+    if(isSuccess){
+      console.log(isSuccess , "OORRR");
+        navigate('/success_payment')
 
+
+      }
+  },[isSuccess])
 
   if(isLoading){
     return <LoadingPage/>
@@ -30,14 +50,30 @@ const CartPage: React.FC = () => {
       case 1:
         return <DetailsBody {...propsState} />;
       case 2:
-        return <PaymentBody {...propsState} />;
+        return <PaymentBody {...propsState} isLoading={isLoading} />;
       case 3:
         return <ReviewBody {...propsState} />;
       default:
         return null;
     }
   });
-  const handleSubmit = (values: any, actions: any) => {
+  const handleSubmit = (values: ValuesType, actions: any) => {
+    console.log(ViewPage);
+    
+    if(ViewPage ==2){
+      console.log('thx');
+
+      if(values['payment_method'] == 'online'){
+          localStorage.setItem('payemnt_online' , JSON.stringify(values));
+        createPayment({})
+      }else{
+        mutate({...values , zone_number:values.zone , building_number:values?.building +""})
+
+      }
+      
+    }
+    console.log(values);
+    
   };
 
 
@@ -46,15 +82,23 @@ const CartPage: React.FC = () => {
       <Formik
         initialValues={{
           cartItems: data?.data?.at(0)?.cart_items || [],
-          phone: localStorage.getItem('PHONE_CHECK_OUT') || '',
-          zone: localStorage.getItem('ZONE_CHECK_OUT') || '',
-          building: localStorage.getItem('BUILDING_CHECK_OUT') || '',
-          note: localStorage.getItem('NOTE_CHECK_OUT') || '',
-          payment_method: "",
+          phone:'',
+          zone:'',
+          building:'',
+          note:'',
+          payment_method: "online",
           lat: "36.480",
           long: "36.848"
 
         }}
+        validationSchema={yup.object().shape({
+          phone: yup.string().required('required'),
+          zone: yup.number().required('required'),
+          building: yup.number().required('required'),
+          note: yup.string(),
+          lat: yup.string().required('required'),
+          long: yup.string().required('required'),
+        })        }
         onSubmit={handleSubmit}
       >
         <Form>
@@ -67,3 +111,16 @@ const CartPage: React.FC = () => {
 };
 
 export default CartPage;
+
+
+interface ValuesType {
+  building: string,
+
+lat: string ,
+long: string ,
+note: string , 
+payment_method: string,
+phone : string,
+zone: string,
+
+}

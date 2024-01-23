@@ -2,7 +2,7 @@ import React from 'react';
 import { Dropdown, Button, Menu } from 'antd';
 import { AppstoreOutlined, DownOutlined, MailOutlined } from '@ant-design/icons';
 import { useGetAllCategories } from '../../api/categories';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import type { MenuProps } from 'antd';
 
@@ -24,17 +24,13 @@ const DropdownMenu = () => {
     label: item?.id,
   }));
 
-  const NewmenuData = CategoriesArry.map((category: any) => ({
-    key: category.label,
-    label: category.value,
-    icon: <MailOutlined />,
-  }));
-  const items: any = NewmenuData?.map((item: any) => ({
+
+  const items: any = CategoriesArry?.map((item: any) => ({
     key: item.key,
     label: (
-      <a target="_blank" rel="noopener noreferrer" href={`https://www.example.com/${item.key}`}>
-        {item.label}
-      </a>
+      <Link  rel="noopener noreferrer" to={`/Products?category_id=`+item.label}>
+        {item.value}
+      </Link>
     ),
     icon: item.icon, // You can include the icon if available
     disabled: item.disabled,

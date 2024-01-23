@@ -27,8 +27,8 @@ const CartItem: React.FC <CartItemProps> = ({item}) => {
       <span className='Cart_Info' style={{marginInline:"10px"}}>
         <h5> {item?.product?.product_translations?.at(0)?.name} </h5>
         <span style={{display:"flex" , alignItems:"center", justifyContent:"space-around"}}>
-
-        <img style={{borderRadius:"50%", width:30 , height:'30', marginRight:"10px"}} src={BaseURL_IMAGE + item.product.category?.category_image}  /> <h6>  {item.product?.category?.category_translations?.at(0)?.name} </h6>
+    
+        <img style={{borderRadius:"50%", width:"30px" , height:'30px', marginRight:"10px"}} src={BaseURL_IMAGE + item.product.category?.category_image}  /> <h6>  {item.product?.category?.category_translations?.at(0)?.name} </h6>
 
         </span>
         <strong>Price : {Currency}{item.product.product_price} </strong> 

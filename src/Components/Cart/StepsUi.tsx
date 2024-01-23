@@ -28,11 +28,11 @@ const StepsUi: React.FC <StepsUiProps>= ({ViewPage,setViewPage}) => {
           {
             title: 'Payment',
             description:"Pay with",
-          },
-          {
-            title: 'Review',
-            description:"Rate Us",
           }
+          // {
+          //   title: 'Review',
+          //   description:"Rate Us",
+          // }
         ]}
       />
 

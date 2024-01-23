@@ -9,6 +9,7 @@ const API = {
     AddToCart:"/api/cart/add_product",
     GET:"/api/cart/details",
     CHECK : '/api/order/checkout',
+    CREATE_PAYMENT:`/api/user/create_payment`,
     SINGLE_ORDER:"api/order/details"
 }
 
@@ -25,6 +26,7 @@ export const useGetCart =  ()=>{
 }
 
 export const useCheckout = ()=>useAddMutation(KEY , API.CHECK)
+export const useCreatePayment = ()=>useAddMutation(KEY , API.CREATE_PAYMENT)
 
 
 

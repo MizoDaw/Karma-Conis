@@ -1,6 +1,8 @@
 {
-    "Ar": "Ar",
-    "En": "En",
+    "Ar": "AR",
+    "En": "EN",
+    "ar": "AR",
+    "en": "EN",
     "Arabic":"Arabic",
 "English":"English",
     "Login":"Login",

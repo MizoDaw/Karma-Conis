@@ -3,51 +3,33 @@ import PaymentForm from './PaymentForm';
 import { Button, Divider, Input, Radio, Space } from 'antd';
 import { useCheckout } from '../../../api/cart';
 import { useFormikContext } from 'formik';
-interface ValuesType {
-  building: string,
+import { toast } from 'react-toastify';
 
-lat: string ,
-long: string ,
-note: string , 
-payment_method: string,
-phone : string,
-zone: string,
-
-}
-const PaymentBody = ({ setViewPage }: any) => {
+const PaymentBody = ({ setViewPage , isLoading}: any) => {
   const formikContext = useFormikContext();
-  const {values, setFieldValue, submitForm } = formikContext;
-
+  const {values, setFieldValue, submitForm , getFieldProps } = formikContext;
   const handleSubmit = () => {
-      const data = values as ValuesType
-      mutate({
-        ...(data as object),
-        zone_number:+data?.zone,
-        'payment_method': 'cash_on_delivery',
-      })
-      
-   
-  };
-
-  const [selectedValue, setSelectedValue] = useState(1);
-
-  const {mutate , isLoading , isSuccess , data , status } = useCheckout()
-  const handleChange = (value: any) => {
-    setSelectedValue(value);
-    setFieldValue('payment_method', 'cash_on_delivery'); // Set the value in Formik
-
-  };
-
-  useEffect(()=>{
-    console.log(isSuccess);
+    toast.info("Your Data in proccess")
     
-    if(isSuccess){
-      console.log(isSuccess , "OORRR");
-        setViewPage(3)
-        submitForm();
+    submitForm()
+  };
 
-      }
-  },[isSuccess])
+
+  const [selectedValue, setSelectedValue] = useState(getFieldProps('payment_method').value == 'online' ? 2 :3);
+
+  const handleChange = (value: any) => {
+    if(value ==3){
+      setSelectedValue(value);
+      setFieldValue('payment_method', 'cash_on_delivery')
+    }else{
+      setSelectedValue(value);
+      setFieldValue('payment_method', 'online')
+    }
+
+
+  };
+
+
 
   type TRadioUi = { value: number; title: string, className?: string; children: React.ReactNode }
   const RadioUi = ({ value, children, title, className }: TRadioUi) => {
@@ -70,8 +52,13 @@ const PaymentBody = ({ setViewPage }: any) => {
   return (
     <div className="PaymentBody">
       <div className="PaymentBody_Left">
+        Payment Method
+        <Divider/>
         <Space direction='vertical' >
-          <RadioUi   value={3} title="Cash On Delivery" >
+          <RadioUi   value={3} title="Cash On Delivery"  >
+              <></>
+          </RadioUi>
+          <RadioUi   value={2} title="Online" >
               <></>
           </RadioUi>
         </Space>
@@ -80,8 +67,12 @@ const PaymentBody = ({ setViewPage }: any) => {
             <Button type="dashed" block onClick={()=>setViewPage(1)} >
       back to Details
     </Button>
-         <Button onClick={handleSubmit} className='primary' type="primary" block>
-      {isLoading? "Loading ... " :"Review"}
+         <Button onClick={()=>{
+        
+          handleSubmit()
+          
+          }} className='primary' type="primary" block>
+       {isLoading ? "Loading ...." : "Review" }
     </Button>
            </div>
     

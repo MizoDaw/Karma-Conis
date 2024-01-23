@@ -12,8 +12,9 @@ const Footer = () => {
 
   const { data: socialMediaData } = useGetSocialMedia()
   const [t] = useTranslation()
-  const socialMediaItems = Array.isArray(socialMediaData)
-  ? socialMediaData.map((social: any, index: number) => (
+  
+  const socialMediaItems = Array.isArray(socialMediaData?.data)
+  ? socialMediaData?.data.map((social: any, index: number) => (
       <Tooltip key={index} title={social.social_media_link}>
         <img
           onClick={() => {

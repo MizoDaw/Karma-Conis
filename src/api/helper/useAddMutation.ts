@@ -5,6 +5,7 @@ import { useTranslation } from 'react-i18next';
 
 type AxiosResponse = {
   message: string;
+  data:any
 };
 
 function useAddMutation(key: string, url: string): UseMutationResult<AxiosResponse, unknown, any, unknown> {

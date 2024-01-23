@@ -26,7 +26,7 @@ const Header = () => {
 
 
         <div className='Sha5da'><FaEnvelope /> {"info@leunumismatik.com"}</div>
-        <div> {t(`${HeaderText}`)} </div>
+        {/* <div> {t(`${HeaderText}`)} </div> */}
       </div>
 
       <div className='Header__Right'>
