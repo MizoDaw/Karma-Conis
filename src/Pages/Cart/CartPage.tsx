@@ -66,7 +66,7 @@ const CartPage: React.FC = () => {
 
       if(values['payment_method'] == 'online'){
           localStorage.setItem('payemnt_online' , JSON.stringify(values));
-        createPayment({})
+        createPayment({...values , zone_number:values.zone , building_number:values?.building +""})
       }else{
         mutate({...values , zone_number:values.zone , building_number:values?.building +""})
 
