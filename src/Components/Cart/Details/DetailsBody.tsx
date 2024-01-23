@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, Input, Form } from 'antd';
 import { ErrorMessage, Field, useFormikContext } from 'formik';
-import InputCart from './InputCart';
 import { object } from 'yup';
+import Default from './Default';
 
 const DetailsBody = ({ setViewPage }: any) => {
   const formikContext = useFormikContext();
@@ -35,15 +35,15 @@ const DetailsBody = ({ setViewPage }: any) => {
           <div className='Address'>
             <h5>Shipping Address</h5>
             <div>
-              <InputCart 
+              <Default 
               name='phone'/>
-              <InputCart  name='zone' placeholder="Zone Number" type='number' />
+              <Default  name='zone' placeholder="Zone Number" type='number' />
             </div>
             <div>
-              <InputCart  name='building' placeholder="Building Number"  type='number'/>
+              <Default  name='building' placeholder="Building Number"  type='number'/>
             </div>
             <div>
-              <InputCart  name='note' placeholder="Note"  />
+              <Default  name='note' placeholder="Note"  />
             </div>
             <div>
               <Button type="dashed" block onClick={() => setViewPage(0)}>

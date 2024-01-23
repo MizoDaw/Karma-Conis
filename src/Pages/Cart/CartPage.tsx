@@ -15,29 +15,29 @@ import { useNavigate } from 'react-router-dom';
 const CartPage: React.FC = () => {
   const [ViewPage, setViewPage] = useState<number>(0);
   const propsState = { ViewPage, setViewPage };
-  const { data , isLoading } = useGetCart();
-  const {mutate , isLoading:LoadingCheckout , isSuccess  } = useCheckout()
-  const {mutate:createPayment , isLoading:LoadingPayment , isSuccess:SuccessPayemnt , data:UrlPaymnet } = useCreatePayment()
+  const { data, isLoading } = useGetCart();
+  const { mutate, isLoading: LoadingCheckout, isSuccess } = useCheckout()
+  const { mutate: createPayment, isLoading: LoadingPayment, isSuccess: SuccessPayemnt, data: UrlPaymnet } = useCreatePayment()
   const navigate = useNavigate()
-  useEffect(()=>{
-    if(SuccessPayemnt){
+  useEffect(() => {
+    if (SuccessPayemnt) {
       window.location.href = ((UrlPaymnet?.data));
-      
+
     }
-  },[SuccessPayemnt])
-  useEffect(()=>{
+  }, [SuccessPayemnt])
+  useEffect(() => {
     console.log(isSuccess);
-    
-    if(isSuccess){
-      console.log(isSuccess , "OORRR");
-        navigate('/success_payment')
+
+    if (isSuccess) {
+      console.log(isSuccess, "OORRR");
+      navigate('/success_payment')
 
 
-      }
-  },[isSuccess])
+    }
+  }, [isSuccess])
 
-  if(isLoading){
-    return <LoadingPage/>
+  if (isLoading) {
+    return <LoadingPage />
   }
 
   const MemoizedStepsUi = memo(() => {
@@ -60,46 +60,52 @@ const CartPage: React.FC = () => {
   });
   const handleSubmit = (values: ValuesType, actions: any) => {
     console.log(ViewPage);
-    
-    if(ViewPage ==2){
+
+    if (ViewPage == 2) {
       console.log('thx');
 
-      if(values['payment_method'] == 'online'){
-          localStorage.setItem('payemnt_online' , JSON.stringify(values));
-        createPayment({...values , zone_number:values.zone , building_number:values?.building +""})
-      }else{
-        mutate({...values , zone_number:values.zone , building_number:values?.building +""})
+      if (values['payment_method'] == 'online') {
+        localStorage.setItem('payemnt_online', JSON.stringify(values));
+        createPayment({ ...values, zone_number: values.zone, building_number: values?.building + "" })
+      } else {
+        mutate({ ...values, zone_number: values.zone, building_number: values?.building + "" })
 
       }
-      
+
     }
     console.log(values);
-    
+
   };
-  
+
 
   return (
     <Layout className='CartPage'>
       <Formik
         initialValues={{
           cartItems: data?.data?.at(0)?.cart_items || [],
-          phone:'',
-          zone:'',
-          building:'',
-          note:'',
+          phone: '',
+          zone: '',
+          building: '',
+          note: '',
           payment_method: "online",
           lat: "36.480",
           long: "36.848"
 
         }}
         validationSchema={yup.object().shape({
-          phone: yup.string().required('required'),
-          zone: yup.number().required('required'),
-          building: yup.number().required('required'),
-          note: yup.string(),
+          // phone: yup.string().required('required'),
+          // zone: yup.number().required('required'),
+          // building: yup.number().required('required'),
+          // note: yup.string(),
+          // lat: yup.string().required('required'),
+          // long: yup.string().required('required'),
+          phone: yup.string().required('Phone is required'),
+          zone: yup.string().required('Zone is required'),
+          building: yup.string().required('Building is required'),
+          note: yup.string().required('note is required'),
           lat: yup.string().required('required'),
           long: yup.string().required('required'),
-        })        }
+        })}
         onSubmit={handleSubmit}
       >
         <Form>
@@ -117,11 +123,11 @@ export default CartPage;
 interface ValuesType {
   building: string,
 
-lat: string ,
-long: string ,
-note: string , 
-payment_method: string,
-phone : string,
-zone: string,
+  lat: string,
+  long: string,
+  note: string,
+  payment_method: string,
+  phone: string,
+  zone: string,
 
 }
