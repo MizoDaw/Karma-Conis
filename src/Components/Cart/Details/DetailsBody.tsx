@@ -54,14 +54,7 @@ const DetailsBody = ({ setViewPage }: any) => {
               </Button>
             </div>
           </div>
-          <div>
-            <Button type="dashed" block onClick={() => setViewPage(0)}>
-              Back to cart
-            </Button>
-            <Button onClick={handleSubmit} className='primary' type="primary" block>
-              Proceed To Payment
-            </Button>
-          </div>
+        
         </div>
       </div>
   );
