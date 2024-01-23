@@ -21,14 +21,12 @@ import CarouselApp from '../Ui/Carousel'
 import HeroAds from './HeroAds'
 import { THeroAd,TbannerData } from '../../Layout/app/Types';
 
-type THeroSection={
-  data :{ bannerData: TbannerData[]; adData: THeroAd[]}
-}
-const HeroSection:React.FC<THeroSection> = ({data}) => {
+
+const HeroSection = ({data}:any) => {
   return (
 <div className='HeroSection'>
       <div className='HeroSection_Carousel'>
-      <CarouselApp data={data?.bannerData} />
+      <CarouselApp data={data} />
       </div>
      <HeroAds  data={data} />
      </div>  )

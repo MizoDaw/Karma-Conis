@@ -9,13 +9,7 @@ const CheckoutForm = ({delivery_fees , sub_total ,setViewPage}:any) => {
   const { values, submitForm } = formikContext;
 
   const handleSubmit = () => {
-    // Execute your logic for handling form submission
-
-    // Proceed to the next step
     setViewPage(1);
-
-    // Manually trigger Formik's submit function
-    submitForm();
   };
 
   return (

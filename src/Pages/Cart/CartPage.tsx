@@ -8,6 +8,7 @@ import PaymentBody from '../../Components/Cart/Payment/PaymentBody';
 import ReviewBody from '../../Components/Cart/Review/ReviewBody';
 import { useGetCart } from '../../api/cart';
 import LoadingPage from '../Loading/LoadingPage';
+import * as Yup from 'yup'; // Import Yup for validation
 
 const CartPage: React.FC = () => {
   const [ViewPage, setViewPage] = useState<number>(0);
@@ -39,8 +40,16 @@ const CartPage: React.FC = () => {
   });
   const handleSubmit = (values: any, actions: any) => {
   };
+  
 
-
+  const validationSchema = Yup.object().shape({
+    phone: Yup.string().required('Phone is required'),
+    zone: Yup.string().required('Zone is required'),
+    building: Yup.string().required('Building is required'),
+    // payment_method: Yup.string().required('Payment method is required'),
+    note: Yup.string().required('note is required'),
+    // cartItems: Yup.array().required('Add Some Product To Your Cart'),
+  });
   return (
     <Layout className='CartPage'>
       <Formik
@@ -56,6 +65,7 @@ const CartPage: React.FC = () => {
 
         }}
         onSubmit={handleSubmit}
+        validationSchema={validationSchema}
       >
         <Form>
           <MemoizedStepsUi />
