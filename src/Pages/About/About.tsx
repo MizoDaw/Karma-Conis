@@ -16,7 +16,7 @@ const About = () => {
   
   return (
     <Layout>
-        <h1 className='About_Header'>About Us</h1>
+        <h1 className='About_Header'>{t("About us")}</h1>
         <div className='Top_Card_container' >
 
             <span>

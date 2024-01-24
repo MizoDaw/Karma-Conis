@@ -9,10 +9,12 @@ import { useParams } from 'react-router-dom'
 import { useGetSingleProduct } from '../../api/Product'
 import { BaseURL } from '../../api/config'
 import { useAddToCart } from '../../api/cart'
+import { useTranslation } from 'react-i18next'
 
 const OneProduct = () => {
 
   const { id } = useParams()
+  const {t} = useTranslation();
 
   const [value, setValue] = useState(1);
   const {data} = useGetSingleProduct({product_id : id})
@@ -43,40 +45,29 @@ const OneProduct = () => {
     <Layout className='Product'>
       <div className='Product_Info'>
         <div className='Product_Left'>
-          <img src={BaseURL+ Product?.product_main_image} alt={Product?.name} width="100%" height="60%" />
+          <img className='Product_Info_image' src={BaseURL+ Product?.product_main_image} alt={Product?.name} width="100%" height="60%" />
 
         </div>
         <div className='Product_Right'>
           <h3>{Product?.product_translations?.at(0)?.name}</h3>
           <div>
-            <h6>Category  : </h6> <img  src={BaseURL+ Product?.category?.category_image} style={{width:30, height:30 , borderRadius:"50%" }}/> <h6>{Product?.category?.category_translations?.at(0)?.name}</h6>
+            <h6>{t("Category")}  : </h6> <img  src={BaseURL+ Product?.category?.category_image} style={{width:30, height:30 , borderRadius:"50%" }}/> <h6>{Product?.category?.category_translations?.at(0)?.name}</h6>
           </div>
 
-          {/* <div>
-
-            <h6>Color  : </h6>
-            <Radio.Group onChange={onChange} value={value}>
-              <Radio value={1}> <ColorPicker defaultValue="red" disabled /> </Radio>
-              <Radio value={2}><ColorPicker defaultValue="green" disabled /> </Radio>
-              <Radio value={3}><ColorPicker defaultValue="blue" disabled /> </Radio>
-
-            </Radio.Group>
-          </div> */}
-
           <div className='Product_Description'>
-            <h6>Description  : {Product?.product_translations?.at(0)?.description} </h6>
+            <h6>{t("Description")}  : {Product?.product_translations?.at(0)?.description} </h6>
             {/* <Collapse ghost items={items} /> */}
 
           </div>
           <div>
-            <h6 >Price  : </h6> <h6 className='Price'> {Product?.product_price} {Currency} </h6>
+            <h6 >{t("Price")}  : </h6> <h6 className='Price'> {Product?.product_price} {Currency} </h6>
             <br/>
-            <h6 >Quantity  : </h6> <h6 className='Price'> {Product?.product_quantity}  </h6>
+            <h6 >{t("Quantity")}  : </h6> <h6 className='Price'> {Product?.product_quantity}  </h6>
 
           </div>
 
           <div>
-          <h6 >Purchasing Count  : </h6> <h6 className='Price'> {Product?.product_purchasing_count}  </h6>
+          <h6>{t("Purchasing Count")}  : </h6> <h6 className='Price'> {Product?.product_purchasing_count}  </h6>
 
           </div>
           <Button type="primary" block onClick={()=>mutate({
@@ -84,18 +75,17 @@ const OneProduct = () => {
                           quantity:1
                       })
                       }>
-            Add to Cart
+            {t("Add To Cart")}
           </Button>
         </div>
       </div>
       <ProductSection data={product_highlight} props_product={{
-        title:"product Highlight",
-
+        title:t("product Highlight"),
         href:'/products'
       }} />
       <ProductSection data={product_most_purchase}  
        props_product={{
-        title:"product Most Purchase",
+        title:t("product Most Purchase"),
 
         href:'/products'
       }} />

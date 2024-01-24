@@ -1,4 +1,5 @@
 import {
+  CheckOutlined,
   CloseOutlined,
   MinusCircleOutlined,
   PlusCircleFilled,
@@ -9,11 +10,12 @@ import useLoadingState from '../../Hooks/useLoadingState';
 import { TProduct } from '../../Layout/app/Types';
 import { Currency } from '../../Layout/app/Const';
 import { BaseURL, BaseURL_IMAGE } from '../../api/config';
+import { useTranslation } from 'react-i18next';
+import { useAddToCart, useRemoveFromCart, useUpdateCartCount } from '../../api/cart';
+import { toast } from 'react-toastify';
 
 interface CartItemProps {
   item: any;
-
-
 
 }
 
@@ -23,17 +25,48 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const [counter, setCounter] = useState<number>(item.quantity);
   const [price, setPrice] = useState<number>(Number(item.product.product_price));
 
-  const handleIncrement = () => {
-    setCounter((prevCounter) => prevCounter + 1);
-    setPrice((prevPrice) => prevPrice + OnePrice);
-  };
+  // const [newPrice, setNewPrice] = useState<number>(Number(item.product.product_price));
+  const [newCounter, setNewCounter] = useState<number>(item.quantity);
+  const [isConfirmVisible, setConfirmVisible] = useState<boolean>(false);
+  const [isApiLoading, setApiLoading] = useState<boolean>(false);
 
+  const {mutate:mutateAdd} = useUpdateCartCount()
+  const {mutate} = useRemoveFromCart()
+
+  const {t} = useTranslation();
+
+  const handleIncrement = () => {
+    setNewCounter((prevCounter) => prevCounter + 1);
+    setConfirmVisible(true);
+  };
+  
   const handleDecrement = () => {
-    if (counter > 1) {
-      setCounter((prevCounter) => prevCounter - 1);
-      setPrice((prevPrice) => prevPrice - OnePrice);
+    if (newCounter > 1) {
+      setNewCounter((prevCounter) => prevCounter - 1);
+      setConfirmVisible(true);
     }
   };
+
+  const handleConfirmIncreament = async () => {
+    try {
+      setApiLoading(true);
+      // Call the API with the new quantity
+      await mutateAdd({
+        product_id: item?.product?.id,
+        quantity: newCounter,
+      });
+      // Reset state and hide confirm button
+      setConfirmVisible(false);
+      resetLoading();
+      toast.success('Product quantity updated successfully');
+    } catch (error) {
+      // Handle API error
+      console.error('Error updating product quantity:', error);
+    } finally {
+      setApiLoading(false);
+    }
+  };
+
 
   let  OnePrice = Number(item.product.product_price) / item.quantity;
 
@@ -60,19 +93,37 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
               <h6>{item.product?.category?.category_translations?.at(0)?.name}</h6>
             </span>
             <strong>
-              Price : {Currency}
+               {t("Price")} : {Currency}
               {price.toFixed(2)}
             </strong>
-            <p> Quantity :{counter} </p>
+            <p> {t("Quantity")} :{newCounter} </p>
           </span>
           <span className='Card_Counter'>
             <Button shape='circle' icon={<PlusCircleFilled />} onClick={handleIncrement} />
-            <div className='Counter'>{counter}</div>
+            <div className='Counter'>{newCounter}</div>
             <Button shape='circle' icon={<MinusCircleOutlined />} onClick={handleDecrement} />
+            {isConfirmVisible && (
+              <span className='checked_quantity'>
+                <Button
+                className='Checked_icon'
+                shape='circle'
+                icon={<CheckOutlined />}
+                onClick={handleConfirmIncreament}
+                loading={isApiLoading}
+              />
+              </span>
+            )}
+
           </span>
           <span className='Cart_Delete'>
-            <Popconfirm title='Delete the Item' description='Are you sure to delete this Item?' okText='Yes' cancelText='No'>
-              <Tooltip title='Delete' placement='bottom'>
+            <Popconfirm onConfirm={()=>{mutate({
+                          product_id:item?.product?.id,
+                      })
+                      toast.success('Remove from cart')
+
+                      }}
+                title={t("Delete the Item")} description={t("Are you sure to delete this Item")+"?"} okText={t("Yes")} cancelText={t("No")}>
+              <Tooltip title={t("Delete")} placement='bottom'>
                 <Button shape='circle' icon={<CloseOutlined />} danger />
               </Tooltip>
             </Popconfirm>

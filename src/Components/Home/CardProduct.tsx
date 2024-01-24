@@ -90,9 +90,10 @@ import { toast } from 'react-toastify';
 const CardProduct = ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
 
-    const {i18n} = useTranslation()
+    const {i18n, t} = useTranslation()
     const {mutate} = useAddToCart()
-
+    // console.log(item);
+    
   return (
           <Skeleton className='unset' loading={loading} active >
                     <div key={item?.id} className='Card_Product'>
@@ -131,7 +132,7 @@ const CardProduct = ({ item }:any) => {
                       toast.success('added to cart')
 
                       }}>
-                    <Tooltip title="Add To Cart">
+                    <Tooltip title={t("Add To Cart")}>
                       <PlusOutlined />
                     </Tooltip>
                   </div>

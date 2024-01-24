@@ -2,11 +2,12 @@ import React, { useEffect } from 'react'
 import { useCheckout } from '../../api/cart'
 import { useNavigate } from 'react-router-dom'
 import LoadingPage from '../Loading/LoadingPage'
+import { useTranslation } from 'react-i18next'
 
 function Page() {
-
+    const {t} = useTranslation();
     const {mutate , isLoading , isSuccess} = useCheckout()
-    const naviagte = useNavigate()
+    const naviagte = useNavigate();
     useEffect(()=>{
         if(isSuccess){
           localStorage.removeItem('payemnt_online')
@@ -25,7 +26,7 @@ function Page() {
   return (
     <>
     <div style={{position:"absolute", top:"20%",left:"45%"}}>
-      Loading Your Order  ... 
+      {t("Loading Your Order")} ...
     </div>
       <LoadingPage/>
     </>

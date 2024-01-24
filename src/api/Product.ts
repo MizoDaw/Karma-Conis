@@ -23,3 +23,4 @@ export const useGetAllProductWithPaginations = () => useGetQueryPagination(KEY, 
 export const useGetSingleProduct = (params?:any) => useGetQuery(KEY , API.GETONE, params)
 
 export const useGetAllProductWithSearch = () => useGetQueryPagination(KEY2, API.GET );
+

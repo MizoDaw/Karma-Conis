@@ -6,11 +6,12 @@ import CardItem from '../Ui/CardItem'
 import { Link, useNavigate } from 'react-router-dom'
 import { useCartData } from '../../Redux/DispatchData'
 import { useGetCart } from '../../api/cart'
+import { useTranslation } from 'react-i18next'
 
 const ViewCart = () => {
   const { DataCart,count} = useCartData()
   const {data } = useGetCart()
-  
+  const {t} = useTranslation();
   
     const navigate = useNavigate()
   return (
@@ -23,7 +24,7 @@ const ViewCart = () => {
       button={ 
       <Badge className='Badge_Button' count={data?.data?.at(0)?.cart_items_count} >
           <div className="Cart_Icon"  onClick={()=>navigate('/cart')}>
-          <Tooltip title="cart">
+          <Tooltip title={t("cart")}>
           <ShoppingCartOutlined  />
           </Tooltip>
 

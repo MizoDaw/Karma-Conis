@@ -64,7 +64,18 @@
 .CartItem{
     width: 100%;
     padding: 20px;
-    
+    .checked_quantity{
+        .Checked_icon{
+            border-radius: 5px;
+            padding: 1px;
+            text-align: center;
+            background: #0091ff;
+            svg{
+                color: #fff;
+                font-size: 13px;
+            }
+        }
+    }
     strong{
         color: var(--secondary);
     }
