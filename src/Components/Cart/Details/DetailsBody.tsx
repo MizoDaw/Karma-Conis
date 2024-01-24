@@ -1,32 +1,33 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { Button, Input, Form } from 'antd';
 import { ErrorMessage, Field, useFormikContext } from 'formik';
-import InputCart from './InputCart';
 import { object } from 'yup';
+import Default from './Default';
 import { useTranslation } from 'react-i18next';
 
 const DetailsBody = ({ setViewPage }: any) => {
   const formikContext = useFormikContext();
-  const { values, submitForm } = formikContext;
-  const {t}=  useTranslation();
-  
+  const { values, submitForm,isValid } = formikContext;
+  const [isV, setIsV] = useState(false);
+  const {t}  = useTranslation();
   const handleSubmit = () => {
-    // Execute your logic for handling form submission
-
-    // Proceed to the next step
-    
-    // Manually trigger Formik's submit function
     submitForm();
-
-    setTimeout(()=>{
-
-      if(isEmpty(formikContext.errors)){
-        
-        setViewPage(2);
-      }
-    },500)
+    if (isV) {
+      setViewPage(2);
+    } else {
+      console.error('Form validation failed. Please check the input fields.');
+    }
   };
-  
+
+  useEffect(() => {
+    //@ts-ignore
+    if (values.zone !== "") {
+      setIsV(isValid);
+      console.log(isValid, 'isValid');
+    } else {
+
+    }
+  }, [isValid]);
 
 
 
@@ -36,15 +37,15 @@ const DetailsBody = ({ setViewPage }: any) => {
           <div className='Address'>
             <h5>{t("Shipping Address")}</h5>
             <div>
-              <InputCart 
-              name='phone' placeholder={t("phone")}/>
-              <InputCart  name='zone' placeholder={t("Zone Number")} type='number' />
+              <Default 
+              name='phone'/>
+              <Default  name='zone' placeholder="Zone Number" type='number' />
             </div>
             <div>
-              <InputCart  name='building' placeholder={t("Building Number")}  type='number'/>
+              <Default  name='building' placeholder="Building Number"  type='number'/>
             </div>
             <div>
-              <InputCart  name='note' placeholder={t("Note")}  />
+              <Default  name='note' placeholder="Note"  />
             </div>
             <div>
               <Button type="dashed" block onClick={() => setViewPage(0)}>
