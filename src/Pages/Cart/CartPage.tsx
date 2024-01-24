@@ -102,7 +102,7 @@ const CartPage: React.FC = () => {
           phone: yup.string().required('Phone is required'),
           zone: yup.string().required('Zone is required'),
           building: yup.string().required('Building is required'),
-          note: yup.string().required('note is required'),
+          // note: yup.string().required('note is required'),
           lat: yup.string().required('required'),
           long: yup.string().required('required'),
         })}
