@@ -3,11 +3,12 @@ import { Button, Input, Form } from 'antd';
 import { ErrorMessage, Field, useFormikContext } from 'formik';
 import InputCart from './InputCart';
 import { object } from 'yup';
+import { useTranslation } from 'react-i18next';
 
 const DetailsBody = ({ setViewPage }: any) => {
   const formikContext = useFormikContext();
   const { values, submitForm } = formikContext;
-
+  const {t}=  useTranslation();
   
   const handleSubmit = () => {
     // Execute your logic for handling form submission
@@ -33,24 +34,24 @@ const DetailsBody = ({ setViewPage }: any) => {
     <div className="DetailsBody">
       <div className="DetailsBody_Left">
           <div className='Address'>
-            <h5>Shipping Address</h5>
+            <h5>{t("Shipping Address")}</h5>
             <div>
               <InputCart 
-              name='phone'/>
-              <InputCart  name='zone' placeholder="Zone Number" type='number' />
+              name='phone' placeholder={t("phone")}/>
+              <InputCart  name='zone' placeholder={t("Zone Number")} type='number' />
             </div>
             <div>
-              <InputCart  name='building' placeholder="Building Number"  type='number'/>
+              <InputCart  name='building' placeholder={t("Building Number")}  type='number'/>
             </div>
             <div>
-              <InputCart  name='note' placeholder="Note"  />
+              <InputCart  name='note' placeholder={t("Note")}  />
             </div>
             <div>
               <Button type="dashed" block onClick={() => setViewPage(0)}>
-                Back to cart
+                {t("Back to cart")}
               </Button>
               <Button onClick={handleSubmit} className='primary' type="primary" block onSubmit={handleSubmit}>
-                Proceed To Payment
+                {t("Proceed To Payment")}
               </Button>
             </div>
           </div>

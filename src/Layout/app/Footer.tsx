@@ -109,7 +109,7 @@ const Footer = () => {
                   {/* Grid column */}
                   <div className="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
                     {/* Links */}
-                    <h6 className="text-uppercase fw-bold">Loaction</h6>
+                    <h6 className="text-uppercase fw-bold">{t("Loaction")}</h6>
                     <hr
                       className="mb-4 mt-0 d-inline-block mx-auto"
                       style={{ width: 60, backgroundColor: "#7c4dff", height: 2 }}

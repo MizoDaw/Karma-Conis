@@ -9,6 +9,7 @@ import useLoadingState from '../../Hooks/useLoadingState';
 import { TProduct } from '../../Layout/app/Types';
 import { Currency } from '../../Layout/app/Const';
 import { BaseURL, BaseURL_IMAGE } from '../../api/config';
+import { useTranslation } from 'react-i18next';
 
 interface CartItemProps {
   item: any;
@@ -23,6 +24,7 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
   const [counter, setCounter] = useState<number>(item.quantity);
   const [price, setPrice] = useState<number>(Number(item.product.product_price));
 
+  const {t} = useTranslation();
   const handleIncrement = () => {
     setCounter((prevCounter) => prevCounter + 1);
     setPrice((prevPrice) => prevPrice + OnePrice);
@@ -60,10 +62,10 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
               <h6>{item.product?.category?.category_translations?.at(0)?.name}</h6>
             </span>
             <strong>
-              Price : {Currency}
+               {t("Price")} : {Currency}
               {price.toFixed(2)}
             </strong>
-            <p> Quantity :{counter} </p>
+            <p> {t("Quantity")} :{counter} </p>
           </span>
           <span className='Card_Counter'>
             <Button shape='circle' icon={<PlusCircleFilled />} onClick={handleIncrement} />
@@ -71,8 +73,8 @@ const CartItem: React.FC<CartItemProps> = ({ item }) => {
             <Button shape='circle' icon={<MinusCircleOutlined />} onClick={handleDecrement} />
           </span>
           <span className='Cart_Delete'>
-            <Popconfirm title='Delete the Item' description='Are you sure to delete this Item?' okText='Yes' cancelText='No'>
-              <Tooltip title='Delete' placement='bottom'>
+            <Popconfirm title={t("Delete the Item")} description={t("Are you sure to delete this Item")+"?"} okText={t("Yes")} cancelText={t("No")}>
+              <Tooltip title={t("Delete")} placement='bottom'>
                 <Button shape='circle' icon={<CloseOutlined />} danger />
               </Tooltip>
             </Popconfirm>

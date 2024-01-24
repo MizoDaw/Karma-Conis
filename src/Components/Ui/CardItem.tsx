@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Card, Skeleton, Button, Tooltip, Popconfirm } from 'antd';
 import useLoadingState from '../../Hooks/useLoadingState';
 import { TProduct } from '../../Layout/app/Types';
+import { useTranslation } from 'react-i18next';
 
 interface CartItemProps {
   data: TProduct;
@@ -13,7 +14,8 @@ const CardItem: React.FC<CartItemProps> = ({ data,key }) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
   const [Counter, setCounter] = useState<number>(data?.count);
   const [Price, setPrice] = useState<number>(data?.price);
-
+  const {t} = useTranslation();
+  // const  = useRemoveProduct();
   return (
     <Skeleton key={key} loading={loading} active avatar style={{ width: "100%", marginTop: 22 }}>
       <Card className='CardItem' style={{ width: "100%", marginTop: 16 }} loading={loading}>
@@ -36,7 +38,7 @@ const CardItem: React.FC<CartItemProps> = ({ data,key }) => {
             okText="Yes"
             cancelText="No"
           >
-            <Tooltip title="Delete" placement="bottom">
+            <Tooltip title={t("Delete")} placement="bottom">
               <Button shape="circle" icon={<CloseOutlined />} danger />
             </Tooltip>
           </Popconfirm>

@@ -1,256 +1,256 @@
 
 
-   @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
       
-      .logo_drawer_container{
-         display: flex;justify-content: space-between;
-         align-items: center;
-         h1{
-             line-height: 25px;
-            font-size: 15px;
-            font-weight: bold;
-            color: var(--primary);
+   .logo_drawer_container{
+      display: flex;
+      align-items: center;justify-content: start;
+      h1{
+         //  line-height: 25px;
+         // font-size: 15px;
+         // font-weight: bold;
+         // color: var(--primary);
 
-         }
-         .logo_bg{
-            // background: var(--primary);
-            // position: relative;
-            border-radius: 50%;
-            display: flex;justify-content: center;align-items: center;
-            height: 60px;width: 60px;
-            .logo_drawer{
-               width: 80%;
-            }
-         }
       }
-      .Link_NavMenu{
-         img{
-         display: none !important;
-         }
-         
-         h1{
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--secondary);
-            margin-bottom: 16px;
-
+      .logo_bg{
+         // background: var(--primary);
+         // position: relative;
+         border-radius: 50%;
+         display: flex;justify-content: center;align-items: center;
+         height: 50px !important;width: 80px !important;
+         .logo_drawer{
+            width: 100% !important;
          }
       }
-                    .Menu_Group,.MidBar_Left,.MidBar_Right,.NavMenus,.BottomBar{
-                        display: none;
-                    }
-                    
-      .Menu_anv{
-         width: 100%;
-         padding-bottom: 0px !important   ;
-      }
-      .menu_nav_icon{
-         // margin-top: 20px;
-      }
-      .ViewCart{
-         margin-top: 10px;
-         margin-left: -10px;
-         .Badge_Button{
-            top: 10% !important;
-         }
-      }
-                 .MediaMenu{
-                    display: block;
-                 }
-                    .FnBar{
-                        display: flex;
-                        flex-direction: row-reverse;
-                        align-items: center;
-                        justify-content: center;
-.MidBar{
-    min-width: 100%;
-    gap: 10%;
-    padding-inline: 6%;
-    align-items: flex-start;
-    .MenuButton{
-      background: var(--primary) !important;
-      // background: red;
-         height: 41px;
-      .Menu_anv{
-         
-         // .Link{
-         //    font-size: 15px;
-         //    font-weight: 400;
-         //    text-transform: capitalize;
-         //    :hover{
-         //       background: #000;
-         //    }
-      //   }
-      }
-    }
-
-    
-                    }
-                    }
-                    
    }
-      @media screen and (max-width: 400px) {
-               
+   .Link_NavMenu{
+      img{
+      display: none !important;
+      }
+      
+      h1{
+         font-size: 20px;
+         font-weight: bold;
+         color: var(--secondary);
+         margin-bottom: 16px;
+
+      }
+   }
+                 .Menu_Group,.MidBar_Left,.MidBar_Right,.NavMenus,.BottomBar{
+                     display: none;
+                 }
                  
-                    
-                    .FnBar{
-                        display: flex;
-                        flex-direction: column;
+   .Menu_anv{
+      width: 100%;
+      padding-bottom: 0px !important   ;
+   }
+   .menu_nav_icon{
+      // margin-top: 20px;
+   }
+   .ViewCart{
+      margin-top: 10px;
+      margin-left: -10px;
+      .Badge_Button{
+         top: 10% !important;
+      }
+   }
+              .MediaMenu{
+                 display: block;
+              }
+                 .FnBar{
+                     display: flex;
+                     flex-direction: row-reverse;
+                     align-items: center;
+                     justify-content: center;
+.MidBar{
+ min-width: 100%;
+ gap: 10%;
+ padding-inline: 6%;
+ align-items: flex-start;
+ .MenuButton{
+   background: var(--primary) !important;
+   // background: red;
+      height: 41px;
+   .Menu_anv{
+      
+      // .Link{
+      //    font-size: 15px;
+      //    font-weight: 400;
+      //    text-transform: capitalize;
+      //    :hover{
+      //       background: #000;
+      //    }
+   //   }
+   }
+ }
+
+ 
+                 }
+                 }
+                 
+}
+   @media screen and (max-width: 400px) {
+            
+              
+                 
+                 .FnBar{
+                     display: flex;
+                     flex-direction: column;
 .BottomBar{
 
 
-                    }
-                    }
-                 .ViewCartViewCart{
-                    display: inline !important;
+                 }
+                 }
+              .ViewCartViewCart{
+                 display: inline !important;
+              
+              }
+              .DropdownMenu{
                  
-                 }
-                 .DropdownMenu{
-                    
-                 }
+              }
 
-               
-                    
-   }
+            
+                 
+}
 
 
 .Top_Section_Right{
-   display: flex; align-items: center;
-   justify-content: center;
-   flex-direction: column;
-   h4{
-       font-weight: bold;
-       font-size: .3em !important;
-   }
+display: flex; align-items: center;
+justify-content: center;
+flex-direction: column;
+h4{
+    font-weight: bold;
+    font-size: .3em !important;
+}
 .Phone1{
-   height: 50px;
-   width: 50px;
+height: 50px;
+width: 50px;
 
-   background: #f5f5f5;
-   line-height: 50px;
-   text-align: center;
-   border-radius: 50%;
-   // float: left;
-  
-   margin-right: 20px;
-   color: var(--primary);
+background: #f5f5f5;
+line-height: 50px;
+text-align: center;
+border-radius: 50%;
+// float: left;
+
+margin-right: 20px;
+color: var(--primary);
 
 }
-   svg{
-       font-size: 1.2vw;
-      
-   }
-   .Phone2{
-      width: 100%;
+svg{
+    font-size: 1.2vw;
+   
+}
+.Phone2{
+   width: 100%;
 
-   right: 7px;
-      align-items: center;
-      display: flex;justify-content: center;
-       h3{
-           font-weight: 900;
-           text-align: center;
-           font-size: .6em;
-       }
-   }
+right: 7px;
+   align-items: center;
+   display: flex;justify-content: center;
+    h3{
+        font-weight: 900;
+        text-align: center;
+        font-size: .6em;
+    }
+}
 }
 @media screen and (max-width: 750px) {
-   .NavMenus{
-      padding-left : 5vw !important;
-   }
+.NavMenus{
+   padding-left : 5vw !important;
+}
 
 }
 
 @media screen and (max-width: 450px) {
-   .Top_Section_Right{
-    display: none;
-   }
+.Top_Section_Right{
+ display: none;
+}
 }
 .ar{
-   @media screen and (max-width: 600px) {
-      
-      .logo_drawer_container{
-         display: flex;justify-content: space-between;
-         align-items: center;
-         h1{
-             line-height: 25px;
-            font-size: 15px;
-            font-weight: bold;
-            color: var(--primary);
+@media screen and (max-width: 600px) {
+   
+   .logo_drawer_container{
+      display: flex;justify-content: space-between;
+      align-items: center;
+      h1{
+          line-height: 25px;
+         font-size: 15px;
+         font-weight: bold;
+         color: var(--primary);
 
-         }
-         .logo_bg{
-            // background: var(--primary);
-            // position: relative;
-            border-radius: 50%;
-            display: flex;justify-content: center;align-items: center;
-            height: 40px;width: 40px;
-            .logo_drawer{
-               width: 80%;
-            }
-         }
       }
-      .Link_NavMenu{
-         img{
-         display: none !important;
-         }
-         
-         h1{
-            font-size: 20px;
-            font-weight: bold;
-            color: var(--secondary);
+      .logo_bg{
+         // background: var(--primary);
+         // position: relative;
+         border-radius: 50%;
+         display: flex;justify-content: center;align-items: center;
+         height: 40px;width: 40px;
+         .logo_drawer{
+            width: 80%;
          }
       }
-                    .Menu_Group,.MidBar_Left,.MidBar_Right,.NavMenus,.BottomBar{
-                        display: none;
-                    }
-                    
-      .Menu_anv{
-         width: 100%;
-         padding-bottom: 20px;
-      }
-      .menu_nav_icon{
-         // margin-top: 20px;
-      }
-      .ViewCart{
-         margin-top: 10px;
-         margin-left: -10px;
-         .Badge_Button{
-            top: 10% !important;
-         }
-      }
-                 .MediaMenu{
-                    display: block;
-                 }
-                    .FnBar{
-                        display: flex;
-                        flex-direction: row-reverse;
-                        align-items: center;
-                        justify-content: center;
-.MidBar{
-    min-width: 100%;
-    gap: 10%;
-    padding-inline: 6%;
-    align-items: flex-start;
-    .MenuButton{
-      background: var(--primary) !important;
-      // background: red;
-         height: 41px;
-      .Menu_anv{
-         
-         // .Link{
-         //    font-size: 15px;
-         //    font-weight: 400;
-         //    text-transform: capitalize;
-         //    :hover{
-         //       background: #000;
-         //    }
-      //   }
-      }
-    }
-
-    
-                    }
-                    }
-                    
    }
+   .Link_NavMenu{
+      img{
+      display: none !important;
+      }
+      
+      h1{
+         font-size: 20px;
+         font-weight: bold;
+         color: var(--secondary);
+      }
+   }
+                 .Menu_Group,.MidBar_Left,.MidBar_Right,.NavMenus,.BottomBar{
+                     display: none;
+                 }
+                 
+   .Menu_anv{
+      width: 100%;
+      padding-bottom: 20px;
+   }
+   .menu_nav_icon{
+      // margin-top: 20px;
+   }
+   .ViewCart{
+      margin-top: 10px;
+      margin-left: -10px;
+      .Badge_Button{
+         top: 10% !important;
+      }
+   }
+              .MediaMenu{
+                 display: block;
+              }
+                 .FnBar{
+                     display: flex;
+                     flex-direction: row-reverse;
+                     align-items: center;
+                     justify-content: center;
+.MidBar{
+ min-width: 100%;
+ gap: 10%;
+ padding-inline: 6%;
+ align-items: flex-start;
+ .MenuButton{
+   background: var(--primary) !important;
+   // background: red;
+      height: 41px;
+   .Menu_anv{
+      
+      // .Link{
+      //    font-size: 15px;
+      //    font-weight: 400;
+      //    text-transform: capitalize;
+      //    :hover{
+      //       background: #000;
+      //    }
+   //   }
+   }
+ }
+
+ 
+                 }
+                 }
+                 
+}
 }
