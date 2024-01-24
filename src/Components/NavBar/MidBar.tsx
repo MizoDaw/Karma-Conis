@@ -17,17 +17,16 @@ import { FaPhoneAlt } from 'react-icons/fa';
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../Redux/auth/AuthReducer';
 import DropdownMenu from '../Ui/DropdownMenu';
-import { useTranslation } from 'react-i18next';
 
 const MidBar = () => {
-  const {t} = useTranslation();
+
 
   return (
     <div className="MidBar">
         <div className='MidBar_Left'>  
           <div className='logo_contianer'>
             <Link className='logo' to="/">
-              <img src='/logo/logo3.png' alt='logo' className='logo'/>
+              <img src='/logo/LogoDone.png' alt='logo' className='logo'/>
             </Link>
           </div>
         </div>
@@ -62,21 +61,35 @@ const MidBar = () => {
             <div className="Menu_anv">
               {/* <Translate/> */}
               <div className='logo_drawer_container'>
-                {/* <h1>Karma Coins
+                <h1>Karma Coins
                   <br/>
-                </h1> */}
+                  {/* {
+                    ! isAuthenticated ?
+                      <>
+                        <Link className='Link' to={'/auth'}  onClick={()=>navigate('/auth' )}>  <h1>Login</h1> </Link>
+                    
+                      </>:
+                      <>
+
+                      <h1 onClick={()=>{
+                        dispatch(logout())
+                      }}>Logout</h1>
+                      </>
+
+                    } */}
+                </h1>
 
                 <div className='logo_bg'>
-                  <img src='./logo/logo3.png' alt='logo' className='logo_drawer'/>
+                  <img src='./logo/LogoDone.png' alt='logo' className='logo_drawer'/>
                 </div>
               </div>
               <Divider/>
-              <Link className='Link_NavMenu' to={'/'} >  <h1> <CiHome/> {t("Home")}</h1> </Link>
-              <Link className='Link_NavMenu' to={'/about'} >  <h1><IoIosInformationCircleOutline/>  {t("about")}</h1> </Link>
-              <Link className='Link_NavMenu' to={'/contact'} >  <h1><MdOutlinePhonelinkRing/> {t("contact")}</h1> </Link>
-              <Link className='Link_NavMenu' to={'/products'} >  <h1> <LuBoxes/> {t("Products")}</h1> </Link>
-              <Link className='Link_NavMenu' to={'/cart'} >  <h1> <ShoppingCartOutlined/> {t("cart")}</h1> </Link>
-              <Link className='Link_NavMenu' to={'/orders'} >  <h1> <ShoppingCartOutlined/> {t("orders")}</h1> </Link>
+              <Link className='Link_NavMenu' to={'/'} >  <h1> <CiHome/> Home</h1> </Link>
+              <Link className='Link_NavMenu' to={'/about'} >  <h1><IoIosInformationCircleOutline/>  About</h1> </Link>
+              <Link className='Link_NavMenu' to={'/contact'} >  <h1><MdOutlinePhonelinkRing/> Contact</h1> </Link>
+              <Link className='Link_NavMenu' to={'/products'} >  <h1> <LuBoxes/> Products</h1> </Link>
+              <Link className='Link_NavMenu' to={'/cart'} >  <h1> <ShoppingCartOutlined/> Cart</h1> </Link>
+              <Link className='Link_NavMenu' to={'/orders'} >  <h1> <ShoppingCartOutlined/> Orders</h1> </Link>
 
             </div>
                       <Divider/>
