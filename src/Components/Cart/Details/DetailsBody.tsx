@@ -11,7 +11,6 @@ const DetailsBody = ({ setViewPage }: any) => {
   const [isV, setIsV] = useState(false);
   const {t}  = useTranslation();
   const handleSubmit = () => {
-    submitForm();
     if (isV) {
       setViewPage(2);
     } else {
@@ -51,7 +50,7 @@ const DetailsBody = ({ setViewPage }: any) => {
               <Button type="dashed" block onClick={() => setViewPage(0)}>
                 {t("Back to cart")}
               </Button>
-              <Button onClick={handleSubmit} className='primary' type="primary" block onSubmit={handleSubmit}>
+              <Button onClick={handleSubmit} className='primary' type="primary" block >
                 {t("Proceed To Payment")}
               </Button>
             </div>
