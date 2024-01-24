@@ -20,7 +20,7 @@ const About = () => {
         <div className='Top_Card_container' >
 
             <span>
-              <img src='/logo/logo3.png' alt='logo' className='logo_image'/>
+              <img src='/logo/logo2.png' alt='logo' className='logo_image'/>
               </span>
         </div>
 
