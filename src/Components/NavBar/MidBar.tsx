@@ -26,7 +26,7 @@ const MidBar = () => {
         <div className='MidBar_Left'>  
           <div className='logo_contianer'>
             <Link className='logo' to="/">
-              <img src='/logo/logo3.png' alt='logo' className='logo'/>
+              <img src='/logo/logo2.png' alt='logo' className='logo'/>
             </Link>
           </div>
         </div>
