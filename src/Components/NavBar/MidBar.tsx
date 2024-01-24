@@ -26,7 +26,7 @@ const MidBar = () => {
         <div className='MidBar_Left'>  
           <div className='logo_contianer'>
             <Link className='logo' to="/">
-              <img src='/logo/logo2.png' alt='logo' className='logo'/>
+              <img src='/logo/LogoDone.png' alt='logo' className='logo'/>
             </Link>
           </div>
         </div>
@@ -80,7 +80,7 @@ const MidBar = () => {
                 </h1>
 
                 <div className='logo_bg'>
-                  <img src='./logo/logo2.png' alt='logo' className='logo_drawer'/>
+                  <img src='./logo/LogoDone.png' alt='logo' className='logo_drawer'/>
                 </div>
               </div>
               <Divider/>

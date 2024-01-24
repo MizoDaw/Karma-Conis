@@ -37,7 +37,7 @@ function LoginForm({handleRegisterClick}:any) {
       >
         <Form >
       {/* <img  src='/logo/Logo.png' style={{width:210}} /> */}
-      <img  src='/logo/logo2.png' style={{width:110}} />
+      <img  src='/logo/LogoDone.png' style={{width:110}} />
 
       <h1>{t("Sign In")}</h1>
       <div  className='login_dev'>
