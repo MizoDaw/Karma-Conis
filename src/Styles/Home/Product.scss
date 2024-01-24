@@ -11,10 +11,11 @@
         }
     .Product_Left{
             img{
+                // display: none;
                 width: 30vw;
                 height: 300px;
                 mix-blend-mode: multiply;
-                object-fit: cover;
+                object-fit: contain;
                 margin-right: 2vw;
             }
     }
@@ -80,7 +81,7 @@
                 width: 60vw !important;
                 // height: 200px;
                 mix-blend-mode: multiply;
-                object-fit: cover;
+                object-fit: contain;
                 margin-right: 0 !important;
                 margin-bottom: 2vw;
             }

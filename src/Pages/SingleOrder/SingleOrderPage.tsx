@@ -23,9 +23,11 @@ import { BaseURL, BaseURL_IMAGE } from '../../api/config';
 import NotFoundPage from '../../Layout/app/NotFoundPage';
 import LoadingPage from '../Loading/LoadingPage';
 import { useParams, useSearchParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
   
   export default function SingleOrderPage() {
-  
+    const {t} = useTranslation();
+
     const  [search]= useSearchParams()
     const  order_id = search.get('order_id')
     const {data, isLoading , isError} = useGetSingleOrder({order_id})
@@ -54,7 +56,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
                 <MDBCard style={{ borderRadius: "10px" }}>
                   <MDBCardHeader className="px-4 py-5">
                     <MDBTypography tag="h5" className="text-muted mb-0">
-                      Thanks for your Order,{" "}
+                      {t("Thanks for your Order")},{" "}
                       <span  className=''>{user?.name}</span>!
                     </MDBTypography>
                     <MDBTypography tag="h5" className="text-muted mt-4">
@@ -67,10 +69,10 @@ import { useParams, useSearchParams } from 'react-router-dom';
                         className="lead fw-normal mb-0 "
                         // style={{ color: "#a8729a" }}
                       >
-                        Receipt
+                        {t("Receipt")}
                       </p>
                       <p className="small text-muted mb-0">
-                        Order Code  : {order?.order_code}
+                        {t("Order Code")}  : {order?.order_code}
                       </p>
                     </div>
   
@@ -122,34 +124,34 @@ import { useParams, useSearchParams } from 'react-router-dom';
                     })
                   }
 
-                    <div className="d-flex justify-content-between pt-2">
-                      <p className="fw-bold mb-0">Order Details</p>
-                      <p className="text-muted mb-0">
-                        <span className="fw-bold me-4">Total</span> {order?.order_total} {Currency}
+                    <div className="SingleOrderInfo d-flex justify-content-between pt-2 ">
+                      <p className="SingleOrderInfoFont fw-bold mb-0">{t("Order Details")}</p>
+                      <p className="SingleOrderInfoFont text-muted mb-0">
+                        <span className="fw-bold me-4">{t("Total")}</span> {order?.order_total} {Currency}
                       </p>
                     </div>
   
-                    <div className="d-flex justify-content-between pt-2">
-                      <p className="text-muted mb-0">System Number : 0097466456660</p>
-                      <p className="text-muted mb-0">
-                        <span className="fw-bold me-4">Discount</span> 0 {Currency}
+                    <div className="SingleOrderInfo d-flex justify-content-between pt-2">
+                      <p className="SingleOrderInfoFont text-muted mb-0"><span className="fw-bold me-4">{t("System Number")}</span> : 0097466456660</p>
+                      <p className="SingleOrderInfoFont text-muted mb-0">
+                        <span className="fw-bold me-4">{t("Discount")}</span> 0 {Currency}
                       </p>
                     </div>
   
-                    <div className="d-flex justify-content-between">
-                      <p className="text-muted mb-0">
-                        Invoice Date : {order?.created_at}
+                    <div className="SingleOrderInfo d-flex justify-content-between">
+                      <p className="SingleOrderInfoFont text-muted mb-0 ">
+                        <span className="fw-bold me-4">{t("Invoice Date")}</span> : {order?.created_at}
                       </p>
-                      <p className="text-muted mb-0">
-                        <span className="fw-bold me-4">Payment Method</span> {order?.payment_method}
+                      <p className="SingleOrderInfoFont text-muted mb-0">
+                        <span className="fw-bold me-4">{t("Payment Method")}</span> {order?.payment_method}
                       </p>
                     </div>
   
-                    <div className="d-flex justify-content-between mb-5">
+                    <div className="SingleOrderInfo d-flex justify-content-between mb-5">
                     
-                      <p className="text-muted mb-0">
-                        <span className="fw-bold me-4">Delivery Charges</span>{" "}
-                        Free
+                      <p className="SingleOrderInfoFont text-muted mb-0">
+                        <span className="fw-bold me-4">{t("Delivery Charges")}</span>{" "}
+                        {t("Free")}
                       </p>
                     </div>
                   </MDBCardBody>
@@ -165,7 +167,7 @@ import { useParams, useSearchParams } from 'react-router-dom';
                       tag="h5"
                       className="d-flex align-items-center justify-content-end text-white text-uppercase mb-0"
                     >
-                      Total paid: <span className="h2 mb-0 ms-2">{order?.order_total}{Currency}</span>
+                      {t("Total paid")} {""}: <span className="h2 mb-0 ms-2">{order?.order_total}{Currency}</span>
                     </MDBTypography>
                   </MDBCardFooter>
                 </MDBCard>

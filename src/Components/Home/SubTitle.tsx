@@ -13,7 +13,7 @@ const SubTitle = ({title,href,count,icon}:any) => {
        {t(`${title}`)}
 
         </div>
-        <div>
+        <div className='SubTitle_link'>
             <Link to={`${href}`}>
             {t("See more")}{count}
             </Link>

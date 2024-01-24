@@ -92,7 +92,7 @@ const CardProduct = ({ item }:any) => {
 
     const {i18n, t} = useTranslation()
     const {mutate} = useAddToCart()
-    console.log(item);
+    // console.log(item);
     
   return (
           <Skeleton className='unset' loading={loading} active >

@@ -45,7 +45,7 @@ const OneProduct = () => {
     <Layout className='Product'>
       <div className='Product_Info'>
         <div className='Product_Left'>
-          <img src={BaseURL+ Product?.product_main_image} alt={Product?.name} width="100%" height="60%" />
+          <img className='Product_Info_image' src={BaseURL+ Product?.product_main_image} alt={Product?.name} width="100%" height="60%" />
 
         </div>
         <div className='Product_Right'>

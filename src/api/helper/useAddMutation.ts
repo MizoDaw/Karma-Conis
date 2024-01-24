@@ -30,7 +30,7 @@ function useAddMutation(key: string, url: string): UseMutationResult<AxiosRespon
           console.log(error.response);
           
         if(error.response.status == 401 || error?.response?.status == 403){
-          toast.error("Please Login First")
+          toast.error(t("Please Login First"))
         }else{
 
           const message = error?.response?.data?.message || t("failed_to_add_data");

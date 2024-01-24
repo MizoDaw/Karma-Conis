@@ -67,17 +67,17 @@ const OrdersForm = ({data}:any) => {
     <>
       <div className='Header'> {t("Your All Order total is :")}  {data?.data?.order_all_total} </div>
       <Table
-  onRow={(record, rowIndex) => {
-    return {
-      onClick: (event) => {
-        navigate('/single_order?order_id=' + record?.id)
-        console.log(record);
-      },
-    };
-  }}
-  columns={columns}
-  dataSource={data?.data?.order.map((item:any) => ({ ...item, key: item.id }))}
-/>
+        onRow={(record, rowIndex) => {
+          return {
+            onClick: (event) => {
+              navigate('/single_order?order_id=' + record?.id)
+              console.log(record);
+            },
+          };
+        }}
+        columns={columns}
+        dataSource={data?.data?.order.map((item:any) => ({ ...item, key: item.id }))}
+      />
     </>
   )
 };
