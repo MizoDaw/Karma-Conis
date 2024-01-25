@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Loading from './Components/Utils/Loading/Loading';
 import Consigne from './Pages/Consigne/Consigne';
 import LoadingPage from './Pages/Loading/LoadingPage';
+
 const CheckPaymentPage  =  lazy(()=>import('./Pages/paymentRedirect/Page'));
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
 const SuccessPayment = lazy(() => import("./Pages/SuccessPayment/Page"))
@@ -15,6 +16,8 @@ const Home  = lazy(() => import("./Pages/Home/Page"))
 const CartPage = lazy(() => import("./Pages/Cart/CartPage"))
 const Auth = lazy(() => import("./Pages/Auth/Page"))
 const SingleOrderPage = lazy(() => import("./Pages/SingleOrder/SingleOrderPage"))
+const FavouritePage = lazy(() => import("./Pages/Favourite/FavouritePage"))
+
 
 const App = () => {
 
@@ -34,6 +37,7 @@ const App = () => {
       <Route path="/orders" element={<Suspense fallback={<LoadingPage />}> <OrdersPage /></Suspense>} />
       <Route path="/checkout_payment_online" element={<Suspense fallback={<LoadingPage />}> <CheckPaymentPage /></Suspense>} />
       <Route path="/success_payment" element={<Suspense fallback={<LoadingPage />}> <SuccessPayment /></Suspense>} />
+      <Route path="/favourite" element={<Suspense fallback={<LoadingPage />}> <FavouritePage /></Suspense>} />
 
 
     </Routes>

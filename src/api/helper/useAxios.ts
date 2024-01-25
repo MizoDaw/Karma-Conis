@@ -8,12 +8,13 @@ function useAxios() {
   const {i18n} = useTranslation()
 
   
+  
   return (
     axios.create({
         baseURL:BaseURL,
         headers:{
           Authorization:"Bearer " + localStorage.getItem(TOKEN_KEY),
-          'language' : i18n.language
+          'language' : localStorage.getItem('language')
         }
     })
   )

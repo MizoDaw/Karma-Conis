@@ -115,10 +115,10 @@ const Footer = () => {
                       style={{ width: 60, backgroundColor: "#7c4dff", height: 2 }}
                     />
                     <p>
-                      {t("Syria")}
+                      {t("Qatar")}
                     </p>
                     <p>
-                      {t("Damascus")} , {t("Mazzeh")}
+                      {t("Doha")} 
                     </p>
 
                   </div>
