@@ -1,3 +1,9 @@
+.BigAds{
+    width: 90%;
+    img{
+        object-fit: fill !important; 
+    }
+} 
 
    @media screen and (max-width: 600px) {
                
@@ -7,7 +13,7 @@
     .BigAds{
         display: flex; flex-direction: column;
         .BigAds_Item:nth-child(2){
-        display: none !important;
+        // display: none !important;
         }
         img{
             object-fit: fill !important; 

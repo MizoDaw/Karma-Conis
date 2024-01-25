@@ -49,6 +49,11 @@
         font-size: 20px;
         font-weight: 600;
         padding-bottom: 20px;
+    }
+}
 
+@media screen and (max-width: 400px) {
+    .description{
+        width: 80% !important;
     }
 }

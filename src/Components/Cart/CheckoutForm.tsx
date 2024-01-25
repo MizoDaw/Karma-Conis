@@ -12,7 +12,7 @@ const CheckoutForm = ({delivery_fees , sub_total ,setViewPage}:any) => {
   const handleSubmit = () => {
     setViewPage(1);
   };
-
+  
   return (
     <>
          <div style={{display:"flex" , flexDirection:"column" , alignItems:"flex-start"}}>

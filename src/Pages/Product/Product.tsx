@@ -10,6 +10,7 @@ import { useGetSingleProduct } from '../../api/Product'
 import { BaseURL } from '../../api/config'
 import { useAddToCart } from '../../api/cart'
 import { useTranslation } from 'react-i18next'
+import { toast } from 'react-toastify'
 
 const OneProduct = () => {
 
@@ -70,11 +71,12 @@ const OneProduct = () => {
           <h6>{t("Purchasing Count")}  : </h6> <h6 className='Price'> {Product?.product_purchasing_count}  </h6>
 
           </div>
-          <Button type="primary" block onClick={()=>mutate({
+          <Button type="primary" block onClick={()=>{mutate({
                           product_id:Product?.id,
                           quantity:1
                       })
-                      }>
+                      toast.success(t("added to cart"))
+                      }}>
             {t("Add To Cart")}
           </Button>
         </div>

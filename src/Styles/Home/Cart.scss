@@ -322,6 +322,31 @@
 
 }
 
+
+
+.CartBody_empty{
+    width: 80% !important;
+    margin-inline: auto;
+    display: flex;justify-content: center;align-items: center; flex-direction: column;
+    .EmptyCart_text, .Empty_icon{
+        text-align: center;
+        font-size: 50px;
+        span{
+            color: red;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .CartBody_empty{
+        width: 80% !important;
+        padding-bottom: 10vw;
+        .EmptyCart_text, .Empty_icon{
+            font-size: 30px;
+        }
+    }
+}
+
 @media screen and (max-width: 900px)  {
    
     .CartItem{
