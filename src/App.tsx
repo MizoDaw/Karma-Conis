@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Loading from './Components/Utils/Loading/Loading';
 import Consigne from './Pages/Consigne/Consigne';
 import LoadingPage from './Pages/Loading/LoadingPage';
+import i18n from 'i18next'; // Make sure this import is correct
 
 const CheckPaymentPage  =  lazy(()=>import('./Pages/paymentRedirect/Page'));
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
@@ -21,7 +22,8 @@ const FavouritePage = lazy(() => import("./Pages/Favourite/FavouritePage"))
 
 const App = () => {
 
-  
+  i18n?.changeLanguage(localStorage?.getItem('language') ?? 'en')
+
   return (
     <Routes>
       <Route path="*" element={<Suspense fallback={<LoadingPage />}> <Page404 /></Suspense>} />

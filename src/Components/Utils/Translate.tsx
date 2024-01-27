@@ -24,12 +24,10 @@ const Translate: React.FC = () => {
 
   
   const EnLanguageClickHandler = React.useCallback(() => {
-    navigate('/')
     changelanguage('en');
   }, [changelanguage]);
   
   const ArLanguageClickHandler = React.useCallback(() => {
-    navigate('/')
     changelanguage('ar');
   }, [changelanguage]);
   

@@ -21,22 +21,26 @@ export const useChangeLanguage= () => {
     const [currentlanguage, setCurrentlanguage] = useState(localStorage.getItem('language') ?? 'en');
   
     useEffect(() => {
+  console.log("moamomoomom");
   
-      if (currentlanguage=== 'ar') {
+      if (currentlanguage === 'ar') {
         i18n.changeLanguage('ar'); 
-        document.body.setAttribute('dir', 'rtl'); document.body.classList.add('ar');
+        document.body.setAttribute('dir', 'rtl');
+        document.body.classList.add('ar');
         document.body.classList.remove('en');
       } else {
         i18n.changeLanguage('en'); 
-        document.body.setAttribute('dir', 'ltr'); document.body.classList.add('en')
+        document.body.setAttribute('dir', 'ltr');
+        document.body.classList.add('en')
         document.body.classList.remove('ar');
       }
   
       localStorage.setItem('language', currentlanguage);
     }, [currentlanguage]);
   
-    const changelanguage= useCallback((newlanguage:any) => {
+    const changelanguage = useCallback((newlanguage:any) => {
       setCurrentlanguage(newlanguage);
+
     }, []);
   
     return { currentlanguage, changelanguage};

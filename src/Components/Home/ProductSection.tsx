@@ -8,7 +8,7 @@ type TProductSection = {
 }
 
 const ProductSection= ({ data  , props_product  } :any) => {
-  console.log(data);
+  // console.log(data);
   
   if (data?.length > 0) {
     return (

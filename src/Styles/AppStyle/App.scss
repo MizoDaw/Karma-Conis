@@ -78,3 +78,16 @@ svg {
                     }   
                 } 
             } 
+
+.Main_footer{
+    padding-top: 5px;
+}
+.icons_social{
+    // background: #ffffff;
+    font-size: 10px !important;
+    .icon{
+        padding-inline: 10px;
+        width: 16% !important;
+        color: #fff !important;
+    }
+}
