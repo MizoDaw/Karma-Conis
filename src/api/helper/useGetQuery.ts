@@ -6,12 +6,14 @@ import { toast } from 'react-toastify';
 import { useDispatch } from 'react-redux';
 import { logout } from '../../Redux/auth/AuthReducer';
 
-function useGetQuery(key: string, url: string , params:any={} , options?:any) {
+function useGetQuery(key: string, url: string , params?:any , options?:any) {
   const axios = useAxios();
   const navigate  = useNavigate()
-  const {t} = useTranslation()
+  const {t , i18n} = useTranslation()
   const dispatch = useDispatch()
-  return useQuery(key, async () => {
+  
+  return useQuery(
+    params ? [key , params , i18n.language]  : [key , i18n.language], async () => {
   const response = await axios.get(url , {params});
     return response.data; 
   }, {

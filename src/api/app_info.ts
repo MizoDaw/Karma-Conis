@@ -8,4 +8,4 @@ const API = {
 }
 
 
-export const useGetAboutUs = (params:any)=>useGetQuery("ABOUTUS" , API.aboutus , params)
+export const useGetAboutUs = (params:any={})=>useGetQuery("ABOUTUS" , API.aboutus , params)
