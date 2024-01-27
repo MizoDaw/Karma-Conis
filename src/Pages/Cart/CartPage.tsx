@@ -71,7 +71,6 @@ const CartPage: React.FC = () => {
         mutate({ ...values, zone_number: values.zone, building_number: values?.building + "" })
 
       }
-
     }
     console.log(values);
 
@@ -90,7 +89,6 @@ const CartPage: React.FC = () => {
           payment_method: "online",
           lat: "36.480",
           long: "36.848"
-
         }}
         validationSchema={yup.object().shape({
           // phone: yup.string().required('required'),
@@ -102,12 +100,12 @@ const CartPage: React.FC = () => {
           phone: yup.string().required('Phone is required'),
           zone: yup.string().required('Zone is required'),
           building: yup.string().required('Building is required'),
-          note: yup.string().required('note is required'),
+          // note: yup.string().required('note is required'),
           lat: yup.string().required('required'),
           long: yup.string().required('required'),
         })}
         onSubmit={handleSubmit}
-      >
+        >
         <Form>
           <MemoizedStepsUi />
           <RenderPageContent />

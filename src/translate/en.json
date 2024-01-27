@@ -173,7 +173,17 @@
 "Order Code":"Order Code",
 "Receipt":"Receipt",
 "Thanks for your Order":"Thanks for your Order",
-"Delivery Charges":"Delivery Charges"
+"Delivery Charges":"Delivery Charges",
 
+"Buy Again":"Buy Again",
+"Thank You for Try  and hope to make another one":"Thank You for Try and hope to make another one",
+"Successfully Purchased Order!":"Successfully Purchased Order!",
+
+"empty":"empty",
+"Sorry, your cart is":"Sorry, your cart is",
+"added to favourite":"Added to favourite",
+"Removed From Favourite":"Removed From Favourite",
+"view cart":"view cart",
+"favourite":"Favourite"
 
 }

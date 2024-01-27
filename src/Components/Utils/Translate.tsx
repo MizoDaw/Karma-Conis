@@ -3,10 +3,11 @@ import type { MenuProps } from 'antd';
 import { Button, Dropdown, Space } from 'antd';
 import { useChangeLanguage } from '../../Hooks/useChangeLanguage';
 import { useTranslation } from 'react-i18next'
+import { useNavigate } from 'react-router-dom';
 const Translate: React.FC = () => {
   const { currentlanguage, changelanguage } = useChangeLanguage();
   const { t } = useTranslation();
-
+  const navigate = useNavigate()
   const EnLanguage = memo(() => (
     <div className="MenuChange" onClick={EnLanguageClickHandler}>
        {/* <img alt='' src='../Layout/En.svg' width={20} height={20} />  */}

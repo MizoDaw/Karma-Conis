@@ -136,13 +136,10 @@
         // overflow-y: auto;
         @include Shadow;
         height: fit-content;
-
-        
         .primary{
             background: var(--secondary);
             color: var(--bg);
         }
-        
       .Address{
         padding: 40px;
         width: 100%;
@@ -152,7 +149,12 @@
         display: flex; flex-direction: column;
         gap: 0px;
         border-radius: 8px;
-
+        .Adress_butttons{
+            .BackToCart_Button{
+                margin-top: 5px !important;
+            }
+            
+        }
         >div{
             width: 100%;
             gap: 4%;
@@ -176,6 +178,7 @@
    padding: 20px;
    gap: 5px;
    button{
+    
     margin-top: 20px;
     background: var(--secondary);
     color: var(--bg);
@@ -317,6 +320,31 @@
 .PaymentBody_Left span span{
   color:var(--text) !important;
 
+}
+
+
+
+.CartBody_empty{
+    width: 80% !important;
+    margin-inline: auto;
+    display: flex;justify-content: center;align-items: center; flex-direction: column;
+    .EmptyCart_text, .Empty_icon{
+        text-align: center;
+        font-size: 50px;
+        span{
+            color: red;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .CartBody_empty{
+        width: 80% !important;
+        padding-bottom: 10vw;
+        .EmptyCart_text, .Empty_icon{
+            font-size: 30px;
+        }
+    }
 }
 
 @media screen and (max-width: 900px)  {
@@ -533,5 +561,17 @@
             }
         }
       }
+    }
+}
+
+@media screen and (max-width: 400px) {
+    .Address{
+        display: none;
+        .Adress_butttons{
+            .Payment_Button, .BackToCart_Button{
+                font-size: 7px !important;
+            }
+        }
+        
     }
 }

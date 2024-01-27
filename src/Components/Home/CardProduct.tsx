@@ -84,7 +84,8 @@ import useImageError from '../../Hooks/useImageError';
 import { useTranslation } from 'react-i18next';
 import { useAddToCart } from '../../api/cart';
 import { toast } from 'react-toastify';
-
+import { useAddToFavourite, useRemoveFromFav } from '../../api/wishlist';
+import { PiHeartBreakFill } from "react-icons/pi";
 
 
 const CardProduct = ({ item }:any) => {
@@ -92,7 +93,10 @@ const CardProduct = ({ item }:any) => {
 
     const {i18n, t} = useTranslation()
     const {mutate} = useAddToCart()
-    // console.log(item);
+    const {mutate:mutateAddFav} = useAddToFavourite()
+    const {mutate:mutateRemoveFav} = useRemoveFromFav()
+
+
     
   return (
           <Skeleton className='unset' loading={loading} active >
@@ -103,8 +107,18 @@ const CardProduct = ({ item }:any) => {
                 <span className='Left'>Gold Coins</span>
                 <span className='Right'>
                <Link to={`/product/${item.id}`}>
-            <EyeFilled />
-          </Link>
+                  <EyeFilled className='SingleOrder_icon' />
+                </Link>
+                  {/* <HeartFilled className='AddFav_icon' onClick={()=>{mutateAddFav({
+                          product_id:item?.id,
+                      })
+                      toast.success(t("added to favourite"))
+                      }}/> */}
+                 {/* <PiHeartBreakFill className='RemoveFav_icon' onClick={()=>{mutateRemoveFav({
+                          product_id:item?.id,
+                      })
+                      toast.success(t("Removed From Favourite"))
+                      }}/>      */}
                 </span>
               </div>
               <div className='Card_Product_Mid'>
@@ -130,7 +144,6 @@ const CardProduct = ({ item }:any) => {
                           quantity:1
                       })
                       toast.success('added to cart')
-
                       }}>
                     <Tooltip title={t("Add To Cart")}>
                       <PlusOutlined />

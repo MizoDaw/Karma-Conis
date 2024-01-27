@@ -19,6 +19,8 @@ const DropdownMenu = () => {
     return <div>Error loading categories</div>;
   }
 
+  // console.log(data.data.data);
+
   const CategoriesArry = data.data.data.map((item: any) => ({
     value: item?.category_translations[0]?.name,
     label: item?.id,

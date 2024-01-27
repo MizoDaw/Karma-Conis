@@ -17,6 +17,7 @@ const Footer = () => {
   ? socialMediaData?.data.map((social: any, index: number) => (
       <Tooltip key={index} title={social.social_media_link}>
         <img
+          className='icon'
           onClick={() => {
             window.location.href = social.social_media_link;
           }}
@@ -35,17 +36,17 @@ const Footer = () => {
           <footer
             className="text-center Footer_Bg text-lg-start text-white"
           >
-
+{/* 
             <section
               className=" Footer_Header">
               <div className="me-7 ">
                 <span>{t("Our Social Networks:")}</span>
               </div>
               {socialMediaItems}
-            </section>
+            </section> */}
 
-            <section className="">
-              <div className="container text-center text-md-start mt-5">
+            <section className="Main_footer">
+              <div className="container text-center text-md-start mt-5 ">
                 {/* Grid row */}
                 <div className="row mt-3">
                   {/* Grid column */}
@@ -103,6 +104,9 @@ const Footer = () => {
                       </a>
                       <CiPhone size={20} /> 0097466456660
                     </p>
+                    <p className='icons_social'>
+                      {socialMediaItems}
+                    </p>
 
                   </div>
                   {/* Grid column */}
@@ -115,10 +119,10 @@ const Footer = () => {
                       style={{ width: 60, backgroundColor: "#7c4dff", height: 2 }}
                     />
                     <p>
-                      {t("Syria")}
+                      {t("Qatar")}
                     </p>
                     <p>
-                      {t("Damascus")} , {t("Mazzeh")}
+                      {t("Doha")} 
                     </p>
 
                   </div>

@@ -42,7 +42,7 @@ const ViewCart = () => {
     
     <div className='ViewCart_Button'>
    <Link to='/cart'>  <Button type="primary" block>
-      view cart
+      {t("view cart")}
     </Button> </Link>
     </div>
       </div>

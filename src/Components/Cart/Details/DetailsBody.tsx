@@ -46,11 +46,11 @@ const DetailsBody = ({ setViewPage }: any) => {
             <div>
               <Default  name='note' placeholder="Note"  />
             </div>
-            <div>
-              <Button type="dashed" block onClick={() => setViewPage(0)}>
+            <div className='Adress_butttons'>
+              <Button className='BackToCart_Button' type="dashed" block onClick={() => setViewPage(0)}>
                 {t("Back to cart")}
               </Button>
-              <Button onClick={handleSubmit} className='primary' type="primary" block >
+              <Button onClick={handleSubmit} className='primary Payment_Button' type="primary" block >
                 {t("Proceed To Payment")}
               </Button>
             </div>
