@@ -14,7 +14,7 @@ const Translate: React.FC = () => {
       {t('En')}
     </div>
   ));
-  
+   
   const ArLanguage = memo(() => (
     <div  className="MenuChange" onClick={ArLanguageClickHandler}>
       {/* <img alt='' src='../Layout/Ar.svg' width={20} height={20} />  */}

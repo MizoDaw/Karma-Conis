@@ -21,7 +21,6 @@ export const useChangeLanguage= () => {
     const [currentlanguage, setCurrentlanguage] = useState(localStorage.getItem('language') ?? 'en');
     
     useEffect(() => {
-  console.log("moamomoomom");
   
       if (currentlanguage === 'ar') {
         i18n.changeLanguage('ar'); 

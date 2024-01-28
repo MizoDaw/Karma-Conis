@@ -46,7 +46,7 @@ const MidBar = () => {
 
           </div> */}
             <div className='Phone1'>
-            <Tooltip title="0951968994" >
+            <Tooltip title="0097466456660" >
             <FaPhoneAlt/>
 
             </Tooltip>

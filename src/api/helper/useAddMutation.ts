@@ -27,7 +27,7 @@ function useAddMutation(key: string, url: string): UseMutationResult<AxiosRespon
       },
       onError: (error:any) => {
         // console.log("fwergfrrrrrrrrrrrr",error.response.this.status);
-          console.log(error.response);
+          // console.log(error.response);
           
         if(error.response.status == 401 || error?.response?.status == 403){
           toast.error(t("Please Login First"))
