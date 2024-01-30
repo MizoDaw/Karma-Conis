@@ -134,10 +134,10 @@ const CardProduct = ({ item }:any) => {
                     <strong>
                       {item?.product_price} {Currency}
                     </strong>
-                    <small>
+                    {/* <small>
                       {Number(item?.product_price) + Number(item?.product_price) * 10 / 100}
                       {Currency}
-                    </small>
+                    </small> */}
                   </div>
                   <div className='AddProduct' onClick={()=>{mutate({
                           product_id:item?.id,
