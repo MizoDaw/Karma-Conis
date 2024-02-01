@@ -17,7 +17,8 @@
          // position: relative;
          border-radius: 50%;
          display: flex;justify-content: center;align-items: center;
-         height: 50px !important;width: 80px !important;
+         height: 50px !important;
+         width: 80px !important;
          .logo_drawer{
             width: 100% !important;
          }
@@ -41,21 +42,35 @@
                  }
                  
    .Menu_anv{
-      width: 100%;
-      padding-bottom: 0px !important   ;
+      // width: 100%;
+      // padding-bottom: 0px !important   ;
    }
    .menu_nav_icon{
       // margin-top: 20px;
    }
    .ViewCart{
-      margin-top: 10px;
+      // margin-top: 10px;
       margin-left: -10px;
       .Badge_Button{
-         top: 10% !important;
+         // display: none !important;
+         // top: 10% !important;
+         .Cart_Icon{
+            width: 50px;
+            height: 50px;
+            background: var(--bg2);
+            border-radius: 50%;
+            @include Flex;
+            svg{
+                width: 30px;
+                height: 25px;
+            }
+        }
       }
    }
               .MediaMenu{
-                 display: block;
+               //   display: block;
+               //   flex-direction: row !important;
+               display: flex;
               }
                  .FnBar{
                      display: flex;
@@ -101,7 +116,7 @@
 
                  }
                  }
-              .ViewCartViewCart{
+              .ViewCart{
                  display: inline !important;
               
               }
@@ -219,7 +234,7 @@ right: 7px;
       }
    }
               .MediaMenu{
-                 display: block;
+               //   display: block;
               }
                  .FnBar{
                      display: flex;
