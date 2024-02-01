@@ -190,6 +190,20 @@
 "Coin Name":"Coin Name",
 "enter Coin description":"enter Coin description",
 "enter Coin Name":"enter Coin Name",
-"enter coin price":"enter coin price"
+"enter coin price":"enter coin price",
+
+"contactUs": {
+    "title": "Contact Me",
+    "sendYourMessage": "Send your message and it will be automatically sent to my Gmail",
+    "name": "Name",
+    "enterYourName": "Enter your name",
+    "email": "Email",
+    "enterYourEmail": "Enter your email",
+    "message": "Message",
+    "typeYourMessage": "Type your message here",
+    "submit": "Submit",
+    "emailSentSuccess": "Email sent successfully!"
+  }
+  
 
 }

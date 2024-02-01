@@ -187,6 +187,18 @@
 "Coin Price":"سعر العملة",
 "Coin Description":"وصف العملة",
 "Coin Name":"اسم العملة",
+"contactUs": {
+    "title": "اتصل بي",
+    "sendYourMessage": "أرسل رسالتك وسيتم إرسالها تلقائيًا إلى Gmail الخاص بي",
+    "name": "الاسم",
+    "enterYourName": "أدخل اسمك",
+    "email": "البريد الإلكتروني",
+    "enterYourEmail": "أدخل بريدك الإلكتروني",
+    "message": "الرسالة",
+    "typeYourMessage": "اكتب رسالتك هنا",
+    "submit": "إرسال",
+    "emailSentSuccess": "تم إرسال البريد الإلكتروني بنجاح!"
+  },
 
 "enter Coin description":"ادخل وصف العملة",
 "enter Coin Name":"ادخل اسم العملة",
