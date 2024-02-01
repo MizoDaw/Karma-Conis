@@ -5,6 +5,9 @@ import { toast } from 'react-toastify';
 // import ContactImage from './ContactImage';
 import Layout from '../../Layout/app/Layout';
 import { useSendMessage } from '../../api/contact_us';
+import File from './File';
+import { useAddProduct } from '../../api/customer_product';
+import { buildFormData } from "../../api/helper/buildFormData";
 
 const BecomePartner: React.FC = () => {
 
@@ -15,27 +18,48 @@ const BecomePartner: React.FC = () => {
   const [Email , setEmail] = useState('') 
   const [Message , setMessage] = useState('') 
 
-  const {mutate , isSuccess} = useSendMessage()
+  const {mutate , isSuccess} = useAddProduct()
   const form = useRef<any>(null);
   const { t } = useTranslation();
-
   const handelSubmit = (e:React.FormEvent<HTMLFormElement>)=>{
     e.preventDefault()
     console.log(form.current);
 
-    if(!Name || !Email || !Message  ){
+    if(!Name || !Description || !Message || !Price || !ClearIMageCoins || !ClearIMageCoins2 ){
       toast.error(t("please_fill_all_input"))
+      return;
     }
+console.log(getDataToSend({
+  name:Name,
+  description:Description,
+  note:Message,
+  price:Price,
+  image:ClearIMageCoins,
+  image2:ClearIMageCoins2,
 
+}));
 
-    mutate({
+    mutate(getDataToSend({
       name:Name,
       description:Description,
       note:Message,
       price:Price,
-    })
-  }
+      image:ClearIMageCoins,
+      image2:ClearIMageCoins2,
 
+    }))
+  }
+   const getDataToSend = (values: any): FormData => {
+    const data = { ...values };
+    
+  
+    const formData = new FormData();
+    buildFormData(formData, data);
+    return formData;
+  };
+  
+  
+  
   useEffect(()=>{
 
     if(isSuccess){
@@ -44,14 +68,22 @@ const BecomePartner: React.FC = () => {
       setName('')
       setEmail('')
       setPrice('')
+      setClearIMageCoins("")
+setClearIMageCoins2("")
     }
   },[isSuccess])
+  const [ClearIMageCoins, setClearIMageCoins] = useState('')
+  const [ClearIMageCoins2, setClearIMageCoins2] = useState('')
+
   return (
     <Layout className="Contact" >
-      <div>
+      <div className='BecomePartner'>
         <h1>{t('Become Partner')}</h1>
         <p>{t('Send your Coins and it will be automatically sent to my Gmail')}</p>
-        {/* <ContactImage /> */}
+        <File label={"ClearIMageCoins"} set={setClearIMageCoins} />
+        <File label={"ClearIMageCoins2"} set={setClearIMageCoins2} />
+
+
       </div>
       <div>
         <Form ref={form} onSubmit={handelSubmit}>

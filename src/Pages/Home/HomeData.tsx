@@ -2,6 +2,7 @@ import { CarFilled, MoneyCollectOutlined, PayCircleFilled } from "@ant-design/ic
 import { TBigAdsData, TCardProduct, THeroAd, TMovesAdsData, TProduct, TSpecialProperty, TbannerData } from "../../Layout/app/Types"
 import { BsCalendarDay } from "react-icons/bs"
 import { IoIosFlash } from "react-icons/io"
+import { FaMoneyBill, FaProductHunt } from "react-icons/fa"
 
  export const Product =   {
     id : 1,
@@ -118,19 +119,19 @@ export const HeroSectionData = {  bannerData,adData};
 
 export const specialPropertiesData: TSpecialProperty[] = [
   {
-    icon: <CarFilled />,
-    title: 'Fast Delivery',
-    description: 'Start from $10',
+    icon: <FaMoneyBill />,
+    title: 'Price',
+    description: 'Lowest Price',
   },
   {
-    icon: <MoneyCollectOutlined />,
-    title: 'Money Guarantee',
-    description: '7 Days Back',
+    icon: <FaProductHunt />,
+    title: 'products',
+    description: 'high quality products',
   },
   {
     icon: <BsCalendarDay />,
-    title: '365 Days',
-    description: 'For free return',
+    title: 'Work Time',
+    description: 'Online 24 hour',
   },
   {
     icon: <PayCircleFilled />,

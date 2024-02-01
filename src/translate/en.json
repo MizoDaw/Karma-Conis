@@ -203,7 +203,11 @@
     "typeYourMessage": "Type your message here",
     "submit": "Submit",
     "emailSentSuccess": "Email sent successfully!"
-  }
-  
+  },
+"Lowest Price":"Lowest Price",
+"products":"products",
+"high quality products":"high quality products",
+"Work Time":"Work Time",
+"Online 24 hour":"Online 24 hour"
 
 }

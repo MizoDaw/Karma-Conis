@@ -81,3 +81,11 @@
   .bg_primary{
     background-color: var(--primary);
   }
+  /* Icon */
+.text-md-start .mx-auto .icons_social > .icon{
+    img{
+        mix-blend-mode: multiply !important;
+    }
+   }
+   
+   
