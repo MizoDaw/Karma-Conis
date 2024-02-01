@@ -86,11 +86,13 @@ import { useAddToCart } from '../../api/cart';
 import { toast } from 'react-toastify';
 import { useAddToFavourite, useRemoveFromFav } from '../../api/wishlist';
 import { PiHeartBreakFill } from "react-icons/pi";
+import { useAuth } from '../../Hooks/useAuth';
 
 
 const CardProduct = ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
 
+      const {isAuthenticated} = useAuth()
     const {i18n, t} = useTranslation()
     const {mutate} = useAddToCart()
     const {mutate:mutateAddFav} = useAddToFavourite()
@@ -139,16 +141,20 @@ const CardProduct = ({ item }:any) => {
                       {Currency}
                     </small> */}
                   </div>
-                  <div className='AddProduct' onClick={()=>{mutate({
-                          product_id:item?.id,
-                          quantity:1
-                      })
-                      toast.success('added to cart')
-                      }}>
+                  {
+                    isAuthenticated&&
+                  <div className='AddProduct' onClick={()=>{
+                    mutate({
+                      product_id:item?.id,
+                      quantity:1
+                    })
+                    toast.success('added to cart')
+                  }}>
                     <Tooltip title={t("Add To Cart")}>
                       <PlusOutlined />
                     </Tooltip>
                   </div>
+                } 
                 </span>
               </div>
             {/* </Card> */}
