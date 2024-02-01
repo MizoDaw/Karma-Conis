@@ -13,6 +13,7 @@ const About = () => {
 
     return <LoadingPage/>
   }
+  console.log(data.data);
   
   return (
     <Layout>
@@ -30,7 +31,9 @@ const About = () => {
           <h1 className='title'>{t("Who are we")}</h1>
         </div>
         <div className='description text-center'>
-              {t("UboutUsINfo")}
+              {/* {t("UboutUsINfo")} */}
+              {/* {data.} */}
+              {data?.data?.translations?.at(0)?.content}
                </div>
 
     </Layout>
