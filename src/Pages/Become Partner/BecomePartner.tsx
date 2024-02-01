@@ -80,8 +80,8 @@ setClearIMageCoins2("")
       <div className='BecomePartner'>
         <h1>{t('Become Partner')}</h1>
         <p>{t('Send your Coins and it will be automatically sent to my Gmail')}</p>
-        <File label={"ClearIMageCoins"} set={setClearIMageCoins} />
-        <File label={"ClearIMageCoins2"} set={setClearIMageCoins2} />
+        <File label={t("ClearIMageCoins")} set={setClearIMageCoins} />
+        <File label={t("ClearIMageCoins2")} set={setClearIMageCoins2} />
 
 
       </div>

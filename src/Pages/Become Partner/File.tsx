@@ -1,7 +1,9 @@
 import { Button, Upload, UploadFile } from 'antd'
 import { UploadOutlined } from '@ant-design/icons';
+import { useTranslation } from 'react-i18next';
 
 const File = ({  label,set }: any) => {
+  const {t} = useTranslation();
   const imageUrl =  '';
 
   const fileList: UploadFile[] = [
@@ -24,7 +26,7 @@ const File = ({  label,set }: any) => {
   };
   return (
     <div className="KarimField">
-      <label htmlFor={label} className="text">
+      <label htmlFor={label} className="text" >
         {(`${label}`)}
       </label>
 
@@ -37,7 +39,7 @@ const File = ({  label,set }: any) => {
         customRequest={customRequest}
 
       >
-        <Button className='w-100' icon={<UploadOutlined  />}>{("upload_image")}</Button>
+        <Button className='w-100 partner_image'  icon={<UploadOutlined  />}>{t("upload_image")}</Button>
       </Upload>
 
 

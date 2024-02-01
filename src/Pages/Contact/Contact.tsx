@@ -6,6 +6,7 @@ import { useTranslation } from 'react-i18next';
 import { toast } from 'react-toastify';
 import ContactImage from './ContactImage';
 import { useSendMessage } from '../../api/contact_us';
+import Layout from '../../Layout/app/Layout';
 
 const Contact: React.FC = () => {
   const form = useRef<any>(null);
@@ -54,7 +55,8 @@ const Contact: React.FC = () => {
 
 
   return (
-    <div className="Contact" id="ContactMe">
+    <Layout>
+      <div className="Contact" id="ContactMe">
       <div>
         <h1>{t('contactUs.title')}</h1>
         <p>{t('contactUs.sendYourMessage')}</p>
@@ -80,6 +82,7 @@ const Contact: React.FC = () => {
         </Form>
       </div>
     </div>
+    </Layout>
   );
 };
 
