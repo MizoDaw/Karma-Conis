@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Loading from './Components/Utils/Loading/Loading';
 import Consigne from './Pages/Consigne/Consigne';
 import LoadingPage from './Pages/Loading/LoadingPage';
+import Virefied from './Pages/Auth/Virefied';
 
 const CheckPaymentPage  =  lazy(()=>import('./Pages/paymentRedirect/Page'));
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
@@ -26,6 +27,8 @@ const App = () => {
     <Routes>
       <Route path="*" element={<Suspense fallback={<LoadingPage />}> <Page404 /></Suspense>} />
       <Route path="/auth" element={<Suspense fallback={<LoadingPage />}> <Auth /></Suspense>} />
+      <Route path="/verfied" element={<Suspense fallback={<LoadingPage />}> <Virefied /></Suspense>} />
+
       <Route path="/" element={<Suspense fallback={<LoadingPage />}> <Home /></Suspense>} />
       <Route path="/product/:id" element={<Suspense fallback={<LoadingPage />}> <Product /></Suspense>} />
       <Route path="/products" element={<Suspense fallback={<LoadingPage />}> <Products /></Suspense>} />
