@@ -27,6 +27,7 @@ const BecomePartner: React.FC = () => {
 
     if(!Name || !Description || !Message || !Price || !ClearIMageCoins || !ClearIMageCoins2 ){
       toast.error(t("please_fill_all_input"))
+      return;
     }
 console.log(getDataToSend({
   name:Name,
