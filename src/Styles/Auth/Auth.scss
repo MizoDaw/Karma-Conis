@@ -429,3 +429,11 @@
     height: 100vh;
     width: 100%;
 }
+.Contact {
+    .BecomePartner{
+        button{
+            background: transparent !important;
+            color: var(--primary) !important;
+        }
+    }
+}
