@@ -11,6 +11,7 @@ import { BaseURL } from '../../api/config'
 import { useAddToCart } from '../../api/cart'
 import { useTranslation } from 'react-i18next'
 import { toast } from 'react-toastify'
+import { useAuth } from '../../Hooks/useAuth'
 
 const OneProduct = () => {
 
@@ -21,6 +22,7 @@ const OneProduct = () => {
   const {data} = useGetSingleProduct({product_id : id})
 
 
+  const {isAuthenticated} = useAuth()
   const Product =data?.data?.product 
   const  product_highlight = data?.data?.product_highlight
   const product_most_purchase = data?.data?.product_most_purchase
@@ -71,14 +73,17 @@ const OneProduct = () => {
           <h6>{t("Purchasing Count")}  : </h6> <h6 className='Price'> {Product?.product_purchasing_count}  </h6>
 
           </div>
+          {
+            isAuthenticated&&
           <Button type="primary" block onClick={()=>{mutate({
-                          product_id:Product?.id,
+          product_id:Product?.id, 
                           quantity:1
                       })
                       toast.success(t("added to cart"))
-                      }}>
+                    }}>
             {t("Add To Cart")}
           </Button>
+  }
         </div>
       </div>
       <ProductSection data={product_highlight} props_product={{
