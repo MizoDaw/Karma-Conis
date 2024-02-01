@@ -9,6 +9,7 @@ import { useSendMessage } from '../../api/contact_us';
 const BecomePartner: React.FC = () => {
 
   const [Name , setName] = useState('') 
+  const [Description , setDescription] = useState('') 
   const [Price , setPrice] = useState('') 
 
   const [Email , setEmail] = useState('') 
@@ -29,8 +30,8 @@ const BecomePartner: React.FC = () => {
 
     mutate({
       name:Name,
-      email:Email ,
-      message:Message,
+      description:Description,
+      note:Message,
       price:Price,
     })
   }
@@ -59,17 +60,17 @@ const BecomePartner: React.FC = () => {
             <Form.Label>{t('Coin Name')}</Form.Label>
             <Form.Control type="text" name="to_name" placeholder={t('enter Coin Name')} value={Name} onChange={(e)=>setName(e.target.value)}/>
           </Form.Group>
-          <Form.Group controlId="formName">
+          <Form.Group controlId="formDesc">
             <Form.Label>{t('Coin Description')}</Form.Label>
-            <Form.Control type="text" name="to_name" placeholder={t('enter Coin description')} value={Name} onChange={(e)=>setName(e.target.value)}/>
+            <Form.Control type="text" name="description" placeholder={t('enter Coin description')} value={Description} onChange={(e)=>setDescription(e.target.value)}/>
           </Form.Group>
-          <Form.Group controlId="formEmail">
+          <Form.Group controlId="formPrice">
             <Form.Label>{t('Coin Price')}</Form.Label>
-            <Form.Control type="number" name="from_name" placeholder={t('enter coin price')} value={Price} onChange={(e)=>setPrice(e.target.value)} />
+            <Form.Control type="number" name="price" placeholder={t('enter coin price')} value={Price} onChange={(e)=>setPrice(e.target.value)} />
           </Form.Group>
           <Form.Group controlId="formMessage">
             <Form.Label>{t('Your Message')}</Form.Label>
-            <Form.Control as="textarea" rows={4} name="message" placeholder={t('type Your Message')} value={Message} onChange={(e)=>setMessage(e.target.value)}/>
+            <Form.Control as="textarea" rows={4} name="note" placeholder={t('type Your Message')} value={Message} onChange={(e)=>setMessage(e.target.value)}/>
           </Form.Group>
 
           <Button className='mt-4 w-100' type="submit">
