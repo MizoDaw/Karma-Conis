@@ -8,7 +8,7 @@ import { Button, Divider, Tooltip } from 'antd';
 import Theme from '../Utils/Theme';
 import Translate from '../Utils/Translate';
 import { CiHome } from "react-icons/ci";
-import { IoIosInformationCircleOutline } from "react-icons/io";
+import { IoIosInformationCircleOutline, IoMdContacts } from "react-icons/io";
 import { MdOutlinePhonelinkRing } from "react-icons/md";
 import { LuBoxes } from "react-icons/lu";
 import { useState } from 'react';
@@ -84,6 +84,7 @@ const MidBar = () => {
               <Link className='Link_NavMenu' to={'/products'} >  <h1> <LuBoxes/> {t("Products")}</h1> </Link>
               <Link className='Link_NavMenu' to={'/cart'} >  <h1> <ShoppingCartOutlined/> {t("cart")}</h1> </Link>
               <Link className='Link_NavMenu' to={'/orders'} >  <h1> <ShoppingCartOutlined/> {t("orders")}</h1> </Link>
+              <Link className='Link_NavMenu' to={'/become_partner'} >  <h1> <IoMdContacts/> {t("Become Partner")}</h1> </Link>
 
             </div>
                       <Divider/>

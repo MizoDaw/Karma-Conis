@@ -70,6 +70,12 @@ const Footer = () => {
                       </Link>
                     </p>
                     <p className='footer_links'>
+                      <IoMdContacts />
+                      <Link to="/contact" className="text-white">
+                        {t("Become Partner")}
+                      </Link>
+                    </p>
+                    <p className='footer_links'>
                       <IoIosInformationCircleOutline />
                       <Link to="/about" className="text-white">
                         {t("About us")}
