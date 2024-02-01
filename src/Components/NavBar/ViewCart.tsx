@@ -25,7 +25,7 @@ const ViewCart = () => {
       <Badge className='Badge_Button' count={data?.data?.at(0)?.cart_items_count} >
           <div className="Cart_Icon"  onClick={()=>navigate('/cart')}>
           <Tooltip title={t("cart")}>
-          <ShoppingCartOutlined  />
+          <ShoppingCartOutlined />
           </Tooltip>
 
           </div>

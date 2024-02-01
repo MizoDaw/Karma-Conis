@@ -3,6 +3,7 @@ import { Route, Routes } from 'react-router-dom'
 import Loading from './Components/Utils/Loading/Loading';
 import Consigne from './Pages/Consigne/Consigne';
 import LoadingPage from './Pages/Loading/LoadingPage';
+import BecomePartner from './Pages/Become Partner/BecomePartner';
 
 const CheckPaymentPage  =  lazy(()=>import('./Pages/paymentRedirect/Page'));
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
@@ -38,6 +39,8 @@ const App = () => {
       <Route path="/checkout_payment_online" element={<Suspense fallback={<LoadingPage />}> <CheckPaymentPage /></Suspense>} />
       <Route path="/success_payment" element={<Suspense fallback={<LoadingPage />}> <SuccessPayment /></Suspense>} />
       <Route path="/favourite" element={<Suspense fallback={<LoadingPage />}> <FavouritePage /></Suspense>} />
+      <Route path="/become_partner" element={<Suspense fallback={<LoadingPage />}> <BecomePartner /></Suspense>} />
+
 
 
     </Routes>

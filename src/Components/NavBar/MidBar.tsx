@@ -59,16 +59,18 @@ const MidBar = () => {
         </div>
         <div className='MediaMenu'> 
         {/* <ViewCart/> */}
+        <ViewCart/>
         <WithDrawer
               // title='Karma Antique'
               button={<Button icon={<MenuOutlined />} className='MenuButton' type='primary' />}
             >
-              
+
             <div className="Menu_anv">
+
               {/* <Translate/> */}
               <div className='logo_drawer_container'>
                 <h1>Karma Coins
-                  <br/>
+                  <br/> 
                 </h1>
 
                 <div className='logo_bg'>
