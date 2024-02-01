@@ -184,6 +184,20 @@
 "added to favourite":"Added to favourite",
 "Removed From Favourite":"Removed From Favourite",
 "view cart":"view cart",
-"favourite":"Favourite"
+"favourite":"Favourite",
+
+"contactUs": {
+    "title": "Contact Me",
+    "sendYourMessage": "Send your message and it will be automatically sent to my Gmail",
+    "name": "Name",
+    "enterYourName": "Enter your name",
+    "email": "Email",
+    "enterYourEmail": "Enter your email",
+    "message": "Message",
+    "typeYourMessage": "Type your message here",
+    "submit": "Submit",
+    "emailSentSuccess": "Email sent successfully!"
+  }
+  
 
 }

@@ -184,6 +184,18 @@
 "Removed From Favourite":"تمت الازالة من المفضلة",
 "view cart":"رؤية السلة",
 "favourite":"المفضلة",
+"contactUs": {
+    "title": "اتصل بي",
+    "sendYourMessage": "أرسل رسالتك وسيتم إرسالها تلقائيًا إلى Gmail الخاص بي",
+    "name": "الاسم",
+    "enterYourName": "أدخل اسمك",
+    "email": "البريد الإلكتروني",
+    "enterYourEmail": "أدخل بريدك الإلكتروني",
+    "message": "الرسالة",
+    "typeYourMessage": "اكتب رسالتك هنا",
+    "submit": "إرسال",
+    "emailSentSuccess": "تم إرسال البريد الإلكتروني بنجاح!"
+  },
 
 
 "":""
