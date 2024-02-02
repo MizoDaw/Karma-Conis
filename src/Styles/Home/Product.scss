@@ -6,8 +6,7 @@
     min-height: 350px;
    
         h6,h3{
-            text-wrap: nowrap;
-
+                max-width: 20vw;
         }
     .Product_Left{
             img{
@@ -102,4 +101,10 @@
     
 }
 }
+}
+.Product_Info h6{
+        // max-width: 30vw;
+        // white-space: nowrap;
+        // overflow: hidden;
+        // text-overflow: ellipsis;
 }
