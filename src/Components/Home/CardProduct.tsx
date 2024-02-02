@@ -106,7 +106,7 @@ const CardProduct = ({ item }:any) => {
 
             {/* <Card className='unset' loading={loading}> */}
               <div className='Card_Product_Top'>
-                <span className='Left'>Gold Coins</span>
+                <span className='Left'>{item?.category?.category_translations?.at(0)?.name}</span>
                 <span className='Right'>
                <Link to={`/product/${item.id}`}>
                   <EyeFilled className='SingleOrder_icon' />
