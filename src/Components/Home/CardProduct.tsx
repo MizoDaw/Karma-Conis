@@ -88,10 +88,11 @@ import { useAddToFavourite, useRemoveFromFav } from '../../api/wishlist';
 import { PiHeartBreakFill } from "react-icons/pi";
 import { useAuth } from '../../Hooks/useAuth';
 
-
+import {useNavigate} from  'react-router-dom'
 const CardProduct = ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
 
+  const navigate = useNavigate()
       const {isAuthenticated} = useAuth()
     const {i18n, t} = useTranslation()
     const {mutate} = useAddToCart()
@@ -105,7 +106,7 @@ const CardProduct = ({ item }:any) => {
                     <div key={item?.id} className='Card_Product'>
 
             {/* <Card className='unset' loading={loading}> */}
-              <div className='Card_Product_Top'>
+              <div className='Card_Product_Top' onClick={()=>navigate(`/product/${item.id}`)}>
                 <span className='Left'>{item?.category?.category_translations?.at(0)?.name}</span>
                 <span className='Right'>
                <Link to={`/product/${item.id}`}>
@@ -123,17 +124,17 @@ const CardProduct = ({ item }:any) => {
                       }}/>      */}
                 </span>
               </div>
-              <div className='Card_Product_Mid'>
+              <div className='Card_Product_Mid' onClick={()=>navigate(`/product/${item.id}`)}>
                 <img src={ BaseURL_IMAGE +item?.product_main_image|| UserImageURL} onError={useImageError} alt={item?.name} width="100%" height="60%" />
               </div>
-              <div className='Card_Product_Bottom'>
-                <div>{item?.product_translations?.at(0)?.name}</div>
+              <div className='Card_Product_Bottom'  >
+                <div onClick={()=>navigate(`/product/${item.id}`)}>{item?.product_translations?.at(0)?.name}</div>
                 {/* <div>
                   <Rate allowHalf disabled defaultValue={item?.rate} />
                 </div> */}
                 <span>
                   <div>
-                    <strong>
+                    <strong onClick={()=>navigate(`/product/${item.id}`)}> 
                       {item?.product_price} {Currency}
                     </strong>
                     {/* <small>
