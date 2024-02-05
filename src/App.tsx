@@ -5,6 +5,7 @@ import Consigne from './Pages/Consigne/Consigne';
 import LoadingPage from './Pages/Loading/LoadingPage';
 import BecomePartner from './Pages/Become Partner/BecomePartner';
 import Virefied from './Pages/Auth/Virefied';
+import SuccessVerify from './Pages/Auth/SuccessVerify';
 
 const CheckPaymentPage  =  lazy(()=>import('./Pages/paymentRedirect/Page'));
 const Page404 = lazy(() => import("./Layout/app/NotFoundPage"))
@@ -29,6 +30,7 @@ const App = () => {
       <Route path="*" element={<Suspense fallback={<LoadingPage />}> <Page404 /></Suspense>} />
       <Route path="/auth" element={<Suspense fallback={<LoadingPage />}> <Auth /></Suspense>} />
       <Route path="/verfied" element={<Suspense fallback={<LoadingPage />}> <Virefied /></Suspense>} />
+      <Route path="/success_verify" element={<Suspense fallback={<LoadingPage />}> <SuccessVerify /></Suspense>} />
 
       <Route path="/" element={<Suspense fallback={<LoadingPage />}> <Home /></Suspense>} />
       <Route path="/product/:id" element={<Suspense fallback={<LoadingPage />}> <Product /></Suspense>} />

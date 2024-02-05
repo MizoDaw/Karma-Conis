@@ -213,6 +213,16 @@
 "ClearIMageCoins2":"صور واضحة للعملات 2",
 "ClearIMageCoins":" صور واضحة للعملات",
 "upload_image":"رفع صورة",
+"Your Email has been verfied successfully":"لقد تم التحقق من بريدك الإلكتروني بنجاح",
+"You can continue useing the website":"يمكنك الاستمرار في استخدام الموقع",
+"code Send to your Email Verified it":"أرسل الرمز إلى بريدك الإلكتروني وقم بالتحقق منه",
+"Enter your verification code that we sent to you through your E-mail.":"أدخل رمز التحقق الخاص بك الذي أرسلناه لك عبر بريدك الإلكتروني.",
+"Resend Code":"أعد إرسال الرمز",
+"Verification code is invalid":"رمز التحقق غير صالح",
+"Verified Successfully":"تم التحقق بنجاح",
+"Invalid Code":"الرمز غير صحيح",
+"Code has been send successfully":"تم إرسال الرمز بنجاح",
+"Code has been send successfully to your email":"تم إرسال الرمز بنجاح إلى بريدك الإلكتروني",
+"Error while sending code plaese try agian later":"حدث خطأ أثناء إرسال الرمز، يرجى المحاولة لاحقًا",
 "":""
-
 }

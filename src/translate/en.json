@@ -212,5 +212,18 @@
 "Send your Coins and it will be automatically sent to my Gmail":"Send your Coins and it will be automatically sent to my Gmail",
 "ClearIMageCoins2":"Clear Coins image 2",
 "ClearIMageCoins":"Clear Coins image",
-"upload_image":"Upload image"
+"upload_image":"Upload image",
+"Your Email has been verfied successfully":"Your Email has been verfied successfully",
+"You can continue useing the website":"You can continue useing the website",
+"code Send to your Email Verified it":"Code Send to your Email Verified it",
+"Enter your verification code that we sent to you through your E-mail.":"Enter your verification code that we sent to you through your E-mail.",
+"Resend Code":"Resend Code",
+"Verification code is invalid":"Verification code is invalid",
+"Verified Successfully":"Verified Successfully",
+"Invalid Code":"Invalid Code",
+"Code has been send successfully":"Code has been send successfully",
+"Code has been send successfully to your email":"Code has been send successfully to your email",
+"Error while sending code plaese try agian later":"Error while sending code plaese try agian later",
+"":""
+
 }

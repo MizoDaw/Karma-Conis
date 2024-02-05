@@ -23,7 +23,6 @@ function RegisterForm({ handleLoginClick }: any) {
   const [isVirfied, setisVirfied] = useState(false)
 
   const handelSubmit = (values: any) => {
-
     mutate(
       {
         name: values['name'],
@@ -31,20 +30,16 @@ function RegisterForm({ handleLoginClick }: any) {
         password: values['password'],
         country:value,
         phone: values['phone']
-
       }
     )
-
-
   }
 
 
   useEffect(() => {
     if (isSuccess) {
       dispatch(register((data as any)?.data))
-   
-      navigate('/', { replace: true })
-
+      
+      navigate('/verfied', { replace: true })
     }
   }, [isSuccess, navigate, data , dispatch])
 
@@ -52,11 +47,12 @@ function RegisterForm({ handleLoginClick }: any) {
   const formik = useFormikContext();
 
   const SelecthandleChange = (value:any,label:any) => {
-    
+
     setValue(label?.label)
 
  };
  const form = useRef<any>(null);
+
  const sendEmail = (e: React.FormEvent<HTMLFormElement>) => {
   e.preventDefault();
 
@@ -85,28 +81,30 @@ function RegisterForm({ handleLoginClick }: any) {
 
           <h2>{t("Create Account")}</h2>
           <div className='login_dev'>
-                 <Field name="name" type="text" placeholder="Name" />
+            <Field name="name" type="text" placeholder="Name" />
           </div>
-          <div className='login_dev'>
-                   <Field name="email" type="email" placeholder="Email" />
 
-          </div>
           <div className='login_dev'>
+            <Field name="email" type="email" placeholder="Email" />
+          </div>
 
-          <Select
-          style={{ width: "100%" }}
-      onChange={SelecthandleChange}
-      options={options}
-      placeholder="choose your country"
-    />
-          </div>
           <div className='login_dev'>
-                   <Field  name="phone" type="text" placeholder="phone" />
+            <Select
+            style={{ width: "100%" }}
+            onChange={SelecthandleChange}
+            options={options}
+            placeholder="choose your country"
+            />
+          </div>
 
-          </div>
           <div className='login_dev'>
-                   <Field name="password" type="password" placeholder="Password" />
+            <Field  name="phone" type="text" placeholder="phone" />
           </div>
+
+          <div className='login_dev'>
+            <Field name="password" type="password" placeholder="Password" />
+          </div>
+
           <LoadingButton isLoading={isLoading}>{t("Sign Up")}</LoadingButton >
           <p className='navigateto' onClick={handleLoginClick} >{t("or login")}</p>
 

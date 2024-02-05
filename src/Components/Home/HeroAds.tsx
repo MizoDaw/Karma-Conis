@@ -32,7 +32,6 @@ const HeroAds = ({data}:any) => {
        {ImageData?.map((item:any, index:number) => (
         <div className='Ad_Container' key={index}>
           <img alt='' className='banner1'  src={BaseURL + item[0]}  />
-       
         </div>
       ))}
     </div>

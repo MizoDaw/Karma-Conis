@@ -4,6 +4,7 @@ import {  useNavigate } from 'react-router-dom';
 import LoginForm from './LoginForm';
 import RegisterForm from './RegisterForm';
 import { useSelector } from 'react-redux';
+import { verify } from 'crypto';
 const Auth = () => {
   const [isActive, setIsActive] = useState(false);
   const  {isAuthenticated}= useSelector((state:any)=>state.auth)
@@ -11,7 +12,7 @@ const Auth = () => {
 
   useEffect(()=>{
 
-    if(isAuthenticated){
+    if(isAuthenticated ){
       navigate('/')
     }
   },[isAuthenticated])

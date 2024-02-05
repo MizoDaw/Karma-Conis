@@ -8,8 +8,8 @@ const AuthSlice = createSlice({
     isAuthenticated:authStorage.getToken() ? true :false ,
     token: authStorage.getToken(),
     user:authStorage.getUser(),
-   
   },
+
   reducers: {
     logout :(state) =>{
         
@@ -22,7 +22,7 @@ const AuthSlice = createSlice({
         // console.log(action?.payload);
         state.user = action.payload?.user
         authStorage.storeUser(action.payload?.user)
-  
+
         state.token = action.payload?.token
         authStorage.storeToken(action.payload?.token)
         state.isAuthenticated = true
