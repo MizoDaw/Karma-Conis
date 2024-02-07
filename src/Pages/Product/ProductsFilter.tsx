@@ -36,19 +36,21 @@ const CategoriesArry = data?.data?.data?.map((item: any) => ({
   label: item?.category_translations[0]?.name,
 }));
 
-CategoriesArry?.push({ value: undefined, label: 'all' });
+CategoriesArry?.push({ value: 'all', label: 'all' });
 
 useEffect(() => {
   
   if (!isInitialRender.current) {
     const queryParams = {
-      category_id: filter.category_id  ? filter.category_id : undefined,
+      category_id: filter.category_id  ? (filter.category_id  == 'all'  ? undefined : filter.category_id) : undefined,
       min_price: filter.min_price !== 0 ? filter.min_price : undefined,
       max_price: filter.max_price !== 1000000 ? filter.max_price : undefined,
       is_most_purchased: filter.is_most_purchased ? filter.is_most_purchased : undefined,
       is_highlight: filter.is_highlight ? filter.is_highlight : undefined,
       search:search.get('search') ? search.get('search') : undefined
     };
+    console.log(queryParams);
+    
 
     const queryString = Object.entries(queryParams)
       .filter(([key, value]) => value !== undefined)
@@ -66,6 +68,8 @@ useEffect(() => {
   
   
   const handleChange = (value: any, option: any | Array<any>) => {
+    console.log(option);
+    
     setFilter((prevFilter) => ({ ...prevFilter, category_id: option?.value }));
   };
   
