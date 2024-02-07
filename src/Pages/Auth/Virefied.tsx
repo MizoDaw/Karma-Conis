@@ -33,7 +33,7 @@ const Virefied = () => {
 
     useEffect(()=> {
       if(isSuccess){
-        // console.log(data);
+        toast.success(t('Verified Successfully'))
         dispatch(register(data.data)) 
         navigate('/success_verify')
         
