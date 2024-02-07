@@ -13,6 +13,7 @@ import { Select, Space } from 'antd';
 //@ts-ignore
 import emailjs from '@emailjs/browser';
 import { toast } from 'react-toastify';
+import { USER_EMAIL } from '../../config/AppKey';
 
 function RegisterForm({ handleLoginClick }: any) {
   const navigate = useNavigate()
@@ -32,16 +33,18 @@ function RegisterForm({ handleLoginClick }: any) {
         phone: values['phone']
       }
     )
+   return localStorage.setItem(USER_EMAIL , values.email );
   }
 
 
   useEffect(() => {
     if (isSuccess) {
-      dispatch(register((data as any)?.data))
+      // dispatch(register((data as any)?.data))
       
       navigate('/verfied', { replace: true })
     }
   }, [isSuccess, navigate, data , dispatch])
+
 
   const options = useMemo(() => countryList().getData(), [])
   const formik = useFormikContext();

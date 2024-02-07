@@ -6,13 +6,16 @@ import { useNavigate } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { login } from '../../Redux/auth/AuthReducer'
 import { useTranslation } from 'react-i18next'
+import { EmailJSResponseStatus } from '@emailjs/browser'
+import { toast } from 'react-toastify'
 
 function LoginForm({handleRegisterClick}:any) {
     const Navigate = useNavigate() 
-    const {mutate , isSuccess ,isLoading, data} = useLogin()
+    const {mutate , isSuccess ,isLoading, data,status,error} = useLogin()
     const dispatch = useDispatch()
     const [t] = useTranslation()
-
+    
+    
     const handelSubmit = (values:any)=>{
         mutate({
             email:values['email'],
@@ -22,13 +25,16 @@ function LoginForm({handleRegisterClick}:any) {
 
     useEffect(()=>{
       if(isSuccess){
-        
         dispatch(login((data as any )?.data))
-        
         Navigate('/', { replace: true })
-        
       }
+      else if((error as any)?.response?.status == 510){
+          Navigate('/verified')
+          toast.error(t("Please verify your email"))
+      }
+
     },[isSuccess , Navigate, dispatch , data])
+
   return (
     <div className="form-container sign-in">
   <Formik 
@@ -49,7 +55,6 @@ function LoginForm({handleRegisterClick}:any) {
           <Field name="password" type="password" placeholder="Password" />
         </div>
 
-        {/* <a href="#">Forget Your Password?</a> */}
         <LoadingButton  isLoading={isLoading}  >{t("Sign In")}</LoadingButton>
         <p className='navigateto' onClick={handleRegisterClick} >{t("or Register")}</p>
 

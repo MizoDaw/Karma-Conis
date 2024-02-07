@@ -12,8 +12,6 @@ interface FilterState {
   all: boolean;
   is_most_purchased: boolean;
   is_highlight: boolean;
-  // is_favourite: boolean;
-
 }
 
 
@@ -30,7 +28,6 @@ const ProductsFilter = () => {
   all: true,
   is_most_purchased:  false,
   is_highlight:  false,
-  // is_favourite:false,
 });
 
 const { data } = useGetAllCategories();
@@ -50,7 +47,6 @@ useEffect(() => {
       max_price: filter.max_price !== 1000000 ? filter.max_price : undefined,
       is_most_purchased: filter.is_most_purchased ? filter.is_most_purchased : undefined,
       is_highlight: filter.is_highlight ? filter.is_highlight : undefined,
-      // is_favourite: filter.is_favourite ? filter.is_favourite : undefined,
       search:search.get('search') ? search.get('search') : undefined
     };
 
@@ -73,24 +69,20 @@ useEffect(() => {
     setFilter((prevFilter) => ({ ...prevFilter, category_id: option?.value }));
   };
   
-
   const onChangeInput = (min: number, max: number) => {
     setFilter((prevFilter) => ({ ...prevFilter, min_price: min, max_price: max }));
   };
 
   const handleAllChange = (e: RadioChangeEvent) => {
-    setFilter((prevFilter) => ({ ...prevFilter, all: true ,is_highlight:false ,is_most_purchased:false,is_favourite:false }));
+    setFilter((prevFilter) => ({ ...prevFilter, all: true ,is_highlight:false ,is_most_purchased:false }));
   };
 
   const handleis_most_purchasedChange = (e: RadioChangeEvent) => {
-    setFilter((prevFilter) => ({ ...prevFilter, all: false ,is_highlight:false ,is_most_purchased:true,is_favourite:false }));
+    setFilter((prevFilter) => ({ ...prevFilter, all: false ,is_highlight:false ,is_most_purchased:true }));
   };
   const handleis_highlightChange = (e: RadioChangeEvent) => {
-    setFilter((prevFilter) => ({ ...prevFilter, all: false ,is_highlight:true ,is_most_purchased:false,is_favourite:false }));
+    setFilter((prevFilter) => ({ ...prevFilter, all: false ,is_highlight:true ,is_most_purchased:false }));
   };
-  // const handleis_favouriteChange = (e: RadioChangeEvent) => {
-  //   setFilter((prevFilter) => ({ ...prevFilter, all: false ,is_highlight:false ,is_most_purchased:false ,is_favourite:true }));
-  // };
   return (
     <div className='ProductsFilter'>
       <span className='ProductsFilter_header'>{t("ProductsFilter")} </span>

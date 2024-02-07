@@ -72,7 +72,7 @@ const CartPage: React.FC = () => {
 
       }
     }
-    console.log(values);
+    // console.log(values);
 
   };
 
@@ -82,7 +82,6 @@ const CartPage: React.FC = () => {
       <Formik
         initialValues={{
           cartItems: data?.data?.at(0)?.cart_items || [],
-          phone: '',
           zone: '',
           building: '',
           note: '',
@@ -91,13 +90,11 @@ const CartPage: React.FC = () => {
           long: "36.848"
         }}
         validationSchema={yup.object().shape({
-          // phone: yup.string().required('required'),
           // zone: yup.number().required('required'),
           // building: yup.number().required('required'),
           // note: yup.string(),
           // lat: yup.string().required('required'),
           // long: yup.string().required('required'),
-          phone: yup.string().required('Phone is required'),
           zone: yup.string().required('Zone is required'),
           building: yup.string().required('Building is required'),
           // note: yup.string().required('note is required'),
@@ -125,7 +122,6 @@ interface ValuesType {
   long: string,
   note: string,
   payment_method: string,
-  phone: string,
   zone: string,
 
 }

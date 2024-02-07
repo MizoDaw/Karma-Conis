@@ -36,8 +36,8 @@ const DetailsBody = ({ setViewPage }: any) => {
           <div className='Address'>
             <h5>{t("Shipping Address")}</h5>
             <div>
-              <Default 
-              name='phone'/>
+              {/* <Default 
+              name='phone'/> */}
               <Default  name='zone' placeholder="Zone Number" type='number' />
             </div>
             <div>

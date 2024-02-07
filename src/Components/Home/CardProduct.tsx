@@ -87,20 +87,18 @@ import { toast } from 'react-toastify';
 import { useAddToFavourite, useRemoveFromFav } from '../../api/wishlist';
 import { PiHeartBreakFill } from "react-icons/pi";
 import { useAuth } from '../../Hooks/useAuth';
+import {useNavigate} from  'react-router-dom';
 
-import {useNavigate} from  'react-router-dom'
 const CardProduct = ({ item }:any) => {
   const [loading, resetLoading] = useLoadingState(true, 2000);
 
   const navigate = useNavigate()
-      const {isAuthenticated} = useAuth()
+    const {isAuthenticated} = useAuth()
     const {i18n, t} = useTranslation()
     const {mutate} = useAddToCart()
     const {mutate:mutateAddFav} = useAddToFavourite()
     const {mutate:mutateRemoveFav} = useRemoveFromFav()
 
-
-    
   return (
           <Skeleton className='unset' loading={loading} active >
                     <div key={item?.id} className='Card_Product'>

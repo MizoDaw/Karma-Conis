@@ -106,11 +106,11 @@
 }
 
 .logo_image_bg{
-  background-image: url('../../../../public/logo/LogoDone.png');
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  position: relative;
+  // background-image: url('../../../../public/logo/LogoDone.png');
+  // background-position: center;
+  // background-repeat: no-repeat;
+  // background-size: cover;
+  // position: relative;
   &::after{
     content: "";
     width: 100%;
