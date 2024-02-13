@@ -42,9 +42,8 @@ const Virefied = () => {
     
     useEffect(()=> {
       if(isError){
-        // console.log(error);
         
-      }
+    }
     },[isError])
    
   const handleSendCode = () => {

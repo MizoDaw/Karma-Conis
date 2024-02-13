@@ -226,5 +226,6 @@
 "Error while sending code plaese try agian later":"حدث خطأ أثناء إرسال الرمز، يرجى المحاولة لاحقًا",
 "Please verify your email":"يرجى التحقق من البريد الإلكتروني الخاص بك",
 "Failed to send code please try again":"حدث خطأ اُثناء ارسال الكود الرجاء المحاولة لاحقا",
+"Failed to submit code please try again":"حدث خطأ اُثناء تأكيد الكود الرجاء المحاولة لاحقا",
 "":""
 }

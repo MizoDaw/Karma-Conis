@@ -31,8 +31,8 @@ function LoginForm({handleRegisterClick}:any) {
       }
       else if((error as any)?.response?.status == 510){
         console.log("error 510");
-          Navigate('/verfied')
-          toast.error(t("Please verify your email"))
+        toast.error(t("Please verify your email"))
+        Navigate('/verfied')
       }
 
     },[isSuccess , Navigate, dispatch , data,error])
