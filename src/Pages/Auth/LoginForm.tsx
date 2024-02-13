@@ -24,16 +24,18 @@ function LoginForm({handleRegisterClick}:any) {
       }
 
     useEffect(()=>{
+      console.log(data);
       if(isSuccess){
         dispatch(login((data as any )?.data))
         Navigate('/', { replace: true })
       }
       else if((error as any)?.response?.status == 510){
-          Navigate('/verified')
+        console.log("error 510");
+          Navigate('/verfied')
           toast.error(t("Please verify your email"))
       }
 
-    },[isSuccess , Navigate, dispatch , data])
+    },[isSuccess , Navigate, dispatch , data,error])
 
   return (
     <div className="form-container sign-in">

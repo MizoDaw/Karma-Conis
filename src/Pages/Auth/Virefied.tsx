@@ -49,10 +49,14 @@ const Virefied = () => {
    
   const handleSendCode = () => {
 
-      sendCodeMutate({
-        email: localStorage.getItem(USER_EMAIL), 
-      });
+      if(codeSuccess){
+        sendCodeMutate({
+          email: localStorage.getItem(USER_EMAIL), 
+        });
         toast.success(t('Code has been sent successfully to your email'));
+      }else{
+        toast.error(t('Failed to send code please try again'));
+      }
   };
 
   return (

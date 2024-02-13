@@ -32,7 +32,6 @@ const Contact: React.FC = () => {
       toast.error(t("please_fill_all_input"))
     }
 
-
     mutate({
       name:Name,
       email:Email ,
@@ -45,7 +44,6 @@ const Contact: React.FC = () => {
   const [Message , setMessage] = useState('') 
 
   useEffect(()=>{
-
     if(isSuccess){
       setMessage('')
       setName('')
